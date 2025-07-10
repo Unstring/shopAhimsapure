@@ -74,7 +74,7 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <h3 className="font-headline font-semibold text-foreground">Quick Links</h3>
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
@@ -88,7 +88,7 @@ export default function Footer() {
             {/* Shop Links */}
             <div>
                <h3 className="font-headline font-semibold text-foreground">Shop</h3>
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
                    {shopLinks.map((link) => (
                       <li key={link.name}>
                           <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
