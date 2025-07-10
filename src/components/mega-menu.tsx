@@ -51,8 +51,8 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="p-4 w-full md:w-auto md:grid-cols-[.75fr_1fr] lg:w-[600px] lg:max-w-screen-lg lg:grid-cols-[1fr_250px] grid gap-6">
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="p-4 grid w-[600px] grid-cols-[1fr_250px] gap-6">
+                <ul className="grid grid-cols-2 gap-3">
                   {categories.map((component) => (
                     <ListItem
                       key={component.title}
@@ -64,7 +64,7 @@ export function MegaMenu() {
                   ))}
                 </ul>
               <div className="flex flex-col h-full justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-4">
-                <div className="relative h-40 w-full overflow-hidden rounded-md">
+                <div className="relative h-40 w-full overflow-hidden rounded-md mb-4">
                      <ManagedImage
                         src={featuredProduct.images[0]}
                         alt={featuredProduct.name}
@@ -78,7 +78,7 @@ export function MegaMenu() {
                         <p className="text-sm">Our most popular product!</p>
                      </div>
                 </div>
-                 <Button asChild className="w-full mt-4">
+                 <Button asChild className="w-full">
                     <Link href={`/products`}>
                         Shop All Products &rarr;
                     </Link>
@@ -91,7 +91,7 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Company</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-full gap-3 p-4 md:w-auto lg:w-[500px] lg:grid-cols-2 lg:max-w-screen-md">
+            <ul className="grid w-[500px] gap-3 p-4 grid-cols-2">
               {companyLinks.map((link) => {
                 const Icon = companyIcons[link.icon]
                 return (
@@ -117,14 +117,15 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Blog</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-full gap-6 p-4 md:w-[550px] lg:w-[650px] lg:grid-cols-[1fr_250px]">
+            <div className="grid w-[650px] gap-6 p-4 grid-cols-[1fr_250px]">
               <ul className="flex flex-col gap-3">
                 {recentPosts.map((post) => (
                   <ListItem key={post.title} href={`/blog/${post.slug}`} title={post.title} className="flex items-start gap-4">
                      <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
                        <ManagedImage src={post.image} alt={post.title} fill className="object-cover" />
                      </div>
-                     <div className="flex-grow">
+                     <div>
+                        <p className="font-semibold">{post.title}</p>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{post.excerpt}</p>
                      </div>
                   </ListItem>
@@ -173,14 +174,14 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </div>
+          {children && (
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+              {children}
+            </p>
+          )}
         </Link>
       </NavigationMenuLink>
     </li>
   )
 })
 ListItem.displayName = "ListItem"
-
-    

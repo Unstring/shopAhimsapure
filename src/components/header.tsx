@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -50,9 +51,9 @@ export default function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { megaMenu } = layoutData;
   const navLinks = [
-    { name: "Home", href: "/" },
     ...megaMenu.categories.map(c => ({ name: c.title, href: c.href})),
     ...megaMenu.companyLinks.map(c => ({ name: c.title, href: c.href})),
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 
