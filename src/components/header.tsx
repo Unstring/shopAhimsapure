@@ -13,16 +13,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { MegaMenu } from './mega-menu';
-import { cn } from '@/lib/utils';
 import layoutData from "@/content/layout.json";
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -91,20 +82,13 @@ export default function Header() {
                 </span>
               )}
             </Button>
-            <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="hidden md:inline-flex">
+            
+            <Button variant="ghost" size="icon" className="hidden md:inline-flex" asChild>
+                <Link href="/login">
                     <User className="h-5 w-5" />
-                     <span className="sr-only">User Menu</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild><Link href="/login">Login / Sign Up</Link></DropdownMenuItem>
-                  <DropdownMenuItem asChild><Link href="/track-order">Track Order</Link></DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
+                    <span className="sr-only">Login</span>
+                </Link>
+            </Button>
 
              <div className="md:hidden">
               <Sheet>
