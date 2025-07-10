@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <>
       <header 
-        className="bg-background/80 backdrop-blur-sm sticky top-0 z-40 w-full"
+        className="bg-background/80 backdrop-blur-sm sticky top-0 z-40 w-full pb-2"
         style={{
           maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
