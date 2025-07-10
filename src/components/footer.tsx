@@ -10,16 +10,28 @@ export default function Footer() {
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Track Order", href: "/track-order" },
   ];
+
+  const shopLinks = [
+    { name: "All Products", href: "/products" },
+    { name: "Vegetables", href: "/products?category=Vegetables" },
+    { name: "Fruits", href: "/products?category=Fruits" },
+    { name: "Dairy", href: "/products?category=Dairy" },
+    { name: "Pantry", href: "/products?category=Pantry" },
+    { name: "Oils", href: "/products?category=Oils" },
+  ];
+
   const socialLinks = [
     { name: "Facebook", icon: Facebook, href: "#" },
     { name: "Twitter", icon: Twitter, href: "#" },
     { name: "Instagram", icon: Instagram, href: "#" },
   ];
+
   return (
     <footer className="bg-primary/5 border-t">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand Info */}
+          <div className="md:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Leaf className="h-7 w-7 text-primary" />
               <span className="font-headline text-2xl font-bold text-foreground">
@@ -31,7 +43,8 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="lg:col-span-1">
+          {/* Quick Links */}
+          <div>
             <h3 className="font-headline font-semibold text-foreground">Quick Links</h3>
             <ul className="mt-4 space-y-2">
               {quickLinks.map((link) => (
@@ -43,19 +56,23 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-1">
+          
+          {/* Shop Links */}
+          <div>
              <h3 className="font-headline font-semibold text-foreground">Shop</h3>
               <ul className="mt-4 space-y-2">
-                 <li><Link href="/products" className="text-sm text-muted-foreground hover:text-foreground">All Products</Link></li>
-                 <li><Link href="/products?category=Vegetables" className="text-sm text-muted-foreground hover:text-foreground">Vegetables</Link></li>
-                 <li><Link href="/products?category=Fruits" className="text-sm text-muted-foreground hover:text-foreground">Fruits</Link></li>
-                 <li><Link href="/products?category=Dairy" className="text-sm text-muted-foreground hover:text-foreground">Dairy</Link></li>
-                 <li><Link href="/products?category=Pantry" className="text-sm text-muted-foreground hover:text-foreground">Pantry</Link></li>
-                 <li><Link href="/products?category=Oils" className="text-sm text-muted-foreground hover:text-foreground">Oils</Link></li>
+                 {shopLinks.map((link) => (
+                    <li key={link.name}>
+                        <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
+                            {link.name}
+                        </Link>
+                    </li>
+                 ))}
               </ul>
           </div>
 
-          <div className="lg:col-span-1">
+          {/* Social & Newsletter */}
+          <div>
             <h3 className="font-headline font-semibold text-foreground">Follow Us</h3>
             <div className="flex space-x-4 mt-4">
               {socialLinks.map((social) => (
@@ -68,7 +85,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} AhimsaPure.com. All rights reserved.</p>
         </div>
       </div>
