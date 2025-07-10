@@ -8,12 +8,36 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Separator } from "@/components/ui/separator"
+import { useLayout } from "../_context/layout-context";
 
 export default function SettingsPage() {
+    const { layout, setLayout } = useLayout();
+    
     return (
         <>
             <PageHeader>Settings</PageHeader>
             <div className="grid gap-8">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Appearance</CardTitle>
+                        <CardDescription>Customize the look and feel of your admin dashboard.</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <div className="flex items-center justify-between rounded-lg border p-4">
+                            <div>
+                                <Label htmlFor="layout-switch">Sidebar Layout</Label>
+                                <p className="text-sm text-muted-foreground">
+                                    Use a vertical sidebar for navigation.
+                                </p>
+                            </div>
+                            <Switch 
+                                id="layout-switch"
+                                checked={layout === 'sidebar'}
+                                onCheckedChange={(checked) => setLayout(checked ? 'sidebar' : 'top-nav')}
+                            />
+                        </div>
+                    </CardContent>
+                </Card>
                 <Card>
                     <CardHeader>
                         <CardTitle>Store Details</CardTitle>

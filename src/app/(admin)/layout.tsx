@@ -2,6 +2,19 @@
 "use client";
 
 import * as React from 'react';
+import Link from 'next/link';
+import {
+  Home,
+  Package,
+  ShoppingCart,
+  Users,
+  LineChart,
+  Settings,
+} from 'lucide-react';
+import { useRouter, usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { LayoutProvider, useLayout } from './_context/layout-context';
+import { TopNav } from './_components/top-nav';
 import {
   Sidebar,
   SidebarProvider,
@@ -15,18 +28,6 @@ import {
   SidebarInset,
   SidebarRail,
 } from '@/components/ui/sidebar';
-import Link from 'next/link';
-import {
-  Home,
-  Package,
-  ShoppingCart,
-  Users,
-  LineChart,
-  Settings,
-} from 'lucide-react';
-import { useRouter, usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -49,7 +50,7 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 )
 
-const navItems = [
+export const navItems = [
     { href: "/admin", icon: Home, label: "Dashboard" },
     { href: "/admin/orders", icon: ShoppingCart, label: "Orders" },
     { href: "/admin/products", icon: Package, label: "Products" },
@@ -57,17 +58,13 @@ const navItems = [
     { href: "/admin/analytics", icon: LineChart, label: "Analytics" },
 ];
 
-const settingsItem = { href: "/admin/settings", icon: Settings, label: "Settings" };
+export const settingsItem = { href: "/admin/settings", icon: Settings, label: "Settings" };
 
-
-export default function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const { layout } = useLayout();
 
   useEffect(() => {
     const userString = localStorage.getItem('user');
@@ -89,6 +86,15 @@ export default function AdminLayout({
         <p>Loading...</p>
       </div>
     );
+  }
+
+  if (layout === 'top-nav') {
+    return (
+        <div className="flex flex-col min-h-screen">
+            <TopNav />
+            <main className="flex-1 p-4 md:p-6">{children}</main>
+        </div>
+    )
   }
 
   return (
@@ -140,4 +146,16 @@ export default function AdminLayout({
       </div>
     </SidebarProvider>
   );
+}
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <LayoutProvider>
+        <AdminLayoutContent>{children}</AdminLayoutContent>
+    </LayoutProvider>
+  )
 }
