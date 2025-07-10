@@ -34,7 +34,7 @@ export default function Header() {
           WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
         }}
       >
-        <div className="container mx-auto flex h-14 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2">
             <Leaf className="h-7 w-7 text-primary" />
             <span className="font-headline text-2xl font-bold text-foreground">
