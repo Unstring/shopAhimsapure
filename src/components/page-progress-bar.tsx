@@ -9,10 +9,8 @@ export function PageProgressBar() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    NProgress.done();
-  }, [pathname, searchParams]);
+    NProgress.configure({ showSpinner: false });
 
-  useEffect(() => {
     const handleAnchorClick = (event: MouseEvent) => {
       const targetUrl = (event.currentTarget as HTMLAnchorElement).href;
       const currentUrl = window.location.href;
@@ -26,19 +24,20 @@ export function PageProgressBar() {
       anchorElements.forEach(anchor => anchor.addEventListener('click', handleAnchorClick));
     };
 
-    // Use a mutation observer to handle dynamically added links
     const mutationObserver = new MutationObserver(handleMutation);
     mutationObserver.observe(document, { childList: true, subtree: true });
 
-    // Fallback for initial load
-    window.onload = () => {
-      NProgress.done();
-    };
-
-    return () => {
-      mutationObserver.disconnect();
-    }
+    window.history.pushState = new Proxy(window.history.pushState, {
+      apply: (target, thisArg, argArray: [any, any, any]) => {
+        NProgress.done();
+        return target.apply(thisArg, argArray);
+      },
+    });
   }, []);
+
+  useEffect(() => {
+    NProgress.done();
+  }, [pathname, searchParams]);
 
   return null;
 }

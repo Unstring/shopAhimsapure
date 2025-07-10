@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { AppProviders } from '@/components/providers';
 import { PageProgressBar } from '@/components/page-progress-bar';
+import { SmoothScroll } from '@/components/smooth-scroll';
 
 export const metadata: Metadata = {
   title: 'AhimsaPure',
@@ -23,6 +24,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-background text-foreground">
         <AppProviders>
+          <SmoothScroll />
           <PageProgressBar />
           {children}
         </AppProviders>
