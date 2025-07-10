@@ -23,7 +23,7 @@ import {
   LineChart,
   Settings,
 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -47,12 +47,24 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 )
 
+const navItems = [
+    { href: "/admin", icon: Home, label: "Dashboard" },
+    { href: "/admin/orders", icon: ShoppingCart, label: "Orders" },
+    { href: "/admin/products", icon: Package, label: "Products" },
+    { href: "/admin/customers", icon: Users, label: "Customers" },
+    { href: "/admin/analytics", icon: LineChart, label: "Analytics" },
+];
+
+const settingsItem = { href: "/admin/settings", icon: Settings, label: "Settings" };
+
+
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [isAuthorized, setIsAuthorized] = useState(false);
 
   useEffect(() => {
@@ -90,54 +102,24 @@ export default function AdminLayout({
             </Link>
           </SidebarHeader>
           <SidebarMenu>
-            <SidebarMenuItem>
-              <Link href="/admin">
-                <SidebarMenuButton tooltip="Dashboard" isActive>
-                  <Home />
-                  <span>Dashboard</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <Link href="/admin/orders">
-                 <SidebarMenuButton tooltip="Orders">
-                    <ShoppingCart />
-                    <span>Orders</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-               <Link href="/admin/products">
-                <SidebarMenuButton tooltip="Products">
-                    <Package />
-                    <span>Products</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-             <SidebarMenuItem>
-               <Link href="/admin/customers">
-                <SidebarMenuButton tooltip="Customers">
-                    <Users />
-                    <span>Customers</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-             <SidebarMenuItem>
-               <Link href="#">
-                <SidebarMenuButton tooltip="Analytics">
-                    <LineChart />
-                    <span>Analytics</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
+            {navItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                    <Link href={item.href}>
+                        <SidebarMenuButton tooltip={item.label} isActive={pathname === item.href}>
+                            <item.icon />
+                            <span>{item.label}</span>
+                        </SidebarMenuButton>
+                    </Link>
+                </SidebarMenuItem>
+            ))}
           </SidebarMenu>
           <SidebarFooter>
             <SidebarMenu>
                  <SidebarMenuItem>
-                    <Link href="#">
-                        <SidebarMenuButton tooltip="Settings">
-                            <Settings />
-                            <span>Settings</span>
+                    <Link href={settingsItem.href}>
+                        <SidebarMenuButton tooltip={settingsItem.label} isActive={pathname === settingsItem.href}>
+                            <settingsItem.icon />
+                            <span>{settingsItem.label}</span>
                         </SidebarMenuButton>
                     </Link>
                  </SidebarMenuItem>
