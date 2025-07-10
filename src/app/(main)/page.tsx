@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
-import { Leaf, Truck, HeartHandshake, Star } from "lucide-react";
+import { Truck, HeartHandshake, Star } from "lucide-react";
 import Link from "next/link";
 import { ProductRecommendations } from "@/components/product-recommendations";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,9 +13,29 @@ import { ManagedImage } from "@/components/managed-image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import homePageData from "@/content/home-page.json";
 
+const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="M18.8 8.02A6.45 6.45 0 0 0 19 6c0-3.31-2.69-6-6-6s-6 2.69-6 6c0 .98.24 1.89.66 2.7l-2.68 8.3h16.04l-2.68-8.28z" />
+        <path d="M5 14v4" />
+        <path d="M19 14v4" />
+        <path d="M12 2v2" />
+        <path d="M12 12c-2.21 0-4 1.79-4 4h8c0-2.21-1.79-4-4-4z" />
+    </svg>
+)
 
 const icons: { [key: string]: React.ElementType } = {
-  Leaf,
+  CowIcon,
   Truck,
   HeartHandshake,
 };
@@ -71,7 +91,7 @@ export default function HomePage() {
             return (
               <div key={item.title} className="flex flex-col items-center">
                 <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-4">
-                  <Icon className="h-8 w-8 text-primary" />
+                  {Icon && <Icon className="h-8 w-8 text-primary" />}
                 </div>
                 <h3 className="text-xl font-headline font-semibold">{item.title}</h3>
                 <p className="mt-2 text-muted-foreground">{item.description}</p>
@@ -89,7 +109,9 @@ export default function HomePage() {
       {/* Testimonials Section */}
       <section className="w-full overflow-x-hidden">
         <h2 className="text-3xl font-headline font-bold text-center mb-8">What Our Customers Say</h2>
-        <div className="group relative flex gap-8 overflow-hidden">
+        <div className="group relative flex gap-8 overflow-hidden
+          before:absolute before:left-0 before:top-0 before:h-full before:w-16 before:bg-gradient-to-r before:from-background before:to-transparent before:z-10
+          after:absolute after:right-0 after:top-0 after:h-full after:w-16 after:bg-gradient-to-l after:from-background after:to-transparent after:z-10">
             <div className="flex shrink-0 animate-marquee items-stretch justify-around gap-8 group-hover:[animation-play-state:paused]">
                  {[...testimonials, ...testimonials].map((testimonial, index) => (
                      <div key={index} className="w-[350px] max-w-[80vw]">
