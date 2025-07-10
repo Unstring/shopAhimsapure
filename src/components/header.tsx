@@ -2,19 +2,28 @@
 "use client";
 
 import Link from 'next/link';
-import { ShoppingCart, User, Menu } from 'lucide-react';
+import { ShoppingCart, User, Menu, LogOut, LayoutDashboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
 import { CartSheet } from '@/components/cart-sheet';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { MegaMenu } from './mega-menu';
 import layoutData from "@/content/layout.json";
+import { useRouter } from 'next/navigation';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -37,6 +46,11 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 )
 
+type User = {
+  email: string;
+  role: 'user' | 'admin';
+};
+
 export default function Header() {
   const { cartCount } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -47,7 +61,21 @@ export default function Header() {
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
+  const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
 
+  useEffect(() => {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      setUser(JSON.parse(userString));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    router.push('/login');
+  };
 
   return (
     <>
@@ -83,12 +111,46 @@ export default function Header() {
               )}
             </Button>
             
-            <Button variant="ghost" size="icon" className="hidden md:inline-flex" asChild>
-                <Link href="/login">
+            <div className="hidden md:inline-flex">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
                     <User className="h-5 w-5" />
-                    <span className="sr-only">Login</span>
-                </Link>
-            </Button>
+                    <span className="sr-only">User Menu</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  {user ? (
+                    <>
+                      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      {user.role === 'admin' && (
+                        <DropdownMenuItem asChild>
+                          <Link href="/admin">
+                            <LayoutDashboard className="mr-2 h-4 w-4" />
+                            <span>Admin Dashboard</span>
+                          </Link>
+                        </DropdownMenuItem>
+                      )}
+                      <DropdownMenuItem onClick={handleLogout}>
+                        <LogOut className="mr-2 h-4 w-4" />
+                        <span>Log out</span>
+                      </DropdownMenuItem>
+                    </>
+                  ) : (
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link href="/login">Login</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link href="/signup">Sign Up</Link>
+                      </DropdownMenuItem>
+                    </>
+                  )}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+
 
              <div className="md:hidden">
               <Sheet>
@@ -112,16 +174,31 @@ export default function Header() {
                             ))}
                         </nav>
                         <hr />
-                        <SheetClose asChild>
-                            <Button asChild>
-                                <Link href="/login">Login / Sign Up</Link>
-                            </Button>
-                        </SheetClose>
-                         <SheetClose asChild>
-                            <Button asChild variant="outline">
-                                <Link href="/track-order">Track Order</Link>
-                            </Button>
-                        </SheetClose>
+                         {user ? (
+                          <>
+                            {user.role === 'admin' && (
+                               <SheetClose asChild>
+                                  <Button asChild>
+                                      <Link href="/admin">Admin Dashboard</Link>
+                                  </Button>
+                              </SheetClose>
+                            )}
+                             <Button variant="outline" onClick={handleLogout}>Logout</Button>
+                          </>
+                        ) : (
+                          <>
+                            <SheetClose asChild>
+                                <Button asChild>
+                                    <Link href="/login">Login / Sign Up</Link>
+                                </Button>
+                            </SheetClose>
+                            <SheetClose asChild>
+                                <Button asChild variant="outline">
+                                    <Link href="/track-order">Track Order</Link>
+                                </Button>
+                            </SheetClose>
+                          </>
+                        )}
                     </div>
                 </SheetContent>
               </Sheet>

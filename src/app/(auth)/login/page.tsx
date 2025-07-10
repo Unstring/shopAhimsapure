@@ -10,10 +10,11 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
 const loginSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  email: z.string().min(1, "Email is required"),
+  password: z.string().min(1, "Password is required"),
 });
 
 type LoginFormValues = z.infer<typeof loginSchema>;
@@ -41,18 +42,40 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function LoginPage() {
   const { toast } = useToast();
+  const router = useRouter();
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
+     defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
   const onSubmit: SubmitHandler<LoginFormValues> = (data) => {
-    console.log("Login submitted:", data);
-    toast({
-      title: "Login Successful",
-      description: "Welcome back!",
-    });
-    // Here you would typically redirect the user
+    if (data.email === "admin1" && data.password === "pass@123") {
+      const user = { email: data.email, role: 'admin' };
+      localStorage.setItem('user', JSON.stringify(user));
+      toast({
+        title: "Admin Login Successful",
+        description: "Welcome back!",
+      });
+      router.push('/admin');
+    } else if (data.email === "user1" && data.password === "pass@123") {
+      const user = { email: data.email, role: 'user' };
+      localStorage.setItem('user', JSON.stringify(user));
+      toast({
+        title: "Login Successful",
+        description: "Welcome back!",
+      });
+      router.push('/');
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Login Failed",
+        description: "Invalid email or password.",
+      });
+    }
   };
 
   return (
@@ -78,7 +101,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>Email Address</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="you@example.com" {...field} />
+                      <Input placeholder="user1 or admin1" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -96,7 +119,7 @@ export default function LoginPage() {
                         </Link>
                     </div>
                     <FormControl>
-                      <Input type="password" placeholder="********" {...field} />
+                      <Input type="password" placeholder="pass@123" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
