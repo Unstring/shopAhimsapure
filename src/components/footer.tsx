@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom Row: Links */}
-          <div className="flex flex-wrap items-start justify-center gap-x-8 gap-y-4 pt-8 border-t">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t">
             {/* Quick Links */}
             <div>
               <h3 className="font-headline font-semibold text-foreground text-center">Quick Links</h3>
