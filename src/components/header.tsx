@@ -21,6 +21,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { MegaMenu } from './mega-menu';
+import { cn } from '@/lib/utils';
 
 export default function Header() {
   const { cartCount } = useCart();
@@ -89,7 +90,7 @@ export default function Header() {
                     <span className="sr-only">Open menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left">
+                <SheetContent side="right">
                     <div className="flex flex-col gap-6 p-6">
                         <Link href="/" className="flex items-center gap-2 mb-4">
                             <Leaf className="h-7 w-7 text-primary" />
