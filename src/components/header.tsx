@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
 import { CartSheet } from '@/components/cart-sheet';
 import { useState } from 'react';
-import { MegaMenu } from './mega-menu';
 import {
   Sheet,
   SheetContent,
@@ -21,6 +20,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { MegaMenu } from './mega-menu';
 
 export default function Header() {
   const { cartCount } = useCart();
@@ -35,13 +35,7 @@ export default function Header() {
 
   return (
     <>
-      <header 
-        className="bg-background/95 backdrop-blur-sm sticky top-0 z-40 w-full"
-        style={{
-          maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
-        }}
-      >
+      <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 w-full border-b">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 md:gap-8">
             <Link href="/" className="flex items-center gap-2">
@@ -51,9 +45,9 @@ export default function Header() {
               </span>
             </Link>
             
-            <div className="hidden md:block">
-              <MegaMenu />
-            </div>
+            <nav className="hidden md:flex items-center gap-4">
+               <MegaMenu />
+            </nav>
           </div>
 
 
