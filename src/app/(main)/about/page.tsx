@@ -22,7 +22,7 @@ export default function AboutPage() {
       <section className="grid md:grid-cols-2 gap-12 items-center">
         <div className="relative h-96 w-full rounded-lg overflow-hidden">
           <Image
-            src="https://placehold.co/600x400.png"
+            src="https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1974&auto=format&fit=crop"
             alt="Farmers in a field"
             fill
             className="object-cover"

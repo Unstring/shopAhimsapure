@@ -26,7 +26,7 @@ export default function HomePage() {
       <section className="relative -mx-8 -mt-8 h-[60vh] flex items-center justify-center rounded-b-2xl overflow-hidden bg-primary/10">
         <div className="absolute inset-0">
           <Image
-            src="https://placehold.co/1600x900.png"
+            src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1974&auto=format&fit=crop"
             alt="A lush green farm"
             fill
             className="object-cover opacity-20"

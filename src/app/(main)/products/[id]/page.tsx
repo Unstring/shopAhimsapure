@@ -98,7 +98,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
                                         <Avatar>
-                                            <AvatarImage src={`https://placehold.co/40x40.png`} data-ai-hint="person face" />
+                                            <AvatarImage src={`https://images.unsplash.com/photo-1535713875002-d1d0cf377fDE?q=80&w=2080&auto=format&fit=crop`} data-ai-hint="person face" />
                                             <AvatarFallback>{review.author.charAt(0)}</AvatarFallback>
                                         </Avatar>
                                         <div>
