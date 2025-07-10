@@ -7,7 +7,7 @@ export default function ProductsPage() {
       <div className="text-center">
         <h1 className="text-4xl font-headline font-bold">All Products</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          Browse our collection of fresh, organic, and natural products.
+          Browse our collection of pure, natural, and farm-fresh dairy products.
         </p>
       </div>
 

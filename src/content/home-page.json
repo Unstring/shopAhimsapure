@@ -3,38 +3,38 @@
   "whyChooseUsItems": [
     {
       "icon": "Leaf",
-      "title": "100% Farm-Fresh",
-      "description": "We source directly from local farms to ensure the freshest produce for your family."
+      "title": "Pure A2 Goodness",
+      "description": "We source directly from our own herd of happy, grass-fed Gir cows."
     },
     {
       "icon": "Truck",
-      "title": "Reliable Delivery",
-      "description": "Get your fresh groceries delivered to your doorstep, on time, every time."
+      "title": "Freshness Delivered",
+      "description": "Get fresh dairy products delivered to your doorstep, on time, every time."
     },
     {
       "icon": "HeartHandshake",
-      "title": "Supporting Farmers",
-      "description": "We are committed to fair trade practices that support our hardworking farmers."
+      "title": "Ethical & Kind",
+      "description": "We are committed to Ahimsa principles, ensuring the welfare of our cows."
     }
   ],
   "testimonials": [
     {
       "name": "Priya S.",
       "location": "Bengaluru",
-      "quote": "The quality of the vegetables is unmatched. It feels like I'm getting them straight from a garden!",
-      "avatar": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "quote": "The quality of the A2 Ghee is unmatched. It tastes and smells so pure, just like homemade!",
+      "avatar": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?q=80&w=1974&auto=format&fit=crop"
     },
     {
       "name": "Amit K.",
       "location": "Mumbai",
-      "quote": "Finally, a service that delivers truly organic and fresh products. The A2 ghee is a must-try.",
-      "avatar": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "quote": "Finally, a service that delivers truly fresh and creamy paneer. It made my curry absolutely delicious.",
+      "avatar": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop"
     },
     {
       "name": "Rohan M.",
       "location": "Delhi",
-      "quote": "I love the convenience and the quality. The customer service is also excellent. Highly recommended!",
-      "avatar": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "quote": "I love the convenience and the quality. The A2 milk is a staple in my home now. Highly recommended!",
+      "avatar": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop"
     }
   ]
 }

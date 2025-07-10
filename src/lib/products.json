@@ -6,14 +6,14 @@
     "description": "Our pure, hand-churned A2 Desi Cow Ghee is a testament to tradition and purity. Made from the milk of grass-fed Gir cows, it is a powerhouse of nutrition and flavor. The traditional Bilona method of churning curd ensures that all the natural goodness is preserved. It's rich in Omega-3 and Omega-9 fatty acids, vitamins A, D, E, and K, and has a high smoke point, making it perfect for all types of cooking.",
     "price": 850,
     "images": [
-      "https://images.unsplash.com/photo-1626379625985-657753a01b44?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1626379625903-88899824a73b?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1626379625928-891444ab34c7?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "https://images.unsplash.com/photo-1626379625985-657753a01b44?q=80&w=1974&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1626379625903-88899824a73b?q=80&w=1974&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1626379625928-891444ab34c7?q=80&w=1974&auto=format&fit=crop"
     ],
-    "category": "Dairy",
+    "category": "Ghee",
     "data_ai_hint": "ghee jar",
     "details": {
-      "origin": "Partner Farms, Karnataka",
+      "origin": "Partner Farms, Gujarat",
       "shelfLife": "12 months",
       "ingredients": "100% A2 Cow Milk Butter",
       "netWeight": "500ml"
@@ -34,38 +34,38 @@
         "author": "Anjali R.",
         "date": "2024-07-15",
         "comment": "The aroma and taste are just like homemade ghee. Superb quality!",
-        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop"
       },
       {
         "rating": 5,
         "author": "Vikram Singh",
         "date": "2024-07-10",
         "comment": "Best ghee I've ever purchased online. You can tell it's pure.",
-        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
       }
     ]
   },
   {
     "id": "prod_2",
-    "name": "Heirloom Tomato Box",
-    "description": "A vibrant assortment of juicy, flavorful heirloom tomatoes, grown with passion using regenerative organic methods. Each box is a surprise mix of colors, shapes, and sizes, from deep reds to sunny yellows and striped greens. Perfect for salads, sauces, or simply sliced with a sprinkle of salt.",
-    "price": 350,
+    "name": "Farm-Fresh A2 Paneer",
+    "description": "Soft, creamy, and melt-in-your-mouth paneer (cottage cheese) made from fresh, whole A2 milk from our happy Gir cows. Our paneer is made daily in small batches without any preservatives or additives. Its delicate texture makes it perfect for curries, grills, or simply pan-fried.",
+    "price": 250,
     "images": [
-      "https://images.unsplash.com/photo-1561138972-74d3a1e1d31a?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1616019391913-7347a1631553?q=80&w=1964&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "https://images.unsplash.com/photo-1628704257853-4c902a647cde?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1587593202919-ff9255a6c38b?q=80&w=1974&auto=format&fit=crop"
     ],
-    "category": "Vegetables",
-    "data_ai_hint": "heirloom tomatoes",
+    "category": "Paneer",
+    "data_ai_hint": "paneer cheese",
     "details": {
-      "origin": "AhimsaPure Organics, Tamil Nadu",
-      "shelfLife": "5-7 days refrigerated",
-      "ingredients": "Assorted Heirloom Tomatoes",
-      "netWeight": "1kg"
+      "origin": "Partner Farms, Karnataka",
+      "shelfLife": "5 days refrigerated",
+      "ingredients": "A2 Cow Milk, Natural Lemon Juice",
+      "netWeight": "200g"
     },
     "certifications": [
       {
-        "name": "PGS-India Certified",
-        "description": "Certified under the Participatory Guarantee System for India."
+        "name": "FSSAI Certified",
+        "description": "Licensed by the Food Safety and Standards Authority of India."
       }
     ],
     "reviews": [
@@ -73,26 +73,27 @@
         "rating": 5,
         "author": "Priya D.",
         "date": "2024-07-18",
-        "comment": "So beautiful and delicious! Made the most amazing caprese salad.",
-        "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "comment": "So soft and delicious! Made the most amazing paneer tikka.",
+        "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop"
       }
     ]
   },
   {
     "id": "prod_3",
-    "name": "Wild Forest Honey",
-    "description": "Raw, unprocessed honey harvested sustainably from the nectar of wild flowers in the pristine forests of the Western Ghats. Our honey is never heated or filtered, preserving all its natural enzymes, pollen, and medicinal properties. A truly wild taste of nature.",
-    "price": 480,
+    "name": "Traditional A2 Curd",
+    "description": "Thick, creamy, and naturally set curd (dahi) made from pure A2 milk. Our curd is cultured using traditional methods, giving it a rich texture and a mildly tangy flavor that is both delicious and great for your gut health. Enjoy it on its own, in a raita, or as a base for lassi.",
+    "price": 80,
     "images": [
-      "https://images.unsplash.com/photo-1558303013-9a4163969567?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "https://images.unsplash.com/photo-1622204231924-63856212ea7a?q=80&w=1974&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1562013063-956f28581347?q=80&w=1964&auto=format&fit=crop"
     ],
-    "category": "Pantry",
-    "data_ai_hint": "honey jar",
+    "category": "Curd",
+    "data_ai_hint": "curd yogurt",
     "details": {
-        "origin": "Western Ghats, Kerala",
-        "shelfLife": "24 months",
-        "ingredients": "100% Raw, Unprocessed Honey",
-        "netWeight": "350g"
+        "origin": "Partner Farms, Karnataka",
+        "shelfLife": "7 days refrigerated",
+        "ingredients": "A2 Cow Milk, Live & Active Cultures",
+        "netWeight": "400g"
     },
     "certifications": [
          {
@@ -104,104 +105,39 @@
   },
   {
     "id": "prod_4",
-    "name": "Farm-Fresh Paneer",
-    "description": "Soft, creamy, and melt-in-your-mouth paneer (cottage cheese) made from fresh, whole A2 milk. Our paneer is made daily in small batches without any preservatives or additives. Its delicate texture makes it perfect for curries, grills, or simply pan-fried.",
-    "price": 250,
+    "name": "Fresh A2 Milk",
+    "description": "Pure, unadulterated A2 milk from our herd of free-range Gir and Sahiwal cows. Our milk is non-homogenized and pasteurized at a low temperature to preserve its natural nutrients and creamy texture. It's the taste of milk as nature intended.",
+    "price": 75,
     "images": [
-      "https://images.unsplash.com/photo-1628704257853-4c902a647cde?q=80&w=2070&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "https://images.unsplash.com/photo-1563636619-E9143da79735?q=80&w=1974&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1620189507195-68309c04c4d5?q=80&w=1974&auto=format&fit=crop"
     ],
-    "category": "Dairy",
-    "data_ai_hint": "paneer cheese",
+    "category": "Milk",
+    "data_ai_hint": "milk bottle",
     "details": {
-        "origin": "Partner Farms, Karnataka",
-        "shelfLife": "5 days refrigerated",
-        "ingredients": "A2 Cow Milk, Natural Lemon Juice",
-        "netWeight": "200g"
+        "origin": "AhimsaPure Farms, Karnataka",
+        "shelfLife": "3 days refrigerated",
+        "ingredients": "100% Pure A2 Cow Milk",
+        "netWeight": "1 Litre"
     },
     "certifications": [],
     "reviews": []
   },
   {
     "id": "prod_5",
-    "name": "Assorted Leafy Greens",
-    "description": "A power-packed mix of fresh, seasonal leafy greens. Our selection changes based on what's best in the season but often includes spinach, kale, amaranth, and lettuce. Triple-washed and ready to fuel your day.",
-    "price": 180,
+    "name": "Artisanal White Butter",
+    "description": "Freshly churned white butter (makkhan) made the old-fashioned way. Using the cream from our A2 milk, this butter is light, unsalted, and has a rich, authentic flavor that is perfect for spreading on hot parathas or adding to your favorite dishes.",
+    "price": 220,
     "images": [
-      "https://images.unsplash.com/photo-1599940822648-5c149a43a034?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "https://images.unsplash.com/photo-1606884639943-24155a4c58e5?q=80&w=2070&auto=format&fit=crop"
     ],
-    "category": "Vegetables",
-    "data_ai_hint": "leafy greens",
+    "category": "Butter",
+    "data_ai_hint": "butter dish",
     "details": {
-        "origin": "AhimsaPure Organics, Tamil Nadu",
-        "shelfLife": "4-6 days refrigerated",
-        "ingredients": "Seasonal mix of organic leafy greens",
-        "netWeight": "250g"
-    },
-    "certifications": [],
-    "reviews": []
-  },
-  {
-    "id": "prod_6",
-    "name": "Cold-Pressed Groundnut Oil",
-    "description": "Nutrient-rich groundnut oil extracted using traditional 'kachi ghani' (cold-press) methods. This process uses a wooden press to extract oil without heat, retaining all its natural nutrients, aroma, and flavor. It's unrefined and free from any chemicals.",
-    "price": 420,
-    "images": [
-      "https://images.unsplash.com/photo-1622398934142-b7b35123847a?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ],
-    "category": "Oils",
-    "data_ai_hint": "oil bottle",
-    "details": {
-        "origin": "Farm Cooperatives, Gujarat",
-        "shelfLife": "9 months",
-        "ingredients": "100% Cold-Pressed Groundnuts",
-        "netWeight": "1 Litre"
-    },
-    "certifications": [
-        {
-            "name": "FSSAI Certified",
-            "description": "Licensed by the Food Safety and Standards Authority of India."
-        },
-        {
-            "name": "Wood-Pressed",
-            "description": "Extracted using traditional non-chemical methods."
-        }
-    ],
-    "reviews": []
-  },
-  {
-    "id": "prod_7",
-    "name": "Organic Mangoes (Seasonal)",
-    "description": "Juicy, sweet, and fragrant organic mangoes, delivered straight from the farm during the season. Our mangoes are naturally ripened without any chemical agents, ensuring you get the authentic taste and health benefits. Variety depends on the peak of the season.",
-    "price": 600,
-    "images": [
-      "https://images.unsplash.com/photo-1591078455572-84c16a037c73?q=80&w=1974&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ],
-    "category": "Fruits",
-    "data_ai_hint": "ripe mangoes",
-    "details": {
-        "origin": "Ratnagiri, Maharashtra",
-        "shelfLife": "3-5 days at room temperature",
-        "ingredients": "Organic Mangoes",
-        "netWeight": "Approx. 1kg (3-4 pieces)"
-    },
-    "certifications": [],
-    "reviews": []
-  },
-  {
-    "id": "prod_8",
-    "name": "Ancient Grain Flour Mix",
-    "description": "A wholesome, gluten-free blend of ancient grains like jowar (sorghum), bajra (pearl millet), and ragi (finger millet). Stone-ground to preserve nutrients, this flour mix is perfect for making nutritious rotis, dosas, and baked goods.",
-    "price": 280,
-    "images": [
-      "https://images.unsplash.com/photo-1607427958524-81e05d6b4676?q=80&w=1935&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ],
-    "category": "Pantry",
-    "data_ai_hint": "flour bag",
-    "details": {
-        "origin": "Partner Farms, Rajasthan",
-        "shelfLife": "6 months",
-        "ingredients": "Jowar, Bajra, Ragi",
-        "netWeight": "1kg"
+        "origin": "Partner Farms, Karnataka",
+        "shelfLife": "15 days refrigerated",
+        "ingredients": "A2 Cow Milk Cream",
+        "netWeight": "200g"
     },
     "certifications": [],
     "reviews": []

@@ -26,24 +26,24 @@ export default function HomePage() {
       <section className="relative -mx-8 -mt-8 h-[60vh] flex items-center justify-center rounded-b-2xl overflow-hidden bg-primary/10">
         <div className="absolute inset-0">
           <ManagedImage
-            src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1974&auto=format&fit=crop"
-            alt="A lush green farm"
+            src="https://images.unsplash.com/photo-1552856436-f9412f5d9626?q=80&w=2070&auto=format&fit=crop"
+            alt="A beautiful Indian cow in a field"
             fill
             className="object-cover opacity-20"
-            data-ai-hint="lush farm"
+            data-ai-hint="indian cow field"
             priority
           />
            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
         </div>
         <div className="relative text-center p-8">
           <h1 className="text-5xl md:text-7xl font-headline font-extrabold tracking-tight text-foreground">
-            From Our Farm to Your Table
+            The Goodness of Pure A2 Milk
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Experience the taste of real, nutritious food. Ethically sourced, naturally grown, and delivered with love.
+            Experience the taste of real, nutritious dairy. Ethically sourced from happy cows and delivered with love.
           </p>
           <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground">
-            <Link href="/products">Shop All Products</Link>
+            <Link href="/products">Shop Our Dairy Products</Link>
           </Button>
         </div>
       </section>

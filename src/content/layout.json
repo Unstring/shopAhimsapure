@@ -9,11 +9,11 @@
   ],
   "shopLinks": [
     { "name": "All Products", "href": "/products" },
-    { "name": "Vegetables", "href": "/products?category=Vegetables" },
-    { "name": "Fruits", "href": "/products?category=Fruits" },
-    { "name": "Dairy", "href": "/products?category=Dairy" },
-    { "name": "Pantry", "href": "/products?category=Pantry" },
-    { "name": "Oils", "href": "/products?category=Oils" }
+    { "name": "Ghee", "href": "/products?category=Ghee" },
+    { "name": "Paneer", "href": "/products?category=Paneer" },
+    { "name": "Milk", "href": "/products?category=Milk" },
+    { "name": "Curd", "href": "/products?category=Curd" },
+    { "name": "Butter", "href": "/products?category=Butter" }
   ],
   "socialLinks": [
     { "name": "Facebook", "icon": "Facebook", "href": "#" },
@@ -23,11 +23,11 @@
   "megaMenu": {
     "categories": [
       { "title": "All Products", "href": "/products", "description": "Browse our entire collection." },
-      { "title": "Vegetables", "href": "/products?category=Vegetables", "description": "Fresh, seasonal, and organic." },
-      { "title": "Fruits", "href": "/products?category=Fruits", "description": "Juicy, delicious, and natural." },
-      { "title": "Dairy", "href": "/products?category=Dairy", "description": "Pure A2 milk products." },
-      { "title": "Pantry", "href": "/products?category=Pantry", "description": "Wholesome staples." },
-      { "title": "Oils", "href": "/products?category=Oils", "description": "Cold-pressed and nutrient-rich." }
+      { "title": "A2 Ghee", "href": "/products?category=Ghee", "description": "Pure, hand-churned ghee." },
+      { "title": "A2 Paneer", "href": "/products?category=Paneer", "description": "Soft and fresh cottage cheese." },
+      { "title": "A2 Milk", "href": "/products?category=Milk", "description": "Farm-fresh, pure A2 milk." },
+      { "title": "A2 Curd", "href": "/products?category=Curd", "description": "Thick and creamy traditional dahi." },
+      { "title": "Butter", "href": "/products?category=Butter", "description": "Artisanal white butter." }
     ],
     "companyLinks": [
       { "title": "About Us", "href": "/about", "icon": "Info", "description": "Learn about our mission and values." },

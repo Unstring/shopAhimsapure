@@ -11,9 +11,9 @@ export default async function BlogPage() {
   return (
     <div className="space-y-12">
       <div className="text-center">
-        <h1 className="text-5xl font-headline font-bold">From the Fields</h1>
+        <h1 className="text-5xl font-headline font-bold">From the Farmstead</h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-          Insights, stories, and recipes fresh from our farms and kitchens.
+          Stories of purity, tradition, and the goodness of A2 dairy.
         </p>
       </div>
 

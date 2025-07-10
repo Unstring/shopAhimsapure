@@ -25,7 +25,7 @@ const companyIcons: { [key: string]: LucideIcon } = {
 
 export function MegaMenu() {
     const { categories, companyLinks } = layoutData.megaMenu;
-    const featuredProduct = products[6]; // Organic Mangoes
+    const featuredProduct = products[0]; // Organic A2 Ghee
 
   return (
     <NavigationMenu>
@@ -65,12 +65,12 @@ export function MegaMenu() {
                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                      <div className="absolute bottom-4 left-4 text-white">
                         <h4 className="font-bold font-headline">{featuredProduct.name}</h4>
-                        <p className="text-sm">Our seasonal bestseller is back!</p>
+                        <p className="text-sm">Our most popular product!</p>
                      </div>
                 </div>
                  <Button asChild className="w-full mt-4">
                     <Link href={`/products`}>
-                        Shop Bestsellers &rarr;
+                        Shop All Products &rarr;
                     </Link>
                 </Button>
               </div>
