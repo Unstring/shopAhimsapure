@@ -70,9 +70,9 @@ export default function Footer() {
           </div>
 
           {/* Bottom Row: Links */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="flex flex-wrap gap-8">
             {/* Quick Links */}
-            <div className="md:col-start-1">
+            <div>
               <h3 className="font-headline font-semibold text-foreground">Quick Links</h3>
               <ul className="mt-4 space-y-2">
                 {quickLinks.map((link) => (
