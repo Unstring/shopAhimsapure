@@ -1,4 +1,7 @@
 
+"use client";
+
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
@@ -9,6 +12,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ManagedImage } from "@/components/managed-image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import homePageData from "@/content/home-page.json";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
 
 const icons: { [key: string]: React.ElementType } = {
   Leaf,
@@ -19,6 +25,10 @@ const icons: { [key: string]: React.ElementType } = {
 export default function HomePage() {
   const featuredProducts = products.slice(0, 4);
   const { whyChooseUsItems, testimonials } = homePageData;
+
+  const plugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true, direction: 'backward' })
+  )
 
   return (
     <div className="space-y-16">
@@ -85,28 +95,43 @@ export default function HomePage() {
       {/* Testimonials Section */}
       <section>
         <h2 className="text-3xl font-headline font-bold text-center mb-8">What Our Customers Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-             <Card key={index} className="bg-card/80 border-2">
-                <CardContent className="p-6">
-                  <div className="flex text-accent mb-2">
-                      {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-5 h-5" />)}
-                  </div>
-                  <p className="text-foreground/90 italic">"{testimonial.quote}"</p>
-                  <div className="flex items-center mt-4">
-                      <Avatar className="h-10 w-10">
-                          <ManagedImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint="person smiling" width={40} height={40} className="aspect-square h-full w-full" />
-                          <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <div className="ml-4">
-                          <p className="font-semibold">{testimonial.name}</p>
-                          <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                      </div>
-                  </div>
-                </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Carousel
+            opts={{
+                align: "start",
+                loop: true,
+            }}
+            plugins={[plugin.current]}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+            className="w-full"
+        >
+          <CarouselContent>
+             {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1 h-full">
+                        <Card className="bg-card/80 border-2 h-full">
+                            <CardContent className="p-6 flex flex-col h-full">
+                                <div className="flex text-accent mb-2">
+                                    {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-5 h-5" />)}
+                                </div>
+                                <p className="text-foreground/90 italic flex-grow">"{testimonial.quote}"</p>
+                                <div className="flex items-center mt-4 pt-4 border-t">
+                                    <Avatar className="h-10 w-10">
+                                        <ManagedImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint="person smiling" width={40} height={40} className="aspect-square h-full w-full" />
+                                        <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                                    </Avatar>
+                                    <div className="ml-4">
+                                        <p className="font-semibold">{testimonial.name}</p>
+                                        <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </CarouselItem>
+             ))}
+          </CarouselContent>
+        </Carousel>
       </section>
     </div>
   );

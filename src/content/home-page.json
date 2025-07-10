@@ -35,6 +35,24 @@
       "location": "Delhi",
       "quote": "I love the convenience and the quality. The A2 milk is a staple in my home now. Highly recommended!",
       "avatar": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "name": "Sunita V.",
+      "location": "Pune",
+      "quote": "The curd is so thick and creamy, it's perfect for making lassi. My kids love it too!",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "name": "Karthik Iyer",
+      "location": "Chennai",
+      "quote": "As someone who is particular about traditional foods, I can vouch for the authenticity of their Bilona Ghee. Excellent product.",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop"
+    },
+    {
+      "name": "Anjali P.",
+      "location": "Hyderabad",
+      "quote": "The customer service is as great as their products. They were very helpful with my delivery query. Will be a regular customer.",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop"
     }
   ]
 }
