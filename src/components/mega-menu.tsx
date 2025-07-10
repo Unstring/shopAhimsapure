@@ -42,8 +42,8 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-full gap-6 p-4 md:grid-cols-[.75fr_1fr] lg:grid-cols-[1fr_250px] md:w-auto lg:w-[600px] lg:max-w-screen-lg">
-                <ul className="grid grid-cols-2 gap-3">
+            <div className="p-4 w-full md:w-auto md:grid-cols-[.75fr_1fr] lg:w-[600px] lg:max-w-screen-lg lg:grid-cols-[1fr_250px] grid gap-6">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {categories.map((component) => (
                     <ListItem
                       key={component.title}
@@ -120,11 +120,12 @@ export function MegaMenu() {
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
+        <Link
+          href={href || "#"}
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
@@ -136,7 +137,7 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   )
