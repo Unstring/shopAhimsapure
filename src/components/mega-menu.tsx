@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -103,6 +102,14 @@ export function MegaMenu() {
             })}
             </ul>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+
+         <NavigationMenuItem>
+          <Link href="/blog" legacyBehavior passHref>
+            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
+              Blog
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
 
         <NavigationMenuItem>

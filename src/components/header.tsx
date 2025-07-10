@@ -22,17 +22,19 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { MegaMenu } from './mega-menu';
 import { cn } from '@/lib/utils';
+import layoutData from "@/content/layout.json";
 
 export default function Header() {
   const { cartCount } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { megaMenu } = layoutData;
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Shop", href: "/products" },
-    { name: "About Us", href: "/about" },
-    { name: "Blog", href: "/blog" },
+    ...megaMenu.categories.map(c => ({ name: c.title, href: c.href})),
+    ...megaMenu.companyLinks.map(c => ({ name: c.title, href: c.href})),
     { name: "Contact", href: "/contact" },
-  ]
+  ];
+
 
   return (
     <>
@@ -107,6 +109,11 @@ export default function Header() {
                         <SheetClose asChild>
                             <Button asChild>
                                 <Link href="/login">Login / Sign Up</Link>
+                            </Button>
+                        </SheetClose>
+                         <SheetClose asChild>
+                            <Button asChild variant="outline">
+                                <Link href="/track-order">Track Order</Link>
                             </Button>
                         </SheetClose>
                     </div>
