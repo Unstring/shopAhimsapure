@@ -1,22 +1,34 @@
+
+"use client";
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { AppProviders } from '@/components/providers';
 import { PageProgressBar } from '@/components/page-progress-bar';
 import { SmoothScroll } from '@/components/smooth-scroll';
+import { useState, useEffect } from 'react';
 
-export const metadata: Metadata = {
-  title: 'AhimsaPure',
-  description: 'Ethically sourced, naturally grown, and delivered with love.',
-};
+// export const metadata: Metadata = {
+//   title: 'AhimsaPure',
+//   description: 'Ethically sourced, naturally grown, and delivered with love.',
+// };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <title>AhimsaPure</title>
+        <meta name="description" content="Ethically sourced, naturally grown, and delivered with love." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
@@ -25,7 +37,7 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background text-foreground">
         <AppProviders>
           <SmoothScroll />
-          <PageProgressBar />
+          {isClient && <PageProgressBar />}
           {children}
         </AppProviders>
       </body>
