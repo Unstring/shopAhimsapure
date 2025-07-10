@@ -32,7 +32,7 @@ export function MegaMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/" passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
               Home
             </NavigationMenuLink>
@@ -106,7 +106,7 @@ export function MegaMenu() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/contact" legacyBehavior passHref>
+          <Link href="/contact" passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
               Contact
             </NavigationMenuLink>
