@@ -4,9 +4,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Wrench } from 'lucide-react';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import { AnnouncementBanner } from '@/components/announcement-banner';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -32,9 +29,7 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export default function MaintenancePage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <AnnouncementBanner />
-      <Header />
-      <main className="flex-grow flex items-center justify-center">
+      <main className="flex-grow flex items-center justify-center bg-background">
         <div className="text-center p-8">
           <div className="flex items-center gap-2 mb-8 justify-center">
             <CowIcon className="h-10 w-10 text-primary" />
@@ -53,7 +48,6 @@ export default function MaintenancePage() {
           </Button>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
