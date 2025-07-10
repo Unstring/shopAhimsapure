@@ -73,7 +73,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
             {/* Quick Links */}
             <div>
-              <h3 className="font-headline font-semibold text-foreground text-center sm:text-left">Quick Links</h3>
+              <h3 className="font-headline font-semibold text-foreground text-center">Quick Links</h3>
               <ul className="mt-4 flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
@@ -89,7 +89,7 @@ export default function Footer() {
 
             {/* Shop Links */}
             <div>
-               <h3 className="font-headline font-semibold text-foreground text-center sm:text-left">Shop</h3>
+               <h3 className="font-headline font-semibold text-foreground text-center">Shop</h3>
                 <ul className="mt-4 flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2">
                    {shopLinks.map((link) => (
                       <li key={link.name}>
