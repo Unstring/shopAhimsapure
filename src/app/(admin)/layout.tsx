@@ -13,6 +13,7 @@ import {
   SidebarMenuButton,
   SidebarFooter,
   SidebarInset,
+  SidebarRail,
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
 import {
@@ -25,6 +26,7 @@ import {
 } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -91,49 +93,51 @@ export default function AdminLayout({
 
   return (
     <SidebarProvider>
-      <Sidebar>
-        <SidebarContent className="p-2">
-          <SidebarHeader>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <CowIcon className="h-7 w-7 text-primary" />
-              <span className="font-headline text-2xl font-bold text-foreground">
-                AhimsaPure
-              </span>
-            </Link>
-          </SidebarHeader>
-          <SidebarMenu>
-            {navItems.map((item) => (
-                <SidebarMenuItem key={item.href}>
-                    <Link href={item.href}>
-                        <SidebarMenuButton tooltip={item.label} isActive={pathname === item.href}>
-                            <item.icon />
-                            <span>{item.label}</span>
-                        </SidebarMenuButton>
-                    </Link>
-                </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-          <SidebarFooter>
+      <div className="md:flex">
+        <Sidebar collapsible="icon" className="w-64" style={{'--sidebar-width': '15rem'} as React.CSSProperties}>
+          <SidebarContent className="p-2">
+            <SidebarHeader>
+              <Link href="/" className="flex items-center gap-2 mb-4">
+                <CowIcon className="h-7 w-7 text-primary" />
+                <span className="font-headline text-2xl font-bold text-foreground">
+                  AhimsaPure
+                </span>
+              </Link>
+            </SidebarHeader>
             <SidebarMenu>
-                 <SidebarMenuItem>
-                    <Link href={settingsItem.href}>
-                        <SidebarMenuButton tooltip={settingsItem.label} isActive={pathname === settingsItem.href}>
-                            <settingsItem.icon />
-                            <span>{settingsItem.label}</span>
-                        </SidebarMenuButton>
-                    </Link>
-                 </SidebarMenuItem>
+              {navItems.map((item) => (
+                  <SidebarMenuItem key={item.href}>
+                      <Link href={item.href}>
+                          <SidebarMenuButton tooltip={item.label} isActive={pathname === item.href}>
+                              <item.icon />
+                              <span>{item.label}</span>
+                          </SidebarMenuButton>
+                      </Link>
+                  </SidebarMenuItem>
+              ))}
             </SidebarMenu>
-          </SidebarFooter>
-        </SidebarContent>
-      </Sidebar>
-      <SidebarInset className="p-4 md:p-6">
-         <div className="flex justify-between items-center mb-4">
-            <div></div>
-            <SidebarTrigger />
-        </div>
-        {children}
-      </SidebarInset>
+            <SidebarFooter>
+              <SidebarMenu>
+                   <SidebarMenuItem>
+                      <Link href={settingsItem.href}>
+                          <SidebarMenuButton tooltip={settingsItem.label} isActive={pathname === settingsItem.href}>
+                              <settingsItem.icon />
+                              <span>{settingsItem.label}</span>
+                          </SidebarMenuButton>
+                      </Link>
+                   </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarFooter>
+          </SidebarContent>
+          <SidebarRail />
+        </Sidebar>
+        <SidebarInset className="p-4 md:p-6 flex-1">
+          <div className="flex justify-start items-center mb-4 md:hidden">
+              <SidebarTrigger />
+          </div>
+          {children}
+        </SidebarInset>
+      </div>
     </SidebarProvider>
   );
 }
