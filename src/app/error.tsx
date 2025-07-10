@@ -4,6 +4,9 @@
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { AlertTriangle } from 'lucide-react';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import { AnnouncementBanner } from '@/components/announcement-banner';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -39,26 +42,33 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center text-center">
-       <div className="flex items-center gap-2 mb-8">
-        <CowIcon className="h-10 w-10 text-primary" />
-        <span className="font-headline text-4xl font-bold text-foreground">
-            AhimsaPure
-        </span>
-      </div>
-      <AlertTriangle className="w-24 h-24 text-destructive mb-4" />
-      <h2 className="text-3xl font-semibold">Something went wrong!</h2>
-      <p className="mt-2 max-w-md text-muted-foreground">
-        We're sorry, but an unexpected error occurred. You can try to reload the page or go back to the homepage.
-      </p>
-      <div className="mt-8 flex gap-4">
-        <Button onClick={() => reset()}>
-          Try Again
-        </Button>
-        <Button variant="outline" asChild>
-            <a href="/">Go Back Home</a>
-        </Button>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <AnnouncementBanner />
+      <Header />
+      <main className="flex-grow flex items-center justify-center">
+        <div className="text-center p-8">
+           <div className="flex items-center gap-2 mb-8 justify-center">
+            <CowIcon className="h-10 w-10 text-primary" />
+            <span className="font-headline text-4xl font-bold text-foreground">
+                AhimsaPure
+            </span>
+          </div>
+          <AlertTriangle className="w-24 h-24 text-destructive mb-4 mx-auto" />
+          <h2 className="text-3xl font-semibold">Something went wrong!</h2>
+          <p className="mt-2 max-w-md text-muted-foreground">
+            We're sorry, but an unexpected error occurred. You can try to reload the page or go back to the homepage.
+          </p>
+          <div className="mt-8 flex gap-4 justify-center">
+            <Button onClick={() => reset()}>
+              Try Again
+            </Button>
+            <Button variant="outline" asChild>
+                <a href="/">Go Back Home</a>
+            </Button>
+          </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }

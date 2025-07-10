@@ -4,6 +4,9 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Rocket } from 'lucide-react';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import { AnnouncementBanner } from '@/components/announcement-banner';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -28,22 +31,29 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function ComingSoonPage() {
   return (
-    <div className="flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center text-center">
-      <div className="flex items-center gap-2 mb-8">
-        <CowIcon className="h-10 w-10 text-primary" />
-        <span className="font-headline text-4xl font-bold text-foreground">
-            AhimsaPure
-        </span>
-      </div>
-      <Rocket className="w-24 h-24 text-primary mb-4" />
-      <h1 className="text-5xl font-headline font-bold">Coming Soon!</h1>
-      <h2 className="mt-4 text-2xl font-semibold">We're Preparing Something Fresh for You</h2>
-      <p className="mt-2 text-muted-foreground max-w-md">
-        Our team is working hard to bring this feature to you. We promise it will be worth the wait!
-      </p>
-      <Button asChild className="mt-8">
-        <Link href="/">Go Back Home</Link>
-      </Button>
+    <div className="flex flex-col min-h-screen">
+      <AnnouncementBanner />
+      <Header />
+      <main className="flex-grow flex items-center justify-center">
+        <div className="text-center p-8">
+          <div className="flex items-center gap-2 mb-8 justify-center">
+            <CowIcon className="h-10 w-10 text-primary" />
+            <span className="font-headline text-4xl font-bold text-foreground">
+                AhimsaPure
+            </span>
+          </div>
+          <Rocket className="w-24 h-24 text-primary mb-4 mx-auto" />
+          <h1 className="text-5xl font-headline font-bold">Coming Soon!</h1>
+          <h2 className="mt-4 text-2xl font-semibold">We're Preparing Something Fresh for You</h2>
+          <p className="mt-2 text-muted-foreground max-w-md">
+            Our team is working hard to bring this feature to you. We promise it will be worth the wait!
+          </p>
+          <Button asChild className="mt-8">
+            <Link href="/">Go Back Home</Link>
+          </Button>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }

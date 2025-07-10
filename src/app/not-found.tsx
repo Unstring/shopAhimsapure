@@ -4,6 +4,9 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { SearchX } from 'lucide-react';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import { AnnouncementBanner } from '@/components/announcement-banner';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -28,22 +31,29 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center text-center">
-      <div className="flex items-center gap-2 mb-8">
-        <CowIcon className="h-10 w-10 text-primary" />
-        <span className="font-headline text-4xl font-bold text-foreground">
-            AhimsaPure
-        </span>
-      </div>
-      <SearchX className="w-24 h-24 text-destructive mb-4" />
-      <h1 className="text-6xl font-headline font-bold text-destructive">404</h1>
-      <h2 className="mt-4 text-3xl font-semibold">Page Not Found</h2>
-      <p className="mt-2 text-muted-foreground">
-        Sorry, we couldn't find the page you were looking for.
-      </p>
-      <Button asChild className="mt-8">
-        <Link href="/">Go Back Home</Link>
-      </Button>
+    <div className="flex flex-col min-h-screen">
+      <AnnouncementBanner />
+      <Header />
+      <main className="flex-grow flex items-center justify-center">
+        <div className="text-center p-8">
+           <div className="flex items-center gap-2 mb-8 justify-center">
+            <CowIcon className="h-10 w-10 text-primary" />
+            <span className="font-headline text-4xl font-bold text-foreground">
+                AhimsaPure
+            </span>
+          </div>
+          <SearchX className="w-24 h-24 text-destructive mb-4 mx-auto" />
+          <h1 className="text-6xl font-headline font-bold text-destructive">404</h1>
+          <h2 className="mt-4 text-3xl font-semibold">Page Not Found</h2>
+          <p className="mt-2 text-muted-foreground">
+            Sorry, we couldn't find the page you were looking for.
+          </p>
+          <Button asChild className="mt-8">
+            <Link href="/">Go Back Home</Link>
+          </Button>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }
