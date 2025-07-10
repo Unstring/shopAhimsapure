@@ -28,7 +28,7 @@ const companyIcons: { [key: string]: LucideIcon } = {
 // A real app might fetch these, but for this component, we'll use a static list.
 const recentPosts = [
     {
-        "slug": "the-ahimsa-promise",
+        "slug": "first-post",
         "title": "The AhimsaPure Promise: More Than Just Dairy",
         "image": "https://images.unsplash.com/photo-1455354269813-804b407a1118?q=80&w=2070&auto=format&fit=crop",
         "excerpt": "Discover the deep-rooted principles that guide everything we do, from our happy cows to your healthy family."
