@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Separator } from "@/components/ui/separator"
-import { useLayout } from "../_context/layout-context";
+import { useLayout } from "../../_context/layout-context";
 
 export default function SettingsPage() {
     const { layout, setLayout } = useLayout();
