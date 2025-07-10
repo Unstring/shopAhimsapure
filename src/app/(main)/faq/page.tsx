@@ -1,14 +1,17 @@
 
+"use client";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import faqData from '@/content/faq-page.json';
+import { useContent } from "@/app/(admin)/_context/content-context";
+import { ContentProvider } from "@/app/(admin)/_context/content-context";
 
-export default function FAQPage() {
-  const { faqs } = faqData;
+function FaqPageComponent() {
+  const { content } = useContent();
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -19,7 +22,7 @@ export default function FAQPage() {
         </p>
       </div>
       <Accordion type="single" collapsible className="w-full">
-        {faqs.map((faq, index) => (
+        {content.faqs.map((faq, index) => (
           <AccordionItem value={`item-${index}`} key={index}>
             <AccordionTrigger className="text-left text-lg hover:no-underline">
               {faq.question}
@@ -32,4 +35,12 @@ export default function FAQPage() {
       </Accordion>
     </div>
   );
+}
+
+export default function FAQPage() {
+  return (
+    <ContentProvider>
+      <FaqPageComponent />
+    </ContentProvider>
+  )
 }

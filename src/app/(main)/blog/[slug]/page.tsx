@@ -1,21 +1,34 @@
-import { getPostBySlug, getAllPosts } from '@/lib/blog';
-import { notFound } from 'next/navigation';
+
+"use client";
+
+import { notFound, useParams } from 'next/navigation';
 import { ManagedImage } from '@/components/managed-image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import Link from 'next/link';
+import { useBlog, BlogProvider } from '@/app/(admin)/_context/blog-context';
+import { useEffect, useState } from 'react';
+import { Post } from '@/lib/blog';
 
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+function BlogPostPageComponent() {
+  const params = useParams();
+  const { getPostBySlug } = useBlog();
+  const [post, setPost] = useState<Post | undefined | null>(undefined);
+  
+  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
+  useEffect(() => {
+    if (slug) {
+        const foundPost = getPostBySlug(slug);
+        setPost(foundPost);
+    }
+  }, [slug, getPostBySlug]);
 
-  if (!post) {
+
+  if (post === undefined) {
+    // Loading state
+    return <div className="text-center py-20">Loading post...</div>;
+  }
+  
+  if (post === null) {
     notFound();
   }
 
@@ -51,8 +64,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
       <div 
         className="prose prose-lg max-w-none prose-p:text-muted-foreground prose-headings:font-headline prose-a:text-primary hover:prose-a:underline"
-        dangerouslySetInnerHTML={{ __html: post.content }} 
-      />
+      >
+        <ReactMarkdown>{post.content}</ReactMarkdown>
+      </div>
 
        <footer className="mt-12 pt-8 border-t">
             <h3 className="text-xl font-headline font-semibold mb-4">About the Author</h3>
@@ -70,4 +84,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
     </article>
   );
+}
+
+
+export default function BlogPostPage() {
+    return (
+        <BlogProvider>
+            <BlogPostPageComponent />
+        </BlogProvider>
+    )
 }

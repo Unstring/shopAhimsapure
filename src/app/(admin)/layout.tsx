@@ -10,6 +10,8 @@ import {
   Users,
   LineChart,
   Settings,
+  FileText,
+  BookOpen,
 } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -28,13 +30,16 @@ import {
   SidebarInset,
   SidebarRail,
 } from '@/components/ui/sidebar';
+import { ProductProvider } from './_context/product-context';
+import { ContentProvider } from './_context/content-context';
+import { BlogProvider } from './_context/blog-context';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 
-        viewBox="0 0 24 24" 
+        viewBox="0 0 24" 
         fill="none" 
         stroke="currentColor" 
         strokeWidth="2" 
@@ -56,6 +61,8 @@ export const navItems = [
     { href: "/admin/products", icon: Package, label: "Products" },
     { href: "/admin/customers", icon: Users, label: "Customers" },
     { href: "/admin/analytics", icon: LineChart, label: "Analytics" },
+    { href: "/admin/content", icon: FileText, label: "Content" },
+    { href: "/admin/blog", icon: BookOpen, label: "Blog" },
 ];
 
 export const settingsItem = { href: "/admin/settings", icon: Settings, label: "Settings" };
@@ -114,7 +121,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
               {navItems.map((item) => (
                   <SidebarMenuItem key={item.href}>
                       <Link href={item.href}>
-                          <SidebarMenuButton tooltip={item.label} isActive={pathname === item.href}>
+                          <SidebarMenuButton tooltip={item.label} isActive={pathname.startsWith(item.href) && (item.href !== '/admin' || pathname === '/admin')}>
                               <item.icon />
                               <span>{item.label}</span>
                           </SidebarMenuButton>
@@ -155,7 +162,13 @@ export default function AdminLayout({
 }) {
   return (
     <LayoutProvider>
-        <AdminLayoutContent>{children}</AdminLayoutContent>
+      <ProductProvider>
+        <ContentProvider>
+          <BlogProvider>
+            <AdminLayoutContent>{children}</AdminLayoutContent>
+          </BlogProvider>
+        </ContentProvider>
+      </ProductProvider>
     </LayoutProvider>
   )
 }

@@ -11,14 +11,14 @@ import { ProductRecommendations } from "@/components/product-recommendations";
 import { Card, CardContent } from "@/components/ui/card";
 import { ManagedImage } from "@/components/managed-image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import homePageData from "@/content/home-page.json";
+import { ContentProvider, useContent } from "@/app/(admin)/_context/content-context";
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 
-        viewBox="0 0 24 24" 
+        viewBox="0 0 24" 
         fill="none" 
         stroke="currentColor" 
         strokeWidth="2" 
@@ -40,9 +40,11 @@ const icons: { [key: string]: React.ElementType } = {
   HeartHandshake,
 };
 
-export default function HomePage() {
+
+function HomePageContent() {
   const featuredProducts = products.slice(0, 4);
-  const { whyChooseUsItems, testimonials } = homePageData;
+  const { content } = useContent();
+  const { whyChooseUsItems, testimonials } = content;
 
   return (
     <div className="space-y-16">
@@ -164,4 +166,12 @@ export default function HomePage() {
       </section>
     </div>
   );
+}
+
+export default function HomePage() {
+  return (
+    <ContentProvider>
+      <HomePageContent />
+    </ContentProvider>
+  )
 }

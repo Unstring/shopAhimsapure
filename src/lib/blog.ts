@@ -1,8 +1,11 @@
+
 import { promises as fs } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import ReactMarkdown from 'react-markdown';
+
 
 const postsDirectory = path.join(process.cwd(), 'src/content/blog');
 
@@ -20,13 +23,11 @@ export type PostFrontmatter = {
 export type Post = {
     slug: string;
     frontmatter: PostFrontmatter;
-    content: string;
+    content: string; // This will now be raw markdown
 };
 
 export async function getPostSlugs() {
   const fileNames = await fs.readdir(postsDirectory);
-  // a-b is ascending, b-a is descending
-  fileNames.sort((a,b) => a < b ? 1 : -1);
   return fileNames.map(fileName => fileName.replace(/\.md$/, ''));
 }
 
@@ -35,28 +36,23 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     try {
         const fileContents = await fs.readFile(fullPath, 'utf8');
         const { data, content } = matter(fileContents);
-        
-        const processedContent = await remark().use(html).process(content);
-        const contentHtml = processedContent.toString();
 
         return {
             slug,
             frontmatter: data as PostFrontmatter,
-            content: contentHtml,
+            content: content, // Store raw markdown
         };
     } catch (error) {
-        // If file not found or other error, return null
         return null;
     }
 }
 
 export async function getAllPosts(): Promise<Post[]> {
   const slugs = await getPostSlugs();
-  const posts = await Promise.all(slugs.map(slug => getPostBySlug(slug)));
-  // Filter out any null posts and sort by date in descending order
+  const postsPromises = slugs.map(slug => getPostBySlug(slug));
+  const posts = await Promise.all(postsPromises);
+  
   return posts
     .filter((post): post is Post => post !== null)
-    .sort((post1, post2) => (new Date(post1.frontmatter.date) > new Date(post2.frontmatter.date) ? -1 : 1));
+    .sort((post1, post2) => new Date(post2.frontmatter.date).getTime() - new Date(post1.frontmatter.date).getTime());
 }
-
-    

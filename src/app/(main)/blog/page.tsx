@@ -1,12 +1,14 @@
+
+"use client";
+
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/blog';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { ManagedImage } from '@/components/managed-image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowRight } from 'lucide-react';
+import { useBlog, BlogProvider } from '@/app/(admin)/_context/blog-context';
 
-export default async function BlogPage() {
-  const posts = await getAllPosts();
+function BlogPageComponent() {
+  const { posts } = useBlog();
 
   return (
     <div className="space-y-12">
@@ -53,4 +55,12 @@ export default async function BlogPage() {
       </div>
     </div>
   );
+}
+
+export default function BlogPage() {
+    return (
+        <BlogProvider>
+            <BlogPageComponent />
+        </BlogProvider>
+    );
 }
