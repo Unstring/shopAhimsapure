@@ -12,6 +12,7 @@ import {
   Settings,
   FileText,
   BookOpen,
+  User,
 } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -32,6 +33,9 @@ import {
 import { ProductProvider } from './_context/product-context';
 import { ContentProvider } from './_context/content-context';
 import { BlogProvider } from './_context/blog-context';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+import { LogOut } from 'lucide-react';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -65,12 +69,19 @@ export const navItems = [
 ];
 
 export const settingsItem = { href: "/admin/settings", icon: Settings, label: "Settings" };
+export const accountItem = { href: "/admin/settings", icon: User, label: "My Account" };
+
 
 function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const [isAuthorized, setIsAuthorized] = useState(false);
   const { layout } = useLayout();
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    router.push('/login');
+  };
 
   useEffect(() => {
     const userString = localStorage.getItem('user');
@@ -105,24 +116,24 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen">
+      <div className="flex h-screen overflow-hidden">
         <Sidebar collapsible="icon" className="w-64 peer" style={{'--sidebar-width': '15rem'} as React.CSSProperties}>
-          <SidebarContent className="p-2">
+          <SidebarContent className="p-2 flex flex-col">
             <SidebarHeader>
               <Link href="/" className="flex items-center gap-2 mb-4">
                 <CowIcon className="h-7 w-7 text-primary" />
-                <span className="font-headline text-2xl font-bold text-foreground">
+                <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
                   AhimsaPure
                 </span>
               </Link>
             </SidebarHeader>
-            <SidebarMenu>
+            <SidebarMenu className="flex-1">
               {navItems.map((item) => (
                   <SidebarMenuItem key={item.href}>
                       <Link href={item.href}>
                           <SidebarMenuButton tooltip={item.label} isActive={pathname.startsWith(item.href) && (item.href !== '/admin' || pathname === '/admin')}>
                               <item.icon />
-                              <span>{item.label}</span>
+                              <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
                           </SidebarMenuButton>
                       </Link>
                   </SidebarMenuItem>
@@ -134,7 +145,15 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                       <Link href={settingsItem.href}>
                           <SidebarMenuButton tooltip={settingsItem.label} isActive={pathname === settingsItem.href}>
                               <settingsItem.icon />
-                              <span>{settingsItem.label}</span>
+                              <span className="group-data-[collapsible=icon]:hidden">{settingsItem.label}</span>
+                          </SidebarMenuButton>
+                      </Link>
+                   </SidebarMenuItem>
+                    <SidebarMenuItem>
+                      <Link href={accountItem.href}>
+                          <SidebarMenuButton tooltip={accountItem.label} isActive={pathname === accountItem.href}>
+                              <accountItem.icon />
+                              <span className="group-data-[collapsible=icon]:hidden">{accountItem.label}</span>
                           </SidebarMenuButton>
                       </Link>
                    </SidebarMenuItem>
@@ -142,11 +161,31 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <SidebarInset className="p-4 md:p-6 flex-1">
-          <div className="flex justify-start items-center mb-4">
+        <SidebarInset className="flex-1 flex flex-col h-screen">
+          <header className="flex justify-between items-center p-4 border-b">
               <SidebarTrigger />
-          </div>
-          {children}
+               <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="secondary" size="icon" className="rounded-full">
+                      <User className="h-5 w-5" />
+                      <span className="sr-only">Toggle user menu</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={() => router.push('/admin/settings')}>Settings</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleLogout}>
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+          </header>
+          <main className="flex-1 p-4 md:p-6 overflow-y-auto">
+            {children}
+          </main>
         </SidebarInset>
       </div>
     </SidebarProvider>
