@@ -19,6 +19,8 @@ export function middleware(request: NextRequest) {
     '/faq',
     '/privacy',
     '/track-order',
+    '/coming-soon',
+    '/maintenance',
   ];
 
   // Check if the requested path is a valid static path
