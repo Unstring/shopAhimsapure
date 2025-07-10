@@ -41,7 +41,7 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
     resolver: zodResolver(blogPostSchema),
     defaultValues: isEditMode ? {
         ...post.frontmatter,
-        content: post.content.replace(/<br\s*\/?>/gi, '\n'), // A simple way to convert html breaks to newlines for textarea
+        content: post.content,
     } : {
       title: "",
       date: new Date().toISOString().split('T')[0], // Defaults to today
@@ -57,12 +57,13 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
 
   const onSubmit = (data: BlogPostFormValues) => {
     const { content, ...frontmatter } = data;
-    if (isEditMode) {
+    if (isEditMode && post.slug) {
       updatePost(post.slug, frontmatter, content);
     } else {
       addPost(frontmatter, content);
     }
     router.push("/admin/blog");
+    router.refresh(); // Force a refresh to reflect changes
   };
 
   const contentPreview = form.watch('content');
@@ -73,14 +74,14 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
         <Card>
           <CardHeader><CardTitle>Post Metadata</CardTitle></CardHeader>
           <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField name="title" render={({ field }) => <FormItem><FormLabel>Title</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-            <FormField name="category" render={({ field }) => <FormItem><FormLabel>Category</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-            <FormField name="author" render={({ field }) => <FormItem><FormLabel>Author</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-            <FormField name="authorRole" render={({ field }) => <FormItem><FormLabel>Author Role</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-            <FormField name="date" render={({ field }) => <FormItem><FormLabel>Date</FormLabel><FormControl><Input type="date" {...field} /></FormControl><FormMessage/></FormItem>} />
-            <FormField name="image" render={({ field }) => <FormItem><FormLabel>Header Image URL</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-            <FormField name="authorAvatar" render={({ field }) => <FormItem><FormLabel>Author Avatar URL</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-            <FormField name="excerpt" render={({ field }) => <FormItem className="md:col-span-2"><FormLabel>Excerpt</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage/></FormItem>} />
+            <FormField control={form.control} name="title" render={({ field }) => <FormItem><FormLabel>Title</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+            <FormField control={form.control} name="category" render={({ field }) => <FormItem><FormLabel>Category</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+            <FormField control={form.control} name="author" render={({ field }) => <FormItem><FormLabel>Author</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+            <FormField control={form.control} name="authorRole" render={({ field }) => <FormItem><FormLabel>Author Role</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+            <FormField control={form.control} name="date" render={({ field }) => <FormItem><FormLabel>Date</FormLabel><FormControl><Input type="date" {...field} /></FormControl><FormMessage/></FormItem>} />
+            <FormField control={form.control} name="image" render={({ field }) => <FormItem><FormLabel>Header Image URL</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+            <FormField control={form.control} name="authorAvatar" render={({ field }) => <FormItem><FormLabel>Author Avatar URL</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+            <FormField control={form.control} name="excerpt" render={({ field }) => <FormItem className="md:col-span-2"><FormLabel>Excerpt</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage/></FormItem>} />
           </CardContent>
         </Card>
 
@@ -106,7 +107,7 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
                  />
                  <div>
                     <FormLabel>Preview</FormLabel>
-                    <div className="prose prose-sm max-w-none mt-2 rounded-md border p-4 h-[400px] overflow-auto">
+                    <div className="prose prose-sm max-w-none mt-2 rounded-md border p-4 h-[400px] overflow-auto bg-background">
                         <ReactMarkdown>{contentPreview}</ReactMarkdown>
                     </div>
                  </div>

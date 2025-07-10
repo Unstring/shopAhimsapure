@@ -1,26 +1,30 @@
 
 "use client";
 
-import { notFound, useParams } from 'next/navigation';
+import { notFound, useParams, useRouter } from 'next/navigation';
 import { ManagedImage } from '@/components/managed-image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useBlog, BlogProvider } from '@/app/(admin)/_context/blog-context';
 import { useEffect, useState } from 'react';
 import { Post } from '@/lib/blog';
+import ReactMarkdown from 'react-markdown';
+
 
 function BlogPostPageComponent() {
   const params = useParams();
-  const { getPostBySlug } = useBlog();
+  const router = useRouter();
+  const { getPostBySlug, posts } = useBlog();
   const [post, setPost] = useState<Post | undefined | null>(undefined);
   
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
 
   useEffect(() => {
-    if (slug) {
+    // We check posts.length to ensure context is loaded
+    if (slug && posts.length > 0) {
         const foundPost = getPostBySlug(slug);
         setPost(foundPost);
     }
-  }, [slug, getPostBySlug]);
+  }, [slug, getPostBySlug, posts]);
 
 
   if (post === undefined) {
@@ -28,8 +32,10 @@ function BlogPostPageComponent() {
     return <div className="text-center py-20">Loading post...</div>;
   }
   
-  if (post === null) {
-    notFound();
+  if (post === null || !post) {
+    // Using a timeout to give state updates time to propagate before navigating
+    setTimeout(() => router.push('/404'), 0);
+    return null;
   }
 
   return (

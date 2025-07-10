@@ -1,24 +1,28 @@
 
-import { promises as fs } from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
-import { PrivacyPolicyContent } from '@/components/privacy-policy-content';
+"use client";
 
-async function getPrivacyPolicy() {
-  const filePath = path.join(process.cwd(), 'src/content/privacy-policy.md');
-  const fileContents = await fs.readFile(filePath, 'utf8');
-  const { content } = matter(fileContents);
-  const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
-  return contentHtml;
-}
+import ReactMarkdown from 'react-markdown';
+import privacyPolicyData from '@/content/privacy-policy.json';
 
-export default async function PrivacyPolicyPage() {
-  const contentHtml = await getPrivacyPolicy();
+export default function PrivacyPolicyPage() {
+  const { title, lastUpdated, content } = privacyPolicyData;
+  const formattedDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  
+  const finalContent = content.replace('{current_date}', formattedDate);
 
   return (
-    <PrivacyPolicyContent contentHtml={contentHtml} />
+    <div className="max-w-3xl mx-auto">
+        <h1 className="text-4xl font-headline font-bold mb-2">{title}</h1>
+        <p className="text-sm text-muted-foreground mb-8">{lastUpdated.replace('{current_date}', formattedDate)}</p>
+        <div
+            className="prose prose-lg max-w-none prose-headings:font-headline prose-a:text-primary hover:prose-a:underline prose-p:text-muted-foreground"
+        >
+             <ReactMarkdown>{finalContent}</ReactMarkdown>
+        </div>
+    </div>
   );
 }

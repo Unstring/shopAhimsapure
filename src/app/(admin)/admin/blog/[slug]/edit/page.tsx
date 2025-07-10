@@ -4,20 +4,24 @@
 import { useBlog } from "../../../../_context/blog-context";
 import { PageHeader } from "../../../_components/page-header";
 import { BlogPostForm } from "../../_components/blog-post-form";
-import { notFound } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Post } from "@/lib/blog";
 
 export default function EditPostPage({ params }: { params: { slug: string } }) {
-    const { getPostBySlug } = useBlog();
-    const [post, setPost] = useState<Post | undefined>();
+    const { getPostBySlug, posts } = useBlog();
+    const [post, setPost] = useState<Post | undefined | null>(undefined);
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
     
     useEffect(() => {
-        const foundPost = getPostBySlug(params.slug);
-        setPost(foundPost);
-        setLoading(false);
-    }, [params.slug, getPostBySlug]);
+        // We check posts length to ensure context is loaded
+        if (posts.length > 0) {
+            const foundPost = getPostBySlug(params.slug);
+            setPost(foundPost);
+            setLoading(false);
+        }
+    }, [params.slug, getPostBySlug, posts]);
 
 
     if (loading) {
@@ -25,7 +29,9 @@ export default function EditPostPage({ params }: { params: { slug: string } }) {
     }
     
     if (!post) {
-       return notFound();
+       // Using a timeout to give state updates time to propagate before navigating
+       setTimeout(() => router.push('/404'), 0);
+       return null;
     }
     
     return (

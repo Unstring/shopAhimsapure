@@ -18,33 +18,17 @@ import { products } from "@/lib/products"
 import { Button } from "./ui/button"
 import { HelpCircle, Info, LucideIcon, Rss, Shield, Heart } from "lucide-react"
 import layoutData from "@/content/layout.json";
+import blogPosts from "@/content/blog-posts.json";
 import { ManagedImage } from "./managed-image"
 
 const companyIcons: { [key: string]: LucideIcon } = {
     Info, Heart, Rss, HelpCircle, Shield
 }
 
-// These are static for the mega menu.
-// A real app might fetch these, but for this component, we'll use a static list.
-const recentPosts = [
-    {
-        "slug": "first-post",
-        "title": "The AhimsaPure Promise: More Than Just Dairy",
-        "image": "https://images.unsplash.com/photo-1455354269813-804b407a1118?q=80&w=2070&auto=format&fit=crop",
-        "excerpt": "Discover the deep-rooted principles that guide everything we do, from our happy cows to your healthy family."
-    },
-    {
-        "slug": "healthy-eating-tips",
-        "title": "The Ancient Wisdom of A2 Ghee",
-        "image": "https://images.unsplash.com/photo-1606859228783-53336c175342?q=80&w=2070&auto=format&fit=crop",
-        "excerpt": "Learn why traditional, hand-churned A2 Ghee is considered liquid gold in Ayurveda..."
-    }
-]
-
-
 export function MegaMenu() {
     const { categories, companyLinks } = layoutData.megaMenu;
     const featuredProduct = products.find(p => p.id === 'prod_1') || products[0];
+    const recentPosts = blogPosts.slice(0, 2);
 
   return (
     <NavigationMenu>
@@ -102,7 +86,7 @@ export function MegaMenu() {
                     className="flex items-start gap-3"
                     >
                         <div className="bg-primary/10 p-2 rounded-md">
-                            <Icon className="h-5 w-5 text-primary" />
+                            {Icon && <Icon className="h-5 w-5 text-primary" />}
                         </div>
                         <div>
                             <p className="font-semibold">{link.title}</p>
@@ -121,13 +105,13 @@ export function MegaMenu() {
             <div className="grid w-[650px] gap-6 p-4 grid-cols-[1fr_250px]">
               <ul className="flex flex-col gap-3">
                 {recentPosts.map((post) => (
-                  <ListItem key={post.title} href={`/blog/${post.slug}`} title={post.title} className="flex items-start gap-4">
+                  <ListItem key={post.frontmatter.title} href={`/blog/${post.slug}`} title={post.frontmatter.title} className="flex items-start gap-4">
                      <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
-                       <ManagedImage src={post.image} alt={post.title} fill className="object-cover" />
+                       <ManagedImage src={post.frontmatter.image} alt={post.frontmatter.title} fill className="object-cover" />
                      </div>
                      <div>
-                        <p className="font-semibold">{post.title}</p>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{post.excerpt}</p>
+                        <p className="font-semibold">{post.frontmatter.title}</p>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{post.frontmatter.excerpt}</p>
                      </div>
                   </ListItem>
                 ))}

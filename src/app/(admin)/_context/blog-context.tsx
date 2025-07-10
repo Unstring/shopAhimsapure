@@ -2,8 +2,9 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { Post, getAllPosts, PostFrontmatter } from '@/lib/blog';
+import { Post, PostFrontmatter } from '@/lib/blog';
 import { useToast } from '@/hooks/use-toast';
+import initialPosts from '@/content/blog-posts.json';
 
 // Helper to create a URL-friendly slug
 const slugify = (text: string) =>
@@ -26,15 +27,13 @@ interface BlogContextType {
 const BlogContext = createContext<BlogContextType | undefined>(undefined);
 
 export const BlogProvider = ({ children }: { children: ReactNode }) => {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<Post[]>(initialPosts as Post[]);
   const { toast } = useToast();
 
   useEffect(() => {
-    async function fetchPosts() {
-        const fetchedPosts = await getAllPosts();
-        setPosts(fetchedPosts);
-    }
-    fetchPosts();
+    // In a real app, you might fetch this from an API, but for now we load from JSON.
+    const sortedPosts = [...initialPosts].sort((a,b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+    setPosts(sortedPosts as Post[]);
   }, []);
 
   const addPost = (frontmatter: PostFrontmatter, content: string) => {
@@ -49,8 +48,9 @@ export const BlogProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updatePost = (slug: string, frontmatter: PostFrontmatter, content: string) => {
+    const newSlug = slugify(frontmatter.title);
     setPosts(prev =>
-      prev.map(p => p.slug === slug ? { ...p, frontmatter, content } : p)
+      prev.map(p => p.slug === slug ? { ...p, slug: newSlug, frontmatter, content } : p)
        .sort((a,b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
     );
      toast({ title: "Blog Post Updated", description: `"${frontmatter.title}" has been saved.` });
