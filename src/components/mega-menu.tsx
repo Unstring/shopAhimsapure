@@ -52,7 +52,7 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-full gap-6 p-4 md:w-[600px] md:grid-cols-[1fr_250px]">
+            <div className="grid w-full gap-6 p-4 md:grid-cols-[.75fr_1fr] lg:grid-cols-[1fr_250px] lg:w-auto">
                 <ul className="grid grid-cols-2 gap-3">
                   {categories.map((component) => (
                     <ListItem
@@ -92,11 +92,10 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Company</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2">
+            <ul className="grid w-full gap-3 p-4 md:grid-cols-2 lg:w-auto">
               {companyLinks.map((link) => (
                 <ListItem
                   key={link.title}
-                  title={link.title}
                   href={link.href}
                   className="flex items-start gap-3"
                 >

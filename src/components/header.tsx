@@ -37,7 +37,7 @@ export default function Header() {
     <>
       <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 w-full border-b">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 md:gap-8">
+          <div className="flex items-center gap-2 md:gap-4">
             <Link href="/" className="flex items-center gap-2">
               <Leaf className="h-7 w-7 text-primary" />
               <span className="font-headline text-2xl font-bold text-foreground">
@@ -45,7 +45,7 @@ export default function Header() {
               </span>
             </Link>
             
-            <nav className="hidden md:flex items-center gap-4">
+            <nav className="hidden md:flex items-center">
                <MegaMenu />
             </nav>
           </div>
