@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Facebook, Twitter, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
 import layoutData from "@/content/layout.json";
+import { ThemeSwitcher } from "./theme-switcher";
 
 const socialIcons: { [key: string]: React.ElementType } = {
   Facebook,
@@ -96,8 +97,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t pt-8 flex flex-col sm:flex-row items-center justify-between text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} AhimsaPure.com. All rights reserved.</p>
+          <ThemeSwitcher />
         </div>
       </div>
     </footer>
