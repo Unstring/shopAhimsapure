@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <>
       <header className="bg-gradient-to-b from-background via-background/90 to-transparent backdrop-blur-sm sticky top-0 z-40 w-full">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto flex h-14 items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2">
             <Leaf className="h-7 w-7 text-primary" />
             <span className="font-headline text-2xl font-bold text-foreground">
