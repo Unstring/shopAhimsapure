@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -39,7 +40,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                   <div key={item.product.id} className="flex items-start gap-4">
                     <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border">
                       <Image
-                        src={item.product.image}
+                        src={item.product.images[0]}
                         alt={item.product.name}
                         fill
                         className="object-cover"

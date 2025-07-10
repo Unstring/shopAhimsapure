@@ -3,73 +3,204 @@
   {
     "id": "prod_1",
     "name": "Organic A2 Ghee",
-    "description": "Pure, hand-churned ghee from the milk of grass-fed A2 cows. Rich in nutrients and flavor.",
+    "description": "Our pure, hand-churned A2 Desi Cow Ghee is a testament to tradition and purity. Made from the milk of grass-fed Gir cows, it is a powerhouse of nutrition and flavor. The traditional Bilona method of churning curd ensures that all the natural goodness is preserved. It's rich in Omega-3 and Omega-9 fatty acids, vitamins A, D, E, and K, and has a high smoke point, making it perfect for all types of cooking.",
     "price": 850,
-    "image": "https://placehold.co/400x400.png",
+    "images": [
+      "https://placehold.co/600x600.png",
+      "https://placehold.co/600x600.png",
+      "https://placehold.co/600x600.png"
+    ],
     "category": "Dairy",
-    "data_ai_hint": "ghee jar"
+    "data_ai_hint": "ghee jar",
+    "details": {
+      "origin": "Partner Farms, Karnataka",
+      "shelfLife": "12 months",
+      "ingredients": "100% A2 Cow Milk Butter",
+      "netWeight": "500ml"
+    },
+    "certifications": [
+      {
+        "name": "FSSAI Certified",
+        "description": "Licensed by the Food Safety and Standards Authority of India."
+      },
+      {
+        "name": "India Organic",
+        "description": "Certified organic by the National Programme for Organic Production (NPOP)."
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 5,
+        "author": "Anjali R.",
+        "date": "2024-07-15",
+        "comment": "The aroma and taste are just like homemade ghee. Superb quality!"
+      },
+      {
+        "rating": 5,
+        "author": "Vikram Singh",
+        "date": "2024-07-10",
+        "comment": "Best ghee I've ever purchased online. You can tell it's pure."
+      }
+    ]
   },
   {
     "id": "prod_2",
     "name": "Heirloom Tomato Box",
-    "description": "A colorful assortment of juicy, flavorful heirloom tomatoes, grown using organic methods.",
+    "description": "A vibrant assortment of juicy, flavorful heirloom tomatoes, grown with passion using regenerative organic methods. Each box is a surprise mix of colors, shapes, and sizes, from deep reds to sunny yellows and striped greens. Perfect for salads, sauces, or simply sliced with a sprinkle of salt.",
     "price": 350,
-    "image": "https://placehold.co/400x400.png",
+    "images": [
+      "https://placehold.co/600x600.png",
+      "https://placehold.co/600x600.png"
+    ],
     "category": "Vegetables",
-    "data_ai_hint": "heirloom tomatoes"
+    "data_ai_hint": "heirloom tomatoes",
+    "details": {
+      "origin": "AhimsaPure Organics, Tamil Nadu",
+      "shelfLife": "5-7 days refrigerated",
+      "ingredients": "Assorted Heirloom Tomatoes",
+      "netWeight": "1kg"
+    },
+    "certifications": [
+      {
+        "name": "PGS-India Certified",
+        "description": "Certified under the Participatory Guarantee System for India."
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 5,
+        "author": "Priya D.",
+        "date": "2024-07-18",
+        "comment": "So beautiful and delicious! Made the most amazing caprese salad."
+      }
+    ]
   },
   {
     "id": "prod_3",
     "name": "Wild Forest Honey",
-    "description": "Raw, unprocessed honey harvested from the nectar of wild flowers in pristine forests.",
+    "description": "Raw, unprocessed honey harvested sustainably from the nectar of wild flowers in the pristine forests of the Western Ghats. Our honey is never heated or filtered, preserving all its natural enzymes, pollen, and medicinal properties. A truly wild taste of nature.",
     "price": 480,
-    "image": "https://placehold.co/400x400.png",
+    "images": [
+      "https://placehold.co/600x600.png"
+    ],
     "category": "Pantry",
-    "data_ai_hint": "honey jar"
+    "data_ai_hint": "honey jar",
+    "details": {
+        "origin": "Western Ghats, Kerala",
+        "shelfLife": "24 months",
+        "ingredients": "100% Raw, Unprocessed Honey",
+        "netWeight": "350g"
+    },
+    "certifications": [
+         {
+        "name": "FSSAI Certified",
+        "description": "Licensed by the Food Safety and Standards Authority of India."
+      }
+    ],
+    "reviews": []
   },
   {
     "id": "prod_4",
     "name": "Farm-Fresh Paneer",
-    "description": "Soft and creamy paneer made from fresh, whole A2 milk. Perfect for curries and grills.",
+    "description": "Soft, creamy, and melt-in-your-mouth paneer (cottage cheese) made from fresh, whole A2 milk. Our paneer is made daily in small batches without any preservatives or additives. Its delicate texture makes it perfect for curries, grills, or simply pan-fried.",
     "price": 250,
-    "image": "https://placehold.co/400x400.png",
+    "images": [
+      "https://placehold.co/600x600.png"
+    ],
     "category": "Dairy",
-    "data_ai_hint": "paneer cheese"
+    "data_ai_hint": "paneer cheese",
+    "details": {
+        "origin": "Partner Farms, Karnataka",
+        "shelfLife": "5 days refrigerated",
+        "ingredients": "A2 Cow Milk, Natural Lemon Juice",
+        "netWeight": "200g"
+    },
+    "certifications": [],
+    "reviews": []
   },
   {
     "id": "prod_5",
     "name": "Assorted Leafy Greens",
-    "description": "A mix of fresh, seasonal leafy greens like spinach, kale, and lettuce. Triple-washed and ready to eat.",
+    "description": "A power-packed mix of fresh, seasonal leafy greens. Our selection changes based on what's best in the season but often includes spinach, kale, amaranth, and lettuce. Triple-washed and ready to fuel your day.",
     "price": 180,
-    "image": "https://placehold.co/400x400.png",
+    "images": [
+      "https://placehold.co/600x600.png"
+    ],
     "category": "Vegetables",
-    "data_ai_hint": "leafy greens"
+    "data_ai_hint": "leafy greens",
+    "details": {
+        "origin": "AhimsaPure Organics, Tamil Nadu",
+        "shelfLife": "4-6 days refrigerated",
+        "ingredients": "Seasonal mix of organic leafy greens",
+        "netWeight": "250g"
+    },
+    "certifications": [],
+    "reviews": []
   },
   {
     "id": "prod_6",
     "name": "Cold-Pressed Groundnut Oil",
-    "description": "Nutrient-rich groundnut oil extracted using traditional cold-press methods to retain its natural goodness.",
+    "description": "Nutrient-rich groundnut oil extracted using traditional 'kachi ghani' (cold-press) methods. This process uses a wooden press to extract oil without heat, retaining all its natural nutrients, aroma, and flavor. It's unrefined and free from any chemicals.",
     "price": 420,
-    "image": "https://placehold.co/400x400.png",
+    "images": [
+      "https://placehold.co/600x600.png"
+    ],
     "category": "Oils",
-    "data_ai_hint": "oil bottle"
+    "data_ai_hint": "oil bottle",
+    "details": {
+        "origin": "Farm Cooperatives, Gujarat",
+        "shelfLife": "9 months",
+        "ingredients": "100% Cold-Pressed Groundnuts",
+        "netWeight": "1 Litre"
+    },
+    "certifications": [
+        {
+            "name": "FSSAI Certified",
+            "description": "Licensed by the Food Safety and Standards Authority of India."
+        },
+        {
+            "name": "Wood-Pressed",
+            "description": "Extracted using traditional non-chemical methods."
+        }
+    ],
+    "reviews": []
   },
   {
     "id": "prod_7",
     "name": "Organic Mangoes (Seasonal)",
-    "description": "Juicy, sweet, and fragrant organic mangoes, delivered straight from the farm during the season.",
+    "description": "Juicy, sweet, and fragrant organic mangoes, delivered straight from the farm during the season. Our mangoes are naturally ripened without any chemical agents, ensuring you get the authentic taste and health benefits. Variety depends on the peak of the season.",
     "price": 600,
-    "image": "https://placehold.co/400x400.png",
+    "images": [
+      "https://placehold.co/600x600.png"
+    ],
     "category": "Fruits",
-    "data_ai_hint": "ripe mangoes"
+    "data_ai_hint": "ripe mangoes",
+    "details": {
+        "origin": "Ratnagiri, Maharashtra",
+        "shelfLife": "3-5 days at room temperature",
+        "ingredients": "Organic Mangoes",
+        "netWeight": "Approx. 1kg (3-4 pieces)"
+    },
+    "certifications": [],
+    "reviews": []
   },
   {
     "id": "prod_8",
     "name": "Ancient Grain Flour Mix",
-    "description": "A wholesome blend of ancient grains like millet, amaranth, and quinoa, stone-ground to perfection.",
+    "description": "A wholesome, gluten-free blend of ancient grains like jowar (sorghum), bajra (pearl millet), and ragi (finger millet). Stone-ground to preserve nutrients, this flour mix is perfect for making nutritious rotis, dosas, and baked goods.",
     "price": 280,
-    "image": "https://placehold.co/400x400.png",
+    "images": [
+      "https://placehold.co/600x600.png"
+    ],
     "category": "Pantry",
-    "data_ai_hint": "flour bag"
+    "data_ai_hint": "flour bag",
+    "details": {
+        "origin": "Partner Farms, Rajasthan",
+        "shelfLife": "6 months",
+        "ingredients": "Jowar, Bajra, Ragi",
+        "netWeight": "1kg"
+    },
+    "certifications": [],
+    "reviews": []
   }
 ]

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useCart } from "@/hooks/use-cart";
@@ -200,7 +201,7 @@ export default function CheckoutPage() {
                <div className="flex items-center gap-4">
                   <div className="relative h-16 w-16 rounded-md border overflow-hidden">
                     <Image
-                        src={item.product.image}
+                        src={item.product.images[0]}
                         alt={item.product.name}
                         fill
                         className="object-cover"

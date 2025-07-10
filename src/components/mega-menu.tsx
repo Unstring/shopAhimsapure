@@ -57,7 +57,7 @@ export function MegaMenu() {
               <div className="flex flex-col h-full justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-4">
                 <div className="relative h-40 w-full overflow-hidden rounded-md">
                      <Image
-                        src={featuredProduct.image}
+                        src={featuredProduct.images[0]}
                         alt={featuredProduct.name}
                         fill
                         className="object-cover"
