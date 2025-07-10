@@ -1,0 +1,23 @@
+
+{
+  "teamMembers": [
+    {
+      "name": "Founder 1",
+      "role": "Chief Farmer",
+      "avatar": "https://placehold.co/100x100.png",
+      "data_ai_hint": "person smiling"
+    },
+    {
+      "name": "Founder 2",
+      "role": "Head of Operations",
+      "avatar": "https://placehold.co/100x100.png",
+      "data_ai_hint": "person smiling"
+    },
+    {
+      "name": "Founder 3",
+      "role": "Community Manager",
+      "avatar": "https://placehold.co/100x100.png",
+      "data_ai_hint": "person smiling"
+    }
+  ]
+}

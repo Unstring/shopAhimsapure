@@ -1,29 +1,12 @@
+
 import Image from 'next/image';
 import { Leaf, Heart, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import aboutData from '@/content/about-page.json';
 
 export default function AboutPage() {
-  const teamMembers = [
-    {
-      name: 'Founder 1',
-      role: 'Chief Farmer',
-      avatar: 'https://placehold.co/100x100.png',
-      data_ai_hint: 'person smiling'
-    },
-    {
-      name: 'Founder 2',
-      role: 'Head of Operations',
-      avatar: 'https://placehold.co/100x100.png',
-      data_ai_hint: 'person smiling'
-    },
-    {
-      name: 'Founder 3',
-      role: 'Community Manager',
-      avatar: 'https://placehold.co/100x100.png',
-      data_ai_hint: 'person smiling'
-    },
-  ];
+  const { teamMembers } = aboutData;
 
   return (
     <div className="space-y-16">

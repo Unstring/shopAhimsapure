@@ -1,54 +1,24 @@
+
 import { Button } from "@/components/ui/button";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
 import { Leaf, Truck, HeartHandshake, Star } from "lucide-react";
 import Link from "next/link";
 import { ProductRecommendations } from "@/components/product-recommendations";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import homePageData from "@/content/home-page.json";
+
+const icons: { [key: string]: React.ElementType } = {
+  Leaf,
+  Truck,
+  HeartHandshake,
+};
 
 export default function HomePage() {
   const featuredProducts = products.slice(0, 4);
-
-  const whyChooseUsItems = [
-    {
-      icon: Leaf,
-      title: "100% Farm-Fresh",
-      description: "We source directly from local farms to ensure the freshest produce for your family.",
-    },
-    {
-      icon: Truck,
-      title: "Reliable Delivery",
-      description: "Get your fresh groceries delivered to your doorstep, on time, every time.",
-    },
-    {
-      icon: HeartHandshake,
-      title: "Supporting Farmers",
-      description: "We are committed to fair trade practices that support our hardworking farmers.",
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Priya S.",
-      location: "Bengaluru",
-      quote: "The quality of the vegetables is unmatched. It feels like I'm getting them straight from a garden!",
-      avatar: "https://placehold.co/40x40.png"
-    },
-    {
-      name: "Amit K.",
-      location: "Mumbai",
-      quote: "Finally, a service that delivers truly organic and fresh products. The A2 ghee is a must-try.",
-      avatar: "https://placehold.co/40x40.png"
-    },
-    {
-      name: "Rohan M.",
-      location: "Delhi",
-      quote: "I love the convenience and the quality. The customer service is also excellent. Highly recommended!",
-      avatar: "https://placehold.co/40x40.png"
-    }
-  ];
+  const { whyChooseUsItems, testimonials } = homePageData;
 
   return (
     <div className="space-y-16">
@@ -92,15 +62,18 @@ export default function HomePage() {
       <section className="bg-primary/5 rounded-2xl p-8 md:p-12">
         <h2 className="text-3xl font-headline font-bold text-center mb-8">Why AhimsaPure?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {whyChooseUsItems.map((item) => (
-            <div key={item.title} className="flex flex-col items-center">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-4">
-                <item.icon className="h-8 w-8 text-primary" />
+          {whyChooseUsItems.map((item) => {
+            const Icon = icons[item.icon];
+            return (
+              <div key={item.title} className="flex flex-col items-center">
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-4">
+                  <Icon className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-headline font-semibold">{item.title}</h3>
+                <p className="mt-2 text-muted-foreground">{item.description}</p>
               </div>
-              <h3 className="text-xl font-headline font-semibold">{item.title}</h3>
-              <p className="mt-2 text-muted-foreground">{item.description}</p>
-            </div>
-          ))}
+            )
+           })}
         </div>
       </section>
 

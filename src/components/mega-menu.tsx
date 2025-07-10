@@ -1,9 +1,9 @@
+
 "use client"
 
 import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
-
 import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
@@ -17,25 +17,15 @@ import {
 import { products } from "@/lib/products"
 import { Button } from "./ui/button"
 import { HelpCircle, Info, LucideIcon, Rss, Shield, Heart } from "lucide-react"
+import layoutData from "@/content/layout.json";
 
-const categories = [
-    { title: "All Products", href: "/products", description: "Browse our entire collection." },
-    { title: "Vegetables", href: "/products?category=Vegetables", description: "Fresh, seasonal, and organic." },
-    { title: "Fruits", href: "/products?category=Fruits", description: "Juicy, delicious, and natural." },
-    { title: "Dairy", href: "/products?category=Dairy", description: "Pure A2 milk products." },
-    { title: "Pantry", href: "/products?category=Pantry", description: "Wholesome staples." },
-    { title: "Oils", href: "/products?category=Oils", description: "Cold-pressed and nutrient-rich." },
-]
 
-const companyLinks: { title: string; href: string; icon: LucideIcon; description: string }[] = [
-    { title: "About Us", href: "/about", icon: Info, description: "Learn about our mission and values." },
-    { title: "Our Story", href: "/about", icon: Heart, description: "The journey of AhimsaPure." },
-    { title: "Blog", href: "/blog", icon: Rss, description: "Recipes, tips, and farm stories." },
-    { title: "FAQs", href: "/faq", icon: HelpCircle, description: "Answers to your common questions." },
-    { title: "Privacy Policy", href: "/privacy", icon: Shield, description: "How we protect your data." },
-]
+const companyIcons: { [key: string]: LucideIcon } = {
+    Info, Heart, Rss, HelpCircle, Shield
+}
 
 export function MegaMenu() {
+    const { categories, companyLinks } = layoutData.megaMenu;
     const featuredProduct = products[6]; // Organic Mangoes
 
   return (
@@ -52,7 +42,7 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-full gap-6 p-4 md:grid-cols-[.75fr_1fr] lg:grid-cols-[1fr_250px] md:w-[500px] lg:w-[600px]">
+            <div className="grid w-full gap-6 p-4 md:grid-cols-[.75fr_1fr] lg:grid-cols-[1fr_250px] md:w-auto lg:w-[600px] lg:max-w-screen-lg">
                 <ul className="grid grid-cols-2 gap-3">
                   {categories.map((component) => (
                     <ListItem
@@ -92,22 +82,25 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Company</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-full gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
-              {companyLinks.map((link) => (
-                <ListItem
-                  key={link.title}
-                  href={link.href}
-                  className="flex items-start gap-3"
-                >
-                    <div className="bg-primary/10 p-2 rounded-md">
-                        <link.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                        <p className="font-semibold">{link.title}</p>
-                        <p className="text-sm text-muted-foreground">{link.description}</p>
-                    </div>
-                </ListItem>
-              ))}
+            <ul className="grid w-full gap-3 p-4 md:w-auto lg:w-[500px] lg:grid-cols-2 lg:max-w-screen-md">
+              {companyLinks.map((link) => {
+                const Icon = companyIcons[link.icon]
+                return (
+                    <ListItem
+                    key={link.title}
+                    href={link.href}
+                    className="flex items-start gap-3"
+                    >
+                        <div className="bg-primary/10 p-2 rounded-md">
+                            <Icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                            <p className="font-semibold">{link.title}</p>
+                            <p className="text-sm text-muted-foreground">{link.description}</p>
+                        </div>
+                    </ListItem>
+                )
+            })}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

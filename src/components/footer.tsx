@@ -1,30 +1,17 @@
+
 import Link from "next/link";
 import { Leaf, Facebook, Twitter, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
+import layoutData from "@/content/layout.json";
+
+const socialIcons: { [key: string]: React.ElementType } = {
+  Facebook,
+  Twitter,
+  Instagram,
+};
 
 export default function Footer() {
-  const quickLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Contact", href: "/contact" },
-    { name: "FAQs", href: "/faq" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Track Order", href: "/track-order" },
-  ];
-
-  const shopLinks = [
-    { name: "All Products", href: "/products" },
-    { name: "Vegetables", href: "/products?category=Vegetables" },
-    { name: "Fruits", href: "/products?category=Fruits" },
-    { name: "Dairy", href: "/products?category=Dairy" },
-    { name: "Pantry", href: "/products?category=Pantry" },
-    { name: "Oils", href: "/products?category=Oils" },
-  ];
-
-  const socialLinks = [
-    { name: "Facebook", icon: Facebook, href: "#" },
-    { name: "Twitter", icon: Twitter, href: "#" },
-    { name: "Instagram", icon: Instagram, href: "#" },
-  ];
+  const { quickLinks, shopLinks, socialLinks } = layoutData;
 
   return (
     <footer className="bg-primary/5 border-t">
@@ -75,13 +62,16 @@ export default function Footer() {
           <div>
             <h3 className="font-headline font-semibold text-foreground">Follow Us</h3>
             <div className="flex space-x-4 mt-4">
-              {socialLinks.map((social) => (
-                <Button key={social.name} variant="ghost" size="icon" asChild>
-                  <a href={social.href} aria-label={social.name}>
-                    <social.icon className="h-5 w-5 text-muted-foreground hover:text-foreground" />
-                  </a>
-                </Button>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon = socialIcons[social.icon];
+                return (
+                  <Button key={social.name} variant="ghost" size="icon" asChild>
+                    <a href={social.href} aria-label={social.name}>
+                      <Icon className="h-5 w-5 text-muted-foreground hover:text-foreground" />
+                    </a>
+                  </Button>
+                )
+              })}
             </div>
           </div>
         </div>

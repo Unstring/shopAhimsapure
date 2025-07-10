@@ -1,0 +1,40 @@
+
+{
+  "whyChooseUsItems": [
+    {
+      "icon": "Leaf",
+      "title": "100% Farm-Fresh",
+      "description": "We source directly from local farms to ensure the freshest produce for your family."
+    },
+    {
+      "icon": "Truck",
+      "title": "Reliable Delivery",
+      "description": "Get your fresh groceries delivered to your doorstep, on time, every time."
+    },
+    {
+      "icon": "HeartHandshake",
+      "title": "Supporting Farmers",
+      "description": "We are committed to fair trade practices that support our hardworking farmers."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Priya S.",
+      "location": "Bengaluru",
+      "quote": "The quality of the vegetables is unmatched. It feels like I'm getting them straight from a garden!",
+      "avatar": "https://placehold.co/40x40.png"
+    },
+    {
+      "name": "Amit K.",
+      "location": "Mumbai",
+      "quote": "Finally, a service that delivers truly organic and fresh products. The A2 ghee is a must-try.",
+      "avatar": "https://placehold.co/40x40.png"
+    },
+    {
+      "name": "Rohan M.",
+      "location": "Delhi",
+      "quote": "I love the convenience and the quality. The customer service is also excellent. Highly recommended!",
+      "avatar": "https://placehold.co/40x40.png"
+    }
+  ]
+}

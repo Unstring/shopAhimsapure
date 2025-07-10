@@ -1,0 +1,40 @@
+
+{
+  "quickLinks": [
+    { "name": "About Us", "href": "/about" },
+    { "name": "Contact", "href": "/contact" },
+    { "name": "FAQs", "href": "/faq" },
+    { "name": "Privacy Policy", "href": "/privacy" },
+    { "name": "Track Order", "href": "/track-order" }
+  ],
+  "shopLinks": [
+    { "name": "All Products", "href": "/products" },
+    { "name": "Vegetables", "href": "/products?category=Vegetables" },
+    { "name": "Fruits", "href": "/products?category=Fruits" },
+    { "name": "Dairy", "href": "/products?category=Dairy" },
+    { "name": "Pantry", "href": "/products?category=Pantry" },
+    { "name": "Oils", "href": "/products?category=Oils" }
+  ],
+  "socialLinks": [
+    { "name": "Facebook", "icon": "Facebook", "href": "#" },
+    { "name": "Twitter", "icon": "Twitter", "href": "#" },
+    { "name": "Instagram", "icon": "Instagram", "href": "#" }
+  ],
+  "megaMenu": {
+    "categories": [
+      { "title": "All Products", "href": "/products", "description": "Browse our entire collection." },
+      { "title": "Vegetables", "href": "/products?category=Vegetables", "description": "Fresh, seasonal, and organic." },
+      { "title": "Fruits", "href": "/products?category=Fruits", "description": "Juicy, delicious, and natural." },
+      { "title": "Dairy", "href": "/products?category=Dairy", "description": "Pure A2 milk products." },
+      { "title": "Pantry", "href": "/products?category=Pantry", "description": "Wholesome staples." },
+      { "title": "Oils", "href": "/products?category=Oils", "description": "Cold-pressed and nutrient-rich." }
+    ],
+    "companyLinks": [
+      { "title": "About Us", "href": "/about", "icon": "Info", "description": "Learn about our mission and values." },
+      { "title": "Our Story", "href": "/about", "icon": "Heart", "description": "The journey of AhimsaPure." },
+      { "title": "Blog", "href": "/blog", "icon": "Rss", "description": "Recipes, tips, and farm stories." },
+      { "title": "FAQs", "href": "/faq", "icon": "HelpCircle", "description": "Answers to your common questions." },
+      { "title": "Privacy Policy", "href": "/privacy", "icon": "Shield", "description": "How we protect your data." }
+    ]
+  }
+}
