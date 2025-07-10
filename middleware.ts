@@ -21,6 +21,10 @@ export function middleware(request: NextRequest) {
     '/track-order',
     '/coming-soon',
     '/maintenance',
+    '/admin',
+    '/admin/products',
+    '/admin/orders',
+    '/admin/customers',
   ];
 
   // Check if the requested path is a valid static path
