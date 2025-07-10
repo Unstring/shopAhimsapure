@@ -36,23 +36,26 @@ export default function Header() {
   return (
     <>
       <header 
-        className="bg-background/95 backdrop-blur-sm sticky top-0 z-40 w-full pb-2"
+        className="bg-background/95 backdrop-blur-sm sticky top-0 z-40 w-full"
         style={{
-          maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
         }}
       >
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-2">
-            <Leaf className="h-7 w-7 text-primary" />
-            <span className="font-headline text-2xl font-bold text-foreground">
-              AhimsaPure
-            </span>
-          </Link>
-          
-          <div className="hidden md:block">
-            <MegaMenu />
+          <div className="flex items-center gap-2 md:gap-8">
+            <Link href="/" className="flex items-center gap-2">
+              <Leaf className="h-7 w-7 text-primary" />
+              <span className="font-headline text-2xl font-bold text-foreground">
+                AhimsaPure
+              </span>
+            </Link>
+            
+            <div className="hidden md:block">
+              <MegaMenu />
+            </div>
           </div>
+
 
           <div className="flex items-center gap-2">
             <Button
