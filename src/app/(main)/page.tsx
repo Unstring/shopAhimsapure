@@ -26,8 +26,8 @@ export default function HomePage() {
   const featuredProducts = products.slice(0, 4);
   const { whyChooseUsItems, testimonials } = homePageData;
 
-  const plugin = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true, direction: 'backward' })
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true, direction: 'backward' })
   )
 
   return (
@@ -93,21 +93,21 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="overflow-hidden">
+      <section className="overflow-x-hidden">
         <h2 className="text-3xl font-headline font-bold text-center mb-8">What Our Customers Say</h2>
         <Carousel
             opts={{
                 align: "start",
                 loop: true,
             }}
-            plugins={[plugin.current]}
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
+            plugins={[autoplayPlugin.current]}
+            onMouseEnter={autoplayPlugin.current.stop}
+            onMouseLeave={autoplayPlugin.current.reset}
             className="w-full"
         >
-          <CarouselContent>
+          <CarouselContent className="-ml-0">
              {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
                     <div className="p-1 h-full">
                         <Card className="bg-card/80 border-2 h-full">
                             <CardContent className="p-6 flex flex-col h-full">
