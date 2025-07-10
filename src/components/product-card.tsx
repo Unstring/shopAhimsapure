@@ -1,7 +1,6 @@
 
 "use client";
 
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Product } from '@/lib/products';
@@ -9,6 +8,7 @@ import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
 import { ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
+import { ManagedImage } from './managed-image';
 
 interface ProductCardProps {
   product: Product;
@@ -32,7 +32,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <Link href={`/products/${product.id}`} className="flex flex-col flex-grow">
         <CardHeader className="p-0 border-b">
           <div className="relative aspect-square w-full">
-            <Image
+            <ManagedImage
               src={product.images[0]}
               alt={product.name}
               fill

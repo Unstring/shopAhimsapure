@@ -1,9 +1,9 @@
 
-import Image from 'next/image';
 import { Leaf, Heart, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import aboutData from '@/content/about-page.json';
+import { ManagedImage } from '@/components/managed-image';
 
 export default function AboutPage() {
   const { teamMembers } = aboutData;
@@ -21,7 +21,7 @@ export default function AboutPage() {
       {/* Mission & Vision Section */}
       <section className="grid md:grid-cols-2 gap-12 items-center">
         <div className="relative h-96 w-full rounded-lg overflow-hidden">
-          <Image
+          <ManagedImage
             src="https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1974&auto=format&fit=crop"
             alt="Farmers in a field"
             fill
@@ -76,7 +76,7 @@ export default function AboutPage() {
             <Card key={member.name} className="text-center w-full max-w-sm">
               <CardContent className="p-6">
                 <Avatar className="h-24 w-24 mx-auto mb-4">
-                  <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.data_ai_hint} />
+                  <ManagedImage src={member.avatar} alt={member.name} className="aspect-square h-full w-full" width={96} height={96} />
                   <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <h3 className="text-lg font-headline font-semibold">{member.name}</h3>

@@ -1,7 +1,9 @@
+
 "use client"
 
 import * as React from "react"
 import * as AvatarPrimitive from "@radix-ui/react-avatar"
+import { ManagedImage } from "../managed-image"
 
 import { cn } from "@/lib/utils"
 
@@ -21,10 +23,10 @@ const Avatar = React.forwardRef<
 Avatar.displayName = AvatarPrimitive.Root.displayName
 
 const AvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
+  React.ElementRef<typeof ManagedImage>,
+  React.ComponentPropsWithoutRef<typeof ManagedImage>
 >(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Image
+  <ManagedImage
     ref={ref}
     className={cn("aspect-square h-full w-full", className)}
     {...props}

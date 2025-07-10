@@ -2,7 +2,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import {
   Sheet,
   SheetContent,
@@ -16,6 +15,7 @@ import { useCart } from "@/hooks/use-cart";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Minus, Plus, Trash2, ShoppingCart } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { ManagedImage } from "./managed-image";
 
 interface CartSheetProps {
   open: boolean;
@@ -39,7 +39,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                 {items.map((item) => (
                   <div key={item.product.id} className="flex items-start gap-4">
                     <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border">
-                      <Image
+                      <ManagedImage
                         src={item.product.images[0]}
                         alt={item.product.name}
                         fill

@@ -6,7 +6,7 @@ import { Leaf, Truck, HeartHandshake, Star } from "lucide-react";
 import Link from "next/link";
 import { ProductRecommendations } from "@/components/product-recommendations";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+import { ManagedImage } from "@/components/managed-image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import homePageData from "@/content/home-page.json";
 
@@ -25,7 +25,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative -mx-8 -mt-8 h-[60vh] flex items-center justify-center rounded-b-2xl overflow-hidden bg-primary/10">
         <div className="absolute inset-0">
-          <Image
+          <ManagedImage
             src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1974&auto=format&fit=crop"
             alt="A lush green farm"
             fill
@@ -95,7 +95,7 @@ export default function HomePage() {
                   <p className="text-foreground/90 italic">"{testimonial.quote}"</p>
                   <div className="flex items-center mt-4">
                       <Avatar className="h-10 w-10">
-                          <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint="person smiling" />
+                          <ManagedImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint="person smiling" width={40} height={40} className="aspect-square h-full w-full" />
                           <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div className="ml-4">

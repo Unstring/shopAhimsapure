@@ -2,11 +2,11 @@
 "use client";
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import type { Product } from '@/lib/products';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Expand } from 'lucide-react';
+import { ManagedImage } from '@/components/managed-image';
 
 interface ImageGalleryProps {
     product: Product;
@@ -20,7 +20,7 @@ export function ImageGallery({ product }: ImageGalleryProps) {
              <Dialog>
                 <DialogTrigger asChild>
                     <div className="relative group aspect-square w-full rounded-lg overflow-hidden border cursor-pointer">
-                        <Image
+                        <ManagedImage
                             src={selectedImage}
                             alt={product.name}
                             fill
@@ -36,7 +36,7 @@ export function ImageGallery({ product }: ImageGalleryProps) {
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl w-auto p-0 bg-transparent border-0">
                     <div className="relative aspect-square w-full">
-                        <Image
+                        <ManagedImage
                             src={selectedImage}
                             alt={product.name}
                             fill
@@ -57,7 +57,7 @@ export function ImageGallery({ product }: ImageGalleryProps) {
                             selectedImage === image ? "border-primary" : "border-transparent"
                         )}
                     >
-                        <Image
+                        <ManagedImage
                             src={image}
                             alt={`${product.name} thumbnail ${index + 1}`}
                             fill

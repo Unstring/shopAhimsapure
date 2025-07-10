@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
+import { ManagedImage } from "@/components/managed-image";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -200,7 +200,7 @@ export default function CheckoutPage() {
             <div key={item.product.id} className="flex justify-between items-center">
                <div className="flex items-center gap-4">
                   <div className="relative h-16 w-16 rounded-md border overflow-hidden">
-                    <Image
+                    <ManagedImage
                         src={item.product.images[0]}
                         alt={item.product.name}
                         fill

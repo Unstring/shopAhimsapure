@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ImageGallery } from "./image-gallery";
+import { ManagedImage } from "@/components/managed-image";
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const product = products.find((p) => p.id === params.id);
@@ -98,7 +99,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
                                         <Avatar>
-                                            <AvatarImage src={`https://images.unsplash.com/photo-1535713875002-d1d0cf377fDE?q=80&w=2080&auto=format&fit=crop`} data-ai-hint="person face" />
+                                            <ManagedImage src={review.avatar} alt={review.author} width={40} height={40} className="aspect-square h-full w-full" data-ai-hint="person face" />
                                             <AvatarFallback>{review.author.charAt(0)}</AvatarFallback>
                                         </Avatar>
                                         <div>

@@ -6,6 +6,7 @@ export type Review = {
   author: string;
   date: string;
   comment: string;
+  avatar: string;
 };
 
 export type Certification = {

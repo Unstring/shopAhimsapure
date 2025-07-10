@@ -3,7 +3,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
@@ -18,6 +17,7 @@ import { products } from "@/lib/products"
 import { Button } from "./ui/button"
 import { HelpCircle, Info, LucideIcon, Rss, Shield, Heart } from "lucide-react"
 import layoutData from "@/content/layout.json";
+import { ManagedImage } from "./managed-image"
 
 
 const companyIcons: { [key: string]: LucideIcon } = {
@@ -56,7 +56,7 @@ export function MegaMenu() {
                 </ul>
               <div className="flex flex-col h-full justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-4">
                 <div className="relative h-40 w-full overflow-hidden rounded-md">
-                     <Image
+                     <ManagedImage
                         src={featuredProduct.images[0]}
                         alt={featuredProduct.name}
                         fill
