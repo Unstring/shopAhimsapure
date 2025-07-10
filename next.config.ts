@@ -1,6 +1,9 @@
 
 import type {NextConfig} from 'next';
 
+import {getProducts} from './src/lib/products';
+import {getPosts} from './src/lib/blog';
+
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
@@ -27,6 +30,7 @@ const nextConfig: NextConfig = {
       }
     ],
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
