@@ -93,7 +93,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section>
+      <section className="overflow-hidden">
         <h2 className="text-3xl font-headline font-bold text-center mb-8">What Our Customers Say</h2>
         <Carousel
             opts={{
