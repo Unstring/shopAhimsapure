@@ -32,7 +32,7 @@ export default function ComingSoonPage() {
       <div className="flex items-center gap-2 mb-8">
         <CowIcon className="h-10 w-10 text-primary" />
         <span className="font-headline text-4xl font-bold text-foreground">
-            Farm Fresh Express
+            AhimsaPure
         </span>
       </div>
       <Rocket className="w-24 h-24 text-primary mb-4" />

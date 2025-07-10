@@ -43,7 +43,7 @@ export default function Error({
        <div className="flex items-center gap-2 mb-8">
         <CowIcon className="h-10 w-10 text-primary" />
         <span className="font-headline text-4xl font-bold text-foreground">
-            Farm Fresh Express
+            AhimsaPure
         </span>
       </div>
       <AlertTriangle className="w-24 h-24 text-destructive mb-4" />
