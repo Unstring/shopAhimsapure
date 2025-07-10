@@ -25,6 +25,8 @@ export type Post = {
 
 export async function getPostSlugs() {
   const fileNames = await fs.readdir(postsDirectory);
+  // a-b is ascending, b-a is descending
+  fileNames.sort((a,b) => a < b ? 1 : -1);
   return fileNames.map(fileName => fileName.replace(/\.md$/, ''));
 }
 
@@ -51,9 +53,10 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 export async function getAllPosts(): Promise<Post[]> {
   const slugs = await getPostSlugs();
   const posts = await Promise.all(slugs.map(slug => getPostBySlug(slug)));
-
   // Filter out any null posts and sort by date in descending order
   return posts
     .filter((post): post is Post => post !== null)
-    .sort((post1, post2) => (post1.frontmatter.date > post2.frontmatter.date ? -1 : 1));
+    .sort((post1, post2) => (new Date(post1.frontmatter.date) > new Date(post2.frontmatter.date) ? -1 : 1));
 }
+
+    

@@ -23,3 +23,5 @@ While all our products are produced using organic principles, our philosophy goe
 ### A Full Circle of Care
 
 This holistic approach creates a virtuous cycle. Healthy soil grows healthy fodder, which nourishes our healthy cows, who in turn provide wholesome milk for you. By supporting AhimsaPure, you're not just buying dairy; you're becoming part of a movement that values sustainability, ethical practices, and the well-being of all. Thank you for being a part of our journey.
+
+    

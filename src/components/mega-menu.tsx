@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -18,26 +19,35 @@ import { HelpCircle, Info, LucideIcon, Rss, Shield, Heart } from "lucide-react"
 import layoutData from "@/content/layout.json";
 import { ManagedImage } from "./managed-image"
 
-
 const companyIcons: { [key: string]: LucideIcon } = {
     Info, Heart, Rss, HelpCircle, Shield
 }
 
+// These are static for the mega menu.
+// A real app might fetch these, but for this component, we'll use a static list.
+const recentPosts = [
+    {
+        "slug": "the-ahimsa-promise",
+        "title": "The AhimsaPure Promise: More Than Just Dairy",
+        "image": "https://images.unsplash.com/photo-1455354269813-804b407a1118?q=80&w=2070&auto=format&fit=crop",
+        "excerpt": "Discover the deep-rooted principles that guide everything we do, from our happy cows to your healthy family."
+    },
+    {
+        "slug": "healthy-eating-tips",
+        "title": "The Ancient Wisdom of A2 Ghee",
+        "image": "https://images.unsplash.com/photo-1606859228783-53336c175342?q=80&w=2070&auto=format&fit=crop",
+        "excerpt": "Learn why traditional, hand-churned A2 Ghee is considered liquid gold in Ayurveda..."
+    }
+]
+
+
 export function MegaMenu() {
     const { categories, companyLinks } = layoutData.megaMenu;
-    const featuredProduct = products[0]; // Organic A2 Ghee
+    const featuredProduct = products.find(p => p.id === 'prod_1') || products[0];
 
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-              Home
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -104,12 +114,34 @@ export function MegaMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-         <NavigationMenuItem>
-          <Link href="/blog" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-              Blog
-            </NavigationMenuLink>
-          </Link>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className="bg-transparent">Blog</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <div className="grid w-full gap-6 p-4 md:w-[550px] lg:w-[650px] lg:grid-cols-[1fr_250px]">
+              <ul className="flex flex-col gap-3">
+                {recentPosts.map((post) => (
+                  <ListItem key={post.title} href={`/blog/${post.slug}`} title={post.title} className="flex items-start gap-4">
+                     <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
+                       <ManagedImage src={post.image} alt={post.title} fill className="object-cover" />
+                     </div>
+                     <div className="flex-grow">
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{post.excerpt}</p>
+                     </div>
+                  </ListItem>
+                ))}
+              </ul>
+              <div className="flex flex-col h-full justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-4">
+                 <div>
+                    <Rss className="h-8 w-8 text-primary mb-2" />
+                    <h4 className="font-bold font-headline text-lg">From the Farmstead</h4>
+                    <p className="text-sm text-muted-foreground">Stories of purity, tradition, and the goodness of A2 dairy.</p>
+                 </div>
+                 <Button asChild className="w-full mt-4">
+                    <Link href="/blog">View All Posts &rarr;</Link>
+                </Button>
+              </div>
+            </div>
+          </NavigationMenuContent>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
@@ -141,12 +173,14 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
-          </p>
+          </div>
         </Link>
       </NavigationMenuLink>
     </li>
   )
 })
 ListItem.displayName = "ListItem"
+
+    
