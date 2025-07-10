@@ -38,18 +38,35 @@ export default function Footer() {
   return (
     <footer className="bg-primary/5 border-t">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Brand Info & Socials */}
           <div className="md:col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <CowIcon className="h-7 w-7 text-primary" />
-              <span className="font-headline text-2xl font-bold text-foreground">
-                AhimsaPure
-              </span>
-            </Link>
-            <p className="text-sm text-muted-foreground">
-              Ethically sourced, naturally grown, and delivered with love.
-            </p>
+            <div className="mb-6">
+                <Link href="/" className="flex items-center gap-2 mb-4">
+                <CowIcon className="h-7 w-7 text-primary" />
+                <span className="font-headline text-2xl font-bold text-foreground">
+                    AhimsaPure
+                </span>
+                </Link>
+                <p className="text-sm text-muted-foreground">
+                Ethically sourced, naturally grown, and delivered with love.
+                </p>
+            </div>
+            <div>
+                <h3 className="font-headline font-semibold text-foreground">Follow Us</h3>
+                <div className="flex space-x-2 mt-4">
+                {socialLinks.map((social) => {
+                    const Icon = socialIcons[social.icon];
+                    return (
+                    <Button key={social.name} variant="ghost" size="icon" asChild>
+                        <a href={social.href} aria-label={social.name}>
+                        <Icon className="h-5 w-5 text-muted-foreground hover:text-foreground" />
+                        </a>
+                    </Button>
+                    )
+                })}
+                </div>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -78,23 +95,6 @@ export default function Footer() {
                     </li>
                  ))}
               </ul>
-          </div>
-
-          {/* Social & Newsletter */}
-          <div>
-            <h3 className="font-headline font-semibold text-foreground">Follow Us</h3>
-            <div className="flex space-x-4 mt-4">
-              {socialLinks.map((social) => {
-                const Icon = socialIcons[social.icon];
-                return (
-                  <Button key={social.name} variant="ghost" size="icon" asChild>
-                    <a href={social.href} aria-label={social.name}>
-                      <Icon className="h-5 w-5 text-muted-foreground hover:text-foreground" />
-                    </a>
-                  </Button>
-                )
-              })}
-            </div>
           </div>
         </div>
         <div className="mt-12 border-t pt-8 flex flex-col sm:flex-row items-center justify-between text-sm text-muted-foreground">
