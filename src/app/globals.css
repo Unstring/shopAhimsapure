@@ -110,3 +110,14 @@
   -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);
 }
+
+@layer utilities {
+    @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
+
+    .animate-marquee {
+        animation: marquee 60s linear infinite;
+    }
+}
