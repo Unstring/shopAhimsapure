@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Leaf, ShoppingCart, User, Menu } from 'lucide-react';
+import { ShoppingCart, User, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
 import { CartSheet } from '@/components/cart-sheet';
@@ -24,6 +24,27 @@ import { MegaMenu } from './mega-menu';
 import { cn } from '@/lib/utils';
 import layoutData from "@/content/layout.json";
 
+const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="M18.8 8.02A6.45 6.45 0 0 0 19 6c0-3.31-2.69-6-6-6s-6 2.69-6 6c0 .98.24 1.89.66 2.7l-2.68 8.3h16.04l-2.68-8.28z" />
+        <path d="M5 14v4" />
+        <path d="M19 14v4" />
+        <path d="M12 2v2" />
+        <path d="M12 12c-2.21 0-4 1.79-4 4h8c0-2.21-1.79-4-4-4z" />
+    </svg>
+)
+
 export default function Header() {
   const { cartCount } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -42,7 +63,7 @@ export default function Header() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 md:gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <Leaf className="h-7 w-7 text-primary" />
+              <CowIcon className="h-7 w-7 text-primary" />
               <span className="font-headline text-2xl font-bold text-foreground">
                 AhimsaPure
               </span>
@@ -95,7 +116,7 @@ export default function Header() {
                 <SheetContent side="right">
                     <div className="flex flex-col gap-6 p-6">
                         <Link href="/" className="flex items-center gap-2 mb-4">
-                            <Leaf className="h-7 w-7 text-primary" />
+                            <CowIcon className="h-7 w-7 text-primary" />
                             <span className="font-headline text-2xl font-bold text-foreground">AhimsaPure</span>
                         </Link>
                         <nav className="flex flex-col gap-4">
