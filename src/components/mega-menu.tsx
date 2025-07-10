@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { products } from "@/lib/products"
 import { Button } from "./ui/button"
-import { Heart, HelpCircle, Info, LucideIcon, Rss, Shield } from "lucide-react"
+import { HelpCircle, Info, LucideIcon, Rss, Shield, Heart } from "lucide-react"
 
 const categories = [
     { title: "All Products", href: "/products", description: "Browse our entire collection." },
@@ -52,7 +52,7 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-[600px] grid-cols-[1fr_250px] gap-6 p-4">
+            <div className="grid w-full gap-6 p-4 md:w-[600px] md:grid-cols-[1fr_250px]">
                 <ul className="grid grid-cols-2 gap-3">
                   {categories.map((component) => (
                     <ListItem
@@ -92,7 +92,7 @@ export function MegaMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Company</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2">
               {companyLinks.map((link) => (
                 <ListItem
                   key={link.title}
