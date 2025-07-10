@@ -90,7 +90,7 @@ export default function HomePage() {
 
       {/* Why Choose Us Section */}
       <section className="bg-primary/5 rounded-2xl p-8 md:p-12">
-        <h2 className="text-3xl font-headline font-bold text-center mb-8">Why Farm Fresh Express?</h2>
+        <h2 className="text-3xl font-headline font-bold text-center mb-8">Why AhimsaPure?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {whyChooseUsItems.map((item) => (
             <div key={item.title} className="flex flex-col items-center">

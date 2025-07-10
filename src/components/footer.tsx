@@ -8,6 +8,7 @@ export default function Footer() {
     { name: "Contact", href: "/contact" },
     { name: "FAQs", href: "/faq" },
     { name: "Privacy Policy", href: "/privacy" },
+    { name: "Track Order", href: "/track-order" },
   ];
   const socialLinks = [
     { name: "Facebook", icon: Facebook, href: "#" },
@@ -22,11 +23,11 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Leaf className="h-7 w-7 text-primary" />
               <span className="font-headline text-2xl font-bold text-foreground">
-                Farm Fresh Express
+                AhimsaPure
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Bringing the goodness of the farm directly to your table.
+              Ethically sourced, naturally grown, and delivered with love.
             </p>
           </div>
 
@@ -46,9 +47,11 @@ export default function Footer() {
              <h3 className="font-headline font-semibold text-foreground">Shop</h3>
               <ul className="mt-4 space-y-2">
                  <li><Link href="/products" className="text-sm text-muted-foreground hover:text-foreground">All Products</Link></li>
-                 <li><Link href="/categories/vegetables" className="text-sm text-muted-foreground hover:text-foreground">Vegetables</Link></li>
-                 <li><Link href="/categories/fruits" className="text-sm text-muted-foreground hover:text-foreground">Fruits</Link></li>
-                 <li><Link href="/categories/dairy" className="text-sm text-muted-foreground hover:text-foreground">Dairy</Link></li>
+                 <li><Link href="/products?category=Vegetables" className="text-sm text-muted-foreground hover:text-foreground">Vegetables</Link></li>
+                 <li><Link href="/products?category=Fruits" className="text-sm text-muted-foreground hover:text-foreground">Fruits</Link></li>
+                 <li><Link href="/products?category=Dairy" className="text-sm text-muted-foreground hover:text-foreground">Dairy</Link></li>
+                 <li><Link href="/products?category=Pantry" className="text-sm text-muted-foreground hover:text-foreground">Pantry</Link></li>
+                 <li><Link href="/products?category=Oils" className="text-sm text-muted-foreground hover:text-foreground">Oils</Link></li>
               </ul>
           </div>
 
@@ -66,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Farm Fresh Express. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} AhimsaPure.com. All rights reserved.</p>
         </div>
       </div>
     </footer>

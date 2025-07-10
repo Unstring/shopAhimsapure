@@ -3,8 +3,8 @@ import './globals.css';
 import { AppProviders } from '@/components/providers';
 
 export const metadata: Metadata = {
-  title: 'Farm Fresh Express',
-  description: 'Bringing the goodness of the farm directly to your table.',
+  title: 'AhimsaPure',
+  description: 'Ethically sourced, naturally grown, and delivered with love.',
 };
 
 export default function RootLayout({
