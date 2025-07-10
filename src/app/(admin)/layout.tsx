@@ -28,7 +28,6 @@ import {
   SidebarMenuButton,
   SidebarFooter,
   SidebarInset,
-  SidebarRail,
 } from '@/components/ui/sidebar';
 import { ProductProvider } from './_context/product-context';
 import { ContentProvider } from './_context/content-context';
@@ -106,8 +105,8 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="md:flex">
-        <Sidebar collapsible="icon" className="w-64" style={{'--sidebar-width': '15rem'} as React.CSSProperties}>
+      <div className="flex min-h-screen">
+        <Sidebar collapsible="icon" className="w-64 peer" style={{'--sidebar-width': '15rem'} as React.CSSProperties}>
           <SidebarContent className="p-2">
             <SidebarHeader>
               <Link href="/" className="flex items-center gap-2 mb-4">
@@ -142,10 +141,9 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
               </SidebarMenu>
             </SidebarFooter>
           </SidebarContent>
-          <SidebarRail />
         </Sidebar>
         <SidebarInset className="p-4 md:p-6 flex-1">
-          <div className="flex justify-start items-center mb-4 md:hidden">
+          <div className="flex justify-start items-center mb-4">
               <SidebarTrigger />
           </div>
           {children}
