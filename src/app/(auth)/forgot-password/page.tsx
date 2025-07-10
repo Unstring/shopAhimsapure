@@ -10,13 +10,13 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { ArrowLeft } from "lucide-react";
 
-const loginSchema = z.object({
+const forgotPasswordSchema = z.object({
   email: z.string().email("Invalid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
-type LoginFormValues = z.infer<typeof loginSchema>;
+type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -39,20 +39,20 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 )
 
-export default function LoginPage() {
+export default function ForgotPasswordPage() {
   const { toast } = useToast();
 
-  const form = useForm<LoginFormValues>({
-    resolver: zodResolver(loginSchema),
+  const form = useForm<ForgotPasswordFormValues>({
+    resolver: zodResolver(forgotPasswordSchema),
   });
 
-  const onSubmit: SubmitHandler<LoginFormValues> = (data) => {
-    console.log("Login submitted:", data);
+  const onSubmit: SubmitHandler<ForgotPasswordFormValues> = (data) => {
+    console.log("Forgot password submitted:", data);
     toast({
-      title: "Login Successful",
-      description: "Welcome back!",
+      title: "Password Reset Link Sent",
+      description: "If an account exists with that email, a reset link has been sent.",
     });
-    // Here you would typically redirect the user
+    form.reset();
   };
 
   return (
@@ -65,8 +65,8 @@ export default function LoginPage() {
                     AhimsaPure
                 </span>
             </Link>
-          <CardTitle className="font-headline text-2xl">Welcome Back</CardTitle>
-          <CardDescription>Enter your credentials to access your account.</CardDescription>
+          <CardTitle className="font-headline text-2xl">Forgot Password</CardTitle>
+          <CardDescription>Enter your email and we'll send you a reset link.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -84,37 +84,19 @@ export default function LoginPage() {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <div className="flex justify-between items-baseline">
-                        <FormLabel>Password</FormLabel>
-                        <Link href="/forgot-password" className="text-sm text-muted-foreground hover:text-primary">
-                            Forgot password?
-                        </Link>
-                    </div>
-                    <FormControl>
-                      <Input type="password" placeholder="********" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
               <Button type="submit" size="lg" className="w-full">
-                Sign In
+                Send Reset Link
               </Button>
             </form>
           </Form>
         </CardContent>
         <CardFooter className="justify-center">
-          <p className="text-sm text-muted-foreground">
-            Don't have an account?{" "}
-            <Link href="/signup" className="font-semibold text-primary hover:underline">
-              Sign up
-            </Link>
-          </p>
+            <Button variant="link" asChild>
+                <Link href="/login">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to Sign In
+                </Link>
+            </Button>
         </CardFooter>
       </Card>
     </div>
