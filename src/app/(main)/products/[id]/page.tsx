@@ -57,13 +57,13 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
 
       {/* Description, Specs, Reviews Tabs */}
       <Tabs defaultValue="description" className="w-full">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto md:h-10">
           <TabsTrigger value="description">Description</TabsTrigger>
           <TabsTrigger value="specifications">Specifications</TabsTrigger>
           <TabsTrigger value="certifications">Certifications</TabsTrigger>
           <TabsTrigger value="reviews">Reviews ({product.reviews.length})</TabsTrigger>
         </TabsList>
-        <TabsContent value="description" className="py-6 prose max-w-none">
+        <TabsContent value="description" className="py-6 prose max-w-none prose-p:text-muted-foreground">
           {product.description}
         </TabsContent>
         <TabsContent value="specifications" className="py-6">
