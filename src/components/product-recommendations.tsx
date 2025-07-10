@@ -24,7 +24,7 @@ export async function ProductRecommendations() {
     const recommendedIds = result.recommendedProductIds || [];
     recommendedProducts = allProducts.filter(p => recommendedIds.includes(p.id));
   } catch (error) {
-    console.error("Failed to get product recommendations:", error);
+    console.error("Failed to get product recommendations:", error instanceof Error ? error.message : error);
     // Fallback to a few trending products if AI fails
     recommendedProducts = allProducts.filter(p => mockInput.trendingProducts.includes(p.id)).slice(0, 4);
   }
