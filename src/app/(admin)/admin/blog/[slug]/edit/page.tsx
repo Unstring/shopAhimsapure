@@ -4,7 +4,7 @@
 import { useBlog } from "../../../../_context/blog-context";
 import { PageHeader } from "../../../_components/page-header";
 import { BlogPostForm } from "../../_components/blog-post-form";
-import { notFound, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Post } from "@/lib/blog";
 
