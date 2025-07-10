@@ -4,8 +4,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 export function ProductRecommendations() {
   // Fallback to a few trending products
-  const trendingProductIds = ["prod_7", "prod_2", "prod_3"];
-  const recommendedProducts = allProducts.filter(p => trendingProductIds.includes(p.id)).slice(0, 4);
+  const trendingProductIds = ["prod_1", "prod_2", "prod_3", "prod_4", "prod_5"];
+  const recommendedProducts = allProducts.filter(p => trendingProductIds.includes(p.id));
 
   if (recommendedProducts.length === 0) {
     return null;
