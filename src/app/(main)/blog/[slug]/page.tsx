@@ -8,7 +8,13 @@ import { useBlog, BlogProvider } from '@/app/(admin)/_context/blog-context';
 import { useEffect, useState } from 'react';
 import { Post } from '@/lib/blog';
 import ReactMarkdown from 'react-markdown';
+import postsData from '@/content/blog-posts.json';
 
+export async function generateStaticParams() {
+  return postsData.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 function BlogPostPageComponent() {
   const params = useParams();
