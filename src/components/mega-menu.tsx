@@ -16,50 +16,30 @@ import {
 } from "@/components/ui/navigation-menu"
 import { products } from "@/lib/products"
 import { Button } from "./ui/button"
+import { Heart, HelpCircle, Info, LucideIcon, Rss, Shield } from "lucide-react"
 
-const shopComponents: { title: string; href: string; description: string }[] = [
-  {
-    title: "All Products",
-    href: "/products",
-    description:
-      "Browse our entire collection of farm-fresh and natural products.",
-  },
-  {
-    title: "Vegetables",
-    href: "/products?category=Vegetables",
-    description:
-      "Fresh, seasonal, and organic vegetables straight from the farm.",
-  },
-  {
-    title: "Fruits",
-    href: "/products?category=Fruits",
-    description:
-      "Juicy and delicious fruits, grown naturally without harmful chemicals.",
-  },
-  {
-    title: "Dairy",
-    href: "/products?category=Dairy",
-    description: "Pure A2 milk products, including ghee, paneer, and more.",
-  },
-   {
-    title: "Pantry",
-    href: "/products?category=Pantry",
-    description:
-      "Wholesome pantry staples like honey, flour, and spices.",
-  },
-  {
-    title: "Oils",
-    href: "/products?category=Oils",
-    description:
-      "Cold-pressed and nutrient-rich oils for healthy cooking.",
-  },
+const categories = [
+    { title: "All Products", href: "/products", description: "Browse our entire collection." },
+    { title: "Vegetables", href: "/products?category=Vegetables", description: "Fresh, seasonal, and organic." },
+    { title: "Fruits", href: "/products?category=Fruits", description: "Juicy, delicious, and natural." },
+    { title: "Dairy", href: "/products?category=Dairy", description: "Pure A2 milk products." },
+    { title: "Pantry", href: "/products?category=Pantry", description: "Wholesome staples." },
+    { title: "Oils", href: "/products?category=Oils", description: "Cold-pressed and nutrient-rich." },
+]
+
+const companyLinks: { title: string; href: string; icon: LucideIcon; description: string }[] = [
+    { title: "About Us", href: "/about", icon: Info, description: "Learn about our mission and values." },
+    { title: "Our Story", href: "/about", icon: Heart, description: "The journey of AhimsaPure." },
+    { title: "Blog", href: "/blog", icon: Rss, description: "Recipes, tips, and farm stories." },
+    { title: "FAQs", href: "/faq", icon: HelpCircle, description: "Answers to your common questions." },
+    { title: "Privacy Policy", href: "/privacy", icon: Shield, description: "How we protect your data." },
 ]
 
 export function MegaMenu() {
     const featuredProduct = products[6]; // Organic Mangoes
 
   return (
-    <NavigationMenu className="hidden md:flex">
+    <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
@@ -68,12 +48,13 @@ export function MegaMenu() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+        
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-[600px] grid-cols-[1fr_250px] gap-6 p-4">
                 <ul className="grid grid-cols-2 gap-3">
-                  {shopComponents.map((component) => (
+                  {categories.map((component) => (
                     <ListItem
                       key={component.title}
                       title={component.title}
@@ -99,28 +80,39 @@ export function MegaMenu() {
                      </div>
                 </div>
                  <Button asChild className="w-full mt-4">
-                    <Link href="/products">
-                        Shop all products &rarr;
+                    <Link href={`/products`}>
+                        Shop Bestsellers &rarr;
                     </Link>
                 </Button>
               </div>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
-          <Link href="/about" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-              About Us
-            </NavigationMenuLink>
-          </Link>
+          <NavigationMenuTrigger className="bg-transparent">Company</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {companyLinks.map((link) => (
+                <ListItem
+                  key={link.title}
+                  title={link.title}
+                  href={link.href}
+                  className="flex items-start gap-3"
+                >
+                    <div className="bg-primary/10 p-2 rounded-md">
+                        <link.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                        <p className="font-semibold">{link.title}</p>
+                        <p className="text-sm text-muted-foreground">{link.description}</p>
+                    </div>
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
-         <NavigationMenuItem>
-          <Link href="/blog" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-              Blog
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+
         <NavigationMenuItem>
           <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>

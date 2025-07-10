@@ -13,6 +13,14 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export default function Header() {
   const { cartCount } = useCart();
@@ -61,11 +69,21 @@ export default function Header() {
                 </span>
               )}
             </Button>
-            <Button variant="ghost" size="icon" asChild className="hidden md:inline-flex">
-              <Link href="/login" aria-label="Login">
-                <User className="h-5 w-5" />
-              </Link>
-            </Button>
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="hidden md:inline-flex">
+                    <User className="h-5 w-5" />
+                     <span className="sr-only">User Menu</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild><Link href="/login">Login / Sign Up</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild><Link href="/track-order">Track Order</Link></DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
+
              <div className="md:hidden">
               <Sheet>
                 <SheetTrigger asChild>
