@@ -15,6 +15,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { products } from "@/lib/products"
+import { Button } from "./ui/button"
 
 const shopComponents: { title: string; href: string; description: string }[] = [
   {
@@ -82,8 +83,8 @@ export function MegaMenu() {
                     </ListItem>
                   ))}
                 </ul>
-              <div className="flex flex-col h-full justify-between">
-                <div className="relative h-48 w-full overflow-hidden rounded-md">
+              <div className="flex flex-col h-full justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-4">
+                <div className="relative h-40 w-full overflow-hidden rounded-md">
                      <Image
                         src={featuredProduct.image}
                         alt={featuredProduct.name}
@@ -97,19 +98,11 @@ export function MegaMenu() {
                         <p className="text-sm">Our seasonal bestseller is back!</p>
                      </div>
                 </div>
-                 <NavigationMenuLink asChild>
-                    <a
-                    className={cn(
-                        "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    )}
-                    href="/products"
-                    >
-                    
-                    <div className="mt-4 text-sm font-medium">
+                 <Button asChild className="w-full mt-4">
+                    <Link href="/products">
                         Shop all products &rarr;
-                    </div>
-                    </a>
-                </NavigationMenuLink>
+                    </Link>
+                </Button>
               </div>
             </div>
           </NavigationMenuContent>
@@ -121,17 +114,17 @@ export function MegaMenu() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+         <NavigationMenuItem>
+          <Link href="/blog" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Blog
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Contact
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-         <NavigationMenuItem>
-          <Link href="/track-order" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Track Order
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
