@@ -11,6 +11,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuIndicator,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { products } from "@/lib/products"
@@ -153,6 +154,9 @@ export function MegaMenu() {
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
+      <div className="absolute left-1/2 top-full flex justify-center">
+        <NavigationMenuIndicator />
+      </div>
     </NavigationMenu>
   )
 }
