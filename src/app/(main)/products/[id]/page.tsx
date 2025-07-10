@@ -2,10 +2,9 @@
 import { products } from "@/lib/products";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ShoppingCart, Star } from "lucide-react";
-import { AddToCartButton } from "./add-to-cart-button";
 import { ProductCard } from "@/components/product-card";
+import { AddToCartForm } from "./add-to-cart-form";
+import { Star, Leaf, Truck, CheckCircle } from "lucide-react";
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const product = products.find((p) => p.id === params.id);
@@ -35,19 +34,39 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         </div>
 
         {/* Product Details */}
-        <div className="space-y-4">
-          <h1 className="text-4xl font-headline font-bold">{product.name}</h1>
-          <div className="flex items-center gap-2">
-            <div className="flex text-accent">
-                {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-5 h-5" />)}
+        <div className="space-y-6">
+          <div>
+            <p className="text-sm font-medium text-primary">{product.category}</p>
+            <h1 className="text-4xl font-headline font-bold mt-1">{product.name}</h1>
+            <div className="mt-2 flex items-center gap-2">
+              <div className="flex text-accent">
+                  {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-5 h-5" />)}
+              </div>
+              <span className="text-sm text-muted-foreground">(125 reviews)</span>
             </div>
-            <span className="text-sm text-muted-foreground">(5.0)</span>
           </div>
+          
           <p className="text-lg text-muted-foreground">{product.description}</p>
+          
           <p className="text-4xl font-bold text-primary">₹{product.price.toFixed(2)}</p>
           
           <div className="pt-4">
-             <AddToCartButton product={product} />
+             <AddToCartForm product={product} />
+          </div>
+
+          <div className="border-t pt-6 space-y-4">
+            <div className="flex items-center gap-3 text-sm">
+                <Leaf className="h-5 w-5 text-primary" />
+                <span className="text-muted-foreground">Certified Organic & Non-GMO</span>
+            </div>
+             <div className="flex items-center gap-3 text-sm">
+                <CheckCircle className="h-5 w-5 text-primary" />
+                <span className="text-muted-foreground">Availability: <span className="font-semibold text-foreground">In Stock</span></span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+                <Truck className="h-5 w-5 text-primary" />
+                <span className="text-muted-foreground">Ships within 24 hours</span>
+            </div>
           </div>
         </div>
       </div>
