@@ -1,11 +1,7 @@
 
-"use client";
-
-import { notFound, useParams, useRouter } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { ManagedImage } from '@/components/managed-image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { useBlog, BlogProvider } from '@/app/(admin)/_context/blog-context';
-import { useEffect, useState } from 'react';
 import { Post } from '@/lib/blog';
 import ReactMarkdown from 'react-markdown';
 import postsData from '@/content/blog-posts.json';
@@ -16,32 +12,14 @@ export async function generateStaticParams() {
   }));
 }
 
-function BlogPostPageComponent() {
-  const params = useParams();
-  const router = useRouter();
-  const { getPostBySlug, posts } = useBlog();
-  const [post, setPost] = useState<Post | undefined | null>(undefined);
-  
-  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
+function getPost(slug: string): Post | undefined {
+    return postsData.find((p) => p.slug === slug) as Post | undefined;
+}
 
-  useEffect(() => {
-    // We check posts.length to ensure context is loaded
-    if (slug && posts.length > 0) {
-        const foundPost = getPostBySlug(slug);
-        setPost(foundPost);
-    }
-  }, [slug, getPostBySlug, posts]);
-
-
-  if (post === undefined) {
-    // Loading state
-    return <div className="text-center py-20">Loading post...</div>;
-  }
-  
-  if (post === null || !post) {
-    // Using a timeout to give state updates time to propagate before navigating
-    setTimeout(() => router.push('/404'), 0);
-    return null;
+// Client Component for rendering the actual post
+function BlogPostPageClient({ post }: { post: Post }) {
+  if (!post) {
+    notFound();
   }
 
   return (
@@ -93,16 +71,18 @@ function BlogPostPageComponent() {
                 </div>
             </div>
        </footer>
-
     </article>
   );
 }
 
 
-export default function BlogPostPage() {
-    return (
-        <BlogProvider>
-            <BlogPostPageComponent />
-        </BlogProvider>
-    )
+// Server Component (default export)
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+    const post = getPost(params.slug);
+
+    if (!post) {
+        notFound();
+    }
+
+    return <BlogPostPageClient post={post} />;
 }
