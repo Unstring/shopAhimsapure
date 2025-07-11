@@ -126,7 +126,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             '--sidebar-width-icon': '3.5rem'
           } as React.CSSProperties}>
           <SidebarContent className="p-2 flex flex-col">
-            <SidebarHeader>
+            <SidebarHeader className="group-data-[collapsible=icon]:justify-center">
               <Link href="/" className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center">
                 <CowIcon className="h-7 w-7 text-primary" />
                 <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
@@ -164,9 +164,6 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                           </SidebarMenuButton>
                       </Link>
                    </SidebarMenuItem>
-                   <div className="group-data-[collapsible=expanded]:w-full group-data-[collapsible=expanded]:flex group-data-[collapsible=expanded]:justify-center group-data-[collapsible=icon]:self-center">
-                    <ThemeSwitcher />
-                   </div>
               </SidebarMenu>
             </SidebarFooter>
           </SidebarContent>
@@ -174,24 +171,27 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
         <SidebarInset className="flex-1 flex flex-col h-screen overflow-hidden">
           <header className="flex justify-between items-center p-4 border-b">
               <SidebarTrigger />
-               <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="secondary" size="icon" className="rounded-full">
-                      <User className="h-5 w-5" />
-                      <span className="sr-only">Toggle user menu</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => router.push('/admin/settings')}>Settings</DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleLogout}>
-                        <LogOut className="mr-2 h-4 w-4" />
-                        Logout
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+               <div className="flex items-center gap-2">
+                <ThemeSwitcher />
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="secondary" size="icon" className="rounded-full">
+                        <User className="h-5 w-5" />
+                        <span className="sr-only">Toggle user menu</span>
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={() => router.push('/admin/settings')}>Settings</DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={handleLogout}>
+                          <LogOut className="mr-2 h-4 w-4" />
+                          Logout
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+               </div>
           </header>
           <main className="flex-1 p-4 md:p-6 overflow-y-auto">
             {children}
