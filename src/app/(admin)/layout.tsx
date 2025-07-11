@@ -171,7 +171,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <SidebarInset className="flex-1 flex flex-col h-screen overflow-hidden">
+        <SidebarInset className="flex-1 flex flex-col">
           <header className="flex justify-between items-center p-4 border-b">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
