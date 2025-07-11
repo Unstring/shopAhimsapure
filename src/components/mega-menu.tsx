@@ -83,15 +83,17 @@ export function MegaMenu() {
                     <ListItem
                     key={link.title}
                     href={link.href}
-                    className="flex items-start gap-3"
+                    title={link.title}
                     >
-                        <div className="bg-primary/10 p-2 rounded-md">
-                            {Icon && <Icon className="h-5 w-5 text-primary" />}
-                        </div>
-                        <div>
-                            <p className="font-semibold">{link.title}</p>
-                            <p className="text-sm text-muted-foreground">{link.description}</p>
-                        </div>
+                      <div className="flex items-start gap-3">
+                          <div className="bg-primary/10 p-2 rounded-md">
+                              {Icon && <Icon className="h-5 w-5 text-primary" />}
+                          </div>
+                          <div>
+                              <p className="font-semibold">{link.title}</p>
+                              <p className="text-sm text-muted-foreground">{link.description}</p>
+                          </div>
+                      </div>
                     </ListItem>
                 )
             })}
@@ -105,13 +107,15 @@ export function MegaMenu() {
             <div className="grid w-[650px] gap-6 p-4 grid-cols-[1fr_250px]">
               <ul className="flex flex-col gap-3">
                 {recentPosts.map((post) => (
-                  <ListItem key={post.frontmatter.title} href={`/blog/${post.slug}`} title={post.frontmatter.title} className="flex items-start gap-4">
-                     <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
-                       <ManagedImage src={post.frontmatter.image} alt={post.frontmatter.title} fill className="object-cover" />
-                     </div>
-                     <div>
-                        {/* Title is now passed via props, not children */}
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{post.frontmatter.excerpt}</p>
+                  <ListItem key={post.frontmatter.title} href={`/blog/${post.slug}`} title={post.frontmatter.title}>
+                     <div className="flex items-start gap-4">
+                        <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
+                          <ManagedImage src={post.frontmatter.image} alt={post.frontmatter.title} fill className="object-cover" />
+                        </div>
+                        <div>
+                           <p className="font-semibold">{post.frontmatter.title}</p>
+                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{post.frontmatter.excerpt}</p>
+                        </div>
                      </div>
                   </ListItem>
                 ))}
@@ -131,7 +135,7 @@ export function MegaMenu() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/contact" legacyBehavior passHref>
+          <Link href="/contact" passHref legacyBehavior>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
               Contact
             </NavigationMenuLink>
@@ -160,13 +164,13 @@ const ListItem = React.forwardRef<
             className
           )}
           {...props}
-          legacyBehavior>
-          <div className="text-sm font-medium leading-none">{title}</div>
-          {children && (
+        >
+          <div>
+            <div className="text-sm font-medium leading-none">{title}</div>
             <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-              {children}
+                {children}
             </div>
-          )}
+          </div>
         </Link>
       </NavigationMenuLink>
     </li>
