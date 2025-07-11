@@ -28,7 +28,6 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarFooter,
-  SidebarInset,
 } from '@/components/ui/sidebar';
 import { ProductProvider } from './_context/product-context';
 import { ContentProvider } from './_context/content-context';
@@ -171,14 +170,14 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <div className="flex flex-col flex-1 overflow-hidden">
+        <div className="flex flex-col flex-1">
           <header className="flex justify-between items-center p-4 border-b shrink-0 sticky top-0 bg-background z-10">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
                 <AdminThemeSwitcher />
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="secondary" size="icon" className="rounded-full">
+                      <Button variant="secondary" size="icon" className="h-9 w-9 rounded-lg">
                         <User className="h-5 w-5" />
                         <span className="sr-only">Toggle user menu</span>
                       </Button>

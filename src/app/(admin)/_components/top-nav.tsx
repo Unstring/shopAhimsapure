@@ -108,7 +108,7 @@ export function TopNav() {
         <AdminThemeSwitcher />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="secondary" size="icon" className="rounded-full">
+            <Button variant="secondary" size="icon" className="h-9 w-9 rounded-lg">
               <User className="h-5 w-5" />
               <span className="sr-only">Toggle user menu</span>
             </Button>
