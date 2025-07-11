@@ -170,14 +170,14 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 h-screen overflow-hidden">
           <header className="flex justify-between items-center p-4 border-b shrink-0 sticky top-0 bg-background z-10">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
                 <AdminThemeSwitcher />
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="secondary" size="icon" className="h-9 w-9 rounded-lg">
+                      <Button variant="secondary" size="icon" className="h-8 w-8 rounded-lg">
                         <User className="h-5 w-5" />
                         <span className="sr-only">Toggle user menu</span>
                       </Button>
