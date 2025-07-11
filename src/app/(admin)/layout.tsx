@@ -126,7 +126,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
           } as React.CSSProperties}>
           <SidebarContent className="p-2 flex flex-col">
             <SidebarHeader>
-              <Link href="/" className="flex items-center gap-2 mb-4">
+              <Link href="/" className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center">
                 <CowIcon className="h-7 w-7 text-primary" />
                 <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
                   AhimsaPure
