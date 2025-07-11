@@ -117,7 +117,13 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <div className="flex h-screen overflow-hidden">
-        <Sidebar collapsible="icon" className="w-64 peer" style={{'--sidebar-width': '15rem'} as React.CSSProperties}>
+        <Sidebar 
+          collapsible="icon" 
+          className="w-64 peer" 
+          style={{
+            '--sidebar-width': '15rem',
+            '--sidebar-width-icon': '3.5rem'
+          } as React.CSSProperties}>
           <SidebarContent className="p-2 flex flex-col">
             <SidebarHeader>
               <Link href="/" className="flex items-center gap-2 mb-4">
