@@ -146,7 +146,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
               ))}
             </SidebarMenu>
             <SidebarFooter>
-              <SidebarMenu>
+              <SidebarMenu className="group-data-[collapsible=icon]:p-0">
                    <SidebarMenuItem>
                       <Link href={settingsItem.href}>
                           <SidebarMenuButton tooltip={settingsItem.label} isActive={pathname === settingsItem.href}>
