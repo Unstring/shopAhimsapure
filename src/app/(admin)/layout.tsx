@@ -27,7 +27,6 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarFooter,
 } from '@/components/ui/sidebar';
 import { ProductProvider } from './_context/product-context';
 import { ContentProvider } from './_context/content-context';
@@ -123,24 +122,22 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
           style={{
             '--sidebar-width': '15rem',
             '--sidebar-width-icon': '3.5rem'
-          } as React.CSSProperties}>
+          }}>
           <SidebarContent className="p-2 flex flex-col">
             <SidebarHeader className="group-data-[collapsible=icon]:justify-center">
               <Link
                 href="/"
-                legacyBehavior>
-                <a className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center">
-                  <CowIcon className="h-7 w-7 text-primary" />
-                  <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
-                    AhimsaPure
-                  </span>
-                </a>
+                className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center">
+                <CowIcon className="h-7 w-7 text-primary" />
+                <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
+                  AhimsaPure
+                </span>
               </Link>
             </SidebarHeader>
             <SidebarMenu className="flex-1">
               {navItems.map((item) => (
                   <SidebarMenuItem key={item.href}>
-                      <Link href={item.href} legacyBehavior>
+                      <Link href={item.href}>
                           <SidebarMenuButton tooltip={item.label} isActive={pathname.startsWith(item.href) && (item.href !== '/admin' || pathname === '/admin')}>
                               <item.icon />
                               <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
@@ -151,7 +148,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             </SidebarMenu>
           </SidebarContent>
         </Sidebar>
-        <div className="flex flex-1 flex-col overflow-hidden">
+        <div className="flex flex-1 flex-col">
           <header className="flex justify-between items-center p-4 border-b shrink-0 sticky top-0 bg-background z-10">
               <SidebarTrigger />
                <div className="flex items-center gap-2">

@@ -54,11 +54,9 @@ export function TopNav() {
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
           href="/"
-          legacyBehavior>
-          <a className="flex items-center gap-2 text-lg font-semibold md:text-base">
-            <CowIcon className="h-6 w-6 text-primary" />
-            <span className="sr-only">AhimsaPure</span>
-          </a>
+          className="flex items-center gap-2 text-lg font-semibold md:text-base">
+          <CowIcon className="h-6 w-6 text-primary" />
+          <span className="sr-only">AhimsaPure</span>
         </Link>
         {allNavItems.map(item => (
            <Link
@@ -67,8 +65,7 @@ export function TopNav() {
              className={cn(
                "transition-colors hover:text-foreground",
                pathname === item.href ? "text-foreground" : "text-muted-foreground"
-             )}
-             legacyBehavior>
+             )}>
               {item.label}
             </Link>
         ))}
@@ -84,11 +81,9 @@ export function TopNav() {
           <nav className="grid gap-6 text-lg font-medium">
             <Link
               href="/"
-              legacyBehavior>
-              <a className="flex items-center gap-2 text-lg font-semibold">
-                <CowIcon className="h-6 w-6 text-primary" />
-                <span className="sr-only">AhimsaPure</span>
-              </a>
+              className="flex items-center gap-2 text-lg font-semibold">
+              <CowIcon className="h-6 w-6 text-primary" />
+              <span className="sr-only">AhimsaPure</span>
             </Link>
              {allNavItems.map(item => (
                <Link
@@ -97,8 +92,7 @@ export function TopNav() {
                  className={cn(
                    "hover:text-foreground",
                     pathname === item.href ? "text-foreground" : "text-muted-foreground"
-                 )}
-                 legacyBehavior>
+                 )}>
                   {item.label}
                 </Link>
             ))}

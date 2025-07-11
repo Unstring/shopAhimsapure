@@ -23,8 +23,7 @@ function BlogPageComponent() {
           <Card key={post.slug} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
             <Link
               href={`/blog/${post.slug}`}
-              className="flex flex-col flex-grow"
-              legacyBehavior>
+              className="flex flex-col flex-grow">
               <CardHeader className="p-0 border-b">
                 <div className="relative aspect-video w-full">
                   <ManagedImage

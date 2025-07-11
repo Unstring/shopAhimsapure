@@ -84,13 +84,11 @@ export default function LoginPage() {
         <CardHeader className="text-center">
             <Link
               href="/"
-              legacyBehavior>
-              <a className="flex items-center gap-2 justify-center mb-4">
-                <CowIcon className="h-8 w-8 text-primary" />
-                <span className="font-headline text-3xl font-bold text-foreground">
-                    AhimsaPure
-                </span>
-              </a>
+              className="flex items-center gap-2 justify-center mb-4">
+              <CowIcon className="h-8 w-8 text-primary" />
+              <span className="font-headline text-3xl font-bold text-foreground">
+                  AhimsaPure
+              </span>
             </Link>
           <CardTitle className="font-headline text-2xl">Welcome Back</CardTitle>
           <CardDescription>Enter your credentials to access your account.</CardDescription>

@@ -42,13 +42,11 @@ export default function Footer() {
           {/* Top Row: Brand Info & Socials */}
           <div className="md:flex md:justify-between md:items-start">
             <div className="mb-6 md:mb-0">
-                <Link href="/" legacyBehavior>
-                  <a className="flex items-center gap-2 mb-4">
-                    <CowIcon className="h-7 w-7 text-primary" />
-                    <span className="font-headline text-2xl font-bold text-foreground">
-                        AhimsaPure
-                    </span>
-                  </a>
+                <Link href="/" className="flex items-center gap-2 mb-4">
+                  <CowIcon className="h-7 w-7 text-primary" />
+                  <span className="font-headline text-2xl font-bold text-foreground">
+                      AhimsaPure
+                  </span>
                 </Link>
                 <p className="text-sm text-muted-foreground max-w-xs">
                 Ethically sourced, naturally grown, and delivered with love.
@@ -81,8 +79,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground"
-                      legacyBehavior>
+                      className="text-sm text-muted-foreground hover:text-foreground">
                       {link.name}
                     </Link>
                   </li>
@@ -98,8 +95,7 @@ export default function Footer() {
                       <li key={link.name}>
                           <Link
                             href={link.href}
-                            className="text-sm text-muted-foreground hover:text-foreground"
-                            legacyBehavior>
+                            className="text-sm text-muted-foreground hover:text-foreground">
                               {link.name}
                           </Link>
                       </li>

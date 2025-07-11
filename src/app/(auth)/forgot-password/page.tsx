@@ -61,13 +61,11 @@ export default function ForgotPasswordPage() {
         <CardHeader className="text-center">
             <Link
               href="/"
-              legacyBehavior>
-              <a className="flex items-center gap-2 justify-center mb-4">
-                <CowIcon className="h-8 w-8 text-primary" />
-                <span className="font-headline text-3xl font-bold text-foreground">
-                    AhimsaPure
-                </span>
-              </a>
+              className="flex items-center gap-2 justify-center mb-4">
+              <CowIcon className="h-8 w-8 text-primary" />
+              <span className="font-headline text-3xl font-bold text-foreground">
+                  AhimsaPure
+              </span>
             </Link>
           <CardTitle className="font-headline text-2xl">Forgot Password</CardTitle>
           <CardDescription>Enter your email and we'll send you a reset link.</CardDescription>
@@ -96,7 +94,7 @@ export default function ForgotPasswordPage() {
         </CardContent>
         <CardFooter className="justify-center">
             <Button variant="link" asChild>
-                <Link href="/login" legacyBehavior>
+                <Link href="/login">
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Back to Sign In
                 </Link>
