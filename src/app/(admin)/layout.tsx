@@ -42,7 +42,7 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 
-        viewBox="0 0 24" 
+        viewBox="0 0 24 24" 
         fill="none" 
         stroke="currentColor" 
         strokeWidth="2" 
@@ -116,7 +116,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="relative flex h-screen">
+      <div className="flex h-screen w-full">
         <Sidebar 
           collapsible="icon" 
           className="peer" 
@@ -145,24 +145,9 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                   </SidebarMenuItem>
               ))}
             </SidebarMenu>
-            <SidebarFooter className="group-data-[collapsible=icon]:p-0">
-              <SidebarMenu className="group-data-[collapsible=icon]:p-0">
-                   <SidebarMenuItem>
-                      <Link href={settingsItem.href}>
-                          <SidebarMenuButton tooltip={settingsItem.label} isActive={pathname === settingsItem.href}>
-                              <settingsItem.icon />
-                              <span className="group-data-[collapsible=icon]:hidden">{settingsItem.label}</span>
-                          </SidebarMenuButton>
-                      </Link>
-                   </SidebarMenuItem>
-                    <SidebarMenuItem>
-                        <AdminThemeSwitcher />
-                   </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <div className="flex-1 flex flex-col">
+        <div className="flex flex-1 flex-col overflow-hidden">
           <header className="flex justify-between items-center p-4 border-b shrink-0 sticky top-0 bg-background z-10">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
