@@ -7,6 +7,14 @@ import { BlogPostForm } from "../../_components/blog-post-form";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Post } from "@/lib/blog";
+import postsData from '@/content/blog-posts.json';
+
+// Generate static paths for Next.js to export
+export async function generateStaticParams() {
+  return postsData.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export default function EditPostPage({ params }: { params: { slug: string } }) {
     const { getPostBySlug, posts } = useBlog();
