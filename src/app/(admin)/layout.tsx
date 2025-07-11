@@ -36,6 +36,7 @@ import { BlogProvider } from './_context/blog-context';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -146,7 +147,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
               ))}
             </SidebarMenu>
             <SidebarFooter className="group-data-[collapsible=icon]:p-0">
-              <SidebarMenu>
+              <SidebarMenu className="group-data-[collapsible=icon]:p-0">
                    <SidebarMenuItem>
                       <Link href={settingsItem.href}>
                           <SidebarMenuButton tooltip={settingsItem.label} isActive={pathname === settingsItem.href}>
@@ -163,6 +164,9 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                           </SidebarMenuButton>
                       </Link>
                    </SidebarMenuItem>
+                   <div className="group-data-[collapsible=expanded]:w-full group-data-[collapsible=expanded]:flex group-data-[collapsible=expanded]:justify-center group-data-[collapsible=icon]:self-center">
+                    <ThemeSwitcher />
+                   </div>
               </SidebarMenu>
             </SidebarFooter>
           </SidebarContent>
