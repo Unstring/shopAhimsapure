@@ -117,7 +117,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="relative flex h-screen overflow-hidden">
+      <div className="relative flex h-screen">
         <Sidebar 
           collapsible="icon" 
           className="peer" 
@@ -171,10 +171,11 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <div className="flex flex-col flex-1">
-          <header className="flex justify-between items-center p-4 border-b shrink-0">
+        <div className="flex flex-col flex-1 overflow-y-auto">
+          <header className="flex justify-between items-center p-4 border-b shrink-0 sticky top-0 bg-background z-10">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
+                <AdminThemeSwitcher />
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="secondary" size="icon" className="rounded-full">
@@ -195,7 +196,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                   </DropdownMenu>
                </div>
           </header>
-          <main className="flex-1 p-4 md:p-6 overflow-y-auto">
+          <main className="flex-1 p-4 md:p-6">
             {children}
           </main>
         </div>
