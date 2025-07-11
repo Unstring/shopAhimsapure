@@ -30,7 +30,7 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 
-        viewBox="0 0 24 24" 
+        viewBox="0 0 24" 
         fill="none" 
         stroke="currentColor" 
         strokeWidth="2" 
@@ -82,11 +82,13 @@ export default function Header() {
       <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 w-full border-b">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 md:gap-4">
-            <Link href="/" className="flex items-center gap-2" legacyBehavior>
-              <CowIcon className="h-7 w-7 text-primary" />
-              <span className="font-headline text-2xl font-bold text-foreground">
-                AhimsaPure
-              </span>
+            <Link href="/" legacyBehavior>
+              <a className="flex items-center gap-2">
+                <CowIcon className="h-7 w-7 text-primary" />
+                <span className="font-headline text-2xl font-bold text-foreground">
+                  AhimsaPure
+                </span>
+              </a>
             </Link>
             
             <nav className="hidden md:flex items-center">
@@ -162,9 +164,11 @@ export default function Header() {
                 </SheetTrigger>
                 <SheetContent side="right">
                     <div className="flex flex-col gap-6 p-6">
-                        <Link href="/" className="flex items-center gap-2 mb-4" legacyBehavior>
-                            <CowIcon className="h-7 w-7 text-primary" />
-                            <span className="font-headline text-2xl font-bold text-foreground">AhimsaPure</span>
+                        <Link href="/" legacyBehavior>
+                            <a className="flex items-center gap-2 mb-4">
+                                <CowIcon className="h-7 w-7 text-primary" />
+                                <span className="font-headline text-2xl font-bold text-foreground">AhimsaPure</span>
+                            </a>
                         </Link>
                         <nav className="flex flex-col gap-4">
                             {navLinks.map(link => (

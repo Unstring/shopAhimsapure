@@ -24,7 +24,7 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 
-        viewBox="0 0 24 24" 
+        viewBox="0 0 24" 
         fill="none" 
         stroke="currentColor" 
         strokeWidth="2" 
@@ -84,12 +84,13 @@ export default function LoginPage() {
         <CardHeader className="text-center">
             <Link
               href="/"
-              className="flex items-center gap-2 justify-center mb-4"
               legacyBehavior>
+              <a className="flex items-center gap-2 justify-center mb-4">
                 <CowIcon className="h-8 w-8 text-primary" />
                 <span className="font-headline text-3xl font-bold text-foreground">
                     AhimsaPure
                 </span>
+              </a>
             </Link>
           <CardTitle className="font-headline text-2xl">Welcome Back</CardTitle>
           <CardDescription>Enter your credentials to access your account.</CardDescription>

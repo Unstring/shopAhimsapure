@@ -42,7 +42,7 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 
-        viewBox="0 0 24 24" 
+        viewBox="0 0 24" 
         fill="none" 
         stroke="currentColor" 
         strokeWidth="2" 
@@ -128,12 +128,13 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             <SidebarHeader className="group-data-[collapsible=icon]:justify-center">
               <Link
                 href="/"
-                className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center"
                 legacyBehavior>
-                <CowIcon className="h-7 w-7 text-primary" />
-                <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
-                  AhimsaPure
-                </span>
+                <a className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center">
+                  <CowIcon className="h-7 w-7 text-primary" />
+                  <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
+                    AhimsaPure
+                  </span>
+                </a>
               </Link>
             </SidebarHeader>
             <SidebarMenu className="flex-1">

@@ -16,7 +16,7 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 
-        viewBox="0 0 24 24" 
+        viewBox="0 0 24" 
         fill="none" 
         stroke="currentColor" 
         strokeWidth="2" 
@@ -42,11 +42,13 @@ export default function Footer() {
           {/* Top Row: Brand Info & Socials */}
           <div className="md:flex md:justify-between md:items-start">
             <div className="mb-6 md:mb-0">
-                <Link href="/" className="flex items-center gap-2 mb-4" legacyBehavior>
-                <CowIcon className="h-7 w-7 text-primary" />
-                <span className="font-headline text-2xl font-bold text-foreground">
-                    AhimsaPure
-                </span>
+                <Link href="/" legacyBehavior>
+                  <a className="flex items-center gap-2 mb-4">
+                    <CowIcon className="h-7 w-7 text-primary" />
+                    <span className="font-headline text-2xl font-bold text-foreground">
+                        AhimsaPure
+                    </span>
+                  </a>
                 </Link>
                 <p className="text-sm text-muted-foreground max-w-xs">
                 Ethically sourced, naturally grown, and delivered with love.

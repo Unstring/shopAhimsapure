@@ -134,6 +134,7 @@ const SidebarProvider = React.forwardRef<
       <SidebarContext.Provider value={contextValue}>
         <TooltipProvider delayDuration={0}>
           <div
+            key="sidebar-provider-wrapper"
             style={
               {
                 "--sidebar-width": SIDEBAR_WIDTH,
