@@ -27,7 +27,7 @@ export function ThemeSwitcher() {
 
   // Until the component is mounted, we can't know the theme, so we render a placeholder.
   if (!mounted) {
-    return <Button variant="ghost" size="icon" disabled className="h-9 w-9" />
+    return <Button variant="ghost" size="icon" disabled className="h-8 w-8" />
   }
 
   const CycleIcon = theme === 'light' ? Sun : theme === 'dark' ? Moon : Laptop;

@@ -6,14 +6,8 @@ import { Moon, Sun, Laptop } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "./ui/button"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 
-export function AdminThemeSwitcher({ inSidebar = false }: { inSidebar?: boolean }) {
+export function AdminThemeSwitcher() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
@@ -33,33 +27,10 @@ export function AdminThemeSwitcher({ inSidebar = false }: { inSidebar?: boolean 
 
   // Until the component is mounted, we can't know the theme, so we render a placeholder.
   if (!mounted) {
-    return <Button variant="ghost" size="icon" disabled className="h-9 w-9" />
+    return <Button variant="ghost" size="icon" disabled className="h-8 w-8" />
   }
 
   const CycleIcon = theme === 'light' ? Sun : theme === 'dark' ? Moon : Laptop;
-
-  if (inSidebar) {
-    return (
-       <TooltipProvider>
-        <Tooltip>
-            <TooltipTrigger asChild>
-                <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    onClick={cycleTheme}
-                    className="w-full justify-center group-data-[collapsible=expanded]:justify-start group-data-[collapsible=expanded]:gap-2 group-data-[collapsible=expanded]:px-2"
-                >
-                    <CycleIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
-                    <span className="group-data-[collapsible=icon]:hidden">Toggle theme</span>
-                </Button>
-            </TooltipTrigger>
-            <TooltipContent side="right" align="center">
-                Toggle theme
-            </TooltipContent>
-        </Tooltip>
-       </TooltipProvider>
-    )
-  }
 
   return (
     <Button 
@@ -67,8 +38,9 @@ export function AdminThemeSwitcher({ inSidebar = false }: { inSidebar?: boolean 
         size="icon"
         onClick={cycleTheme} 
         aria-label="Toggle theme"
+        className="h-8 w-8"
     >
-      <CycleIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+      <CycleIcon className="h-5 w-5 rotate-0 scale-100 transition-all" />
     </Button>
   )
 }
