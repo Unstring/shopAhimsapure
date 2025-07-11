@@ -165,13 +165,13 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                       </Link>
                    </SidebarMenuItem>
                     <SidebarMenuItem>
-                        <AdminThemeSwitcher />
+                        <AdminThemeSwitcher inSidebar={true} />
                    </SidebarMenuItem>
               </SidebarMenu>
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <SidebarInset className="flex-1 flex flex-col h-screen">
+        <div className="flex flex-col flex-1 h-screen">
           <header className="flex justify-between items-center p-4 border-b shrink-0">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
@@ -198,7 +198,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
           <main className="flex-1 p-4 md:p-6 overflow-y-auto">
             {children}
           </main>
-        </SidebarInset>
+        </div>
       </div>
     </SidebarProvider>
   );
