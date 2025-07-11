@@ -47,7 +47,7 @@ export default function BlogAdminPage() {
       <div className="flex justify-between items-center">
         <PageHeader>Blog Posts</PageHeader>
         <Button asChild>
-          <Link href="/admin/blog/new">
+          <Link href="/admin/blog/new" legacyBehavior>
             <PlusCircle className="mr-2 h-4 w-4" />
             Add New Post
           </Link>
@@ -98,32 +98,31 @@ export default function BlogAdminPage() {
           </TableBody>
         </Table>
       </div>
-
-       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the
-              blog post "{postToDelete?.frontmatter.title}".
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              variant="destructive"
-              onClick={() => {
-                if (postToDelete) {
-                  deletePost(postToDelete.slug);
-                }
-                setShowDeleteDialog(false);
-              }}
-            >
-              Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+       <AlertDialogContent>
+         <AlertDialogHeader>
+           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+           <AlertDialogDescription>
+             This action cannot be undone. This will permanently delete the
+             blog post "{postToDelete?.frontmatter.title}".
+           </AlertDialogDescription>
+         </AlertDialogHeader>
+         <AlertDialogFooter>
+           <AlertDialogCancel>Cancel</AlertDialogCancel>
+           <AlertDialogAction
+             variant="destructive"
+             onClick={() => {
+               if (postToDelete) {
+                 deletePost(postToDelete.slug);
+               }
+               setShowDeleteDialog(false);
+             }}
+           >
+             Delete
+           </AlertDialogAction>
+         </AlertDialogFooter>
+       </AlertDialogContent>
+     </AlertDialog>
     </>
   );
 }

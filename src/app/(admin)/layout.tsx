@@ -126,7 +126,10 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
           } as React.CSSProperties}>
           <SidebarContent className="p-2 flex flex-col">
             <SidebarHeader className="group-data-[collapsible=icon]:justify-center">
-              <Link href="/" className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center">
+              <Link
+                href="/"
+                className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center"
+                legacyBehavior>
                 <CowIcon className="h-7 w-7 text-primary" />
                 <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
                   AhimsaPure
@@ -136,7 +139,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             <SidebarMenu className="flex-1">
               {navItems.map((item) => (
                   <SidebarMenuItem key={item.href}>
-                      <Link href={item.href}>
+                      <Link href={item.href} legacyBehavior>
                           <SidebarMenuButton tooltip={item.label} isActive={pathname.startsWith(item.href) && (item.href !== '/admin' || pathname === '/admin')}>
                               <item.icon />
                               <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>

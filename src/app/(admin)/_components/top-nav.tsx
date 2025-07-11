@@ -55,19 +55,19 @@ export function TopNav() {
         <Link
           href="/"
           className="flex items-center gap-2 text-lg font-semibold md:text-base"
-        >
+          legacyBehavior>
           <CowIcon className="h-6 w-6 text-primary" />
           <span className="sr-only">AhimsaPure</span>
         </Link>
         {allNavItems.map(item => (
            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "transition-colors hover:text-foreground",
-                pathname === item.href ? "text-foreground" : "text-muted-foreground"
-              )}
-            >
+             key={item.href}
+             href={item.href}
+             className={cn(
+               "transition-colors hover:text-foreground",
+               pathname === item.href ? "text-foreground" : "text-muted-foreground"
+             )}
+             legacyBehavior>
               {item.label}
             </Link>
         ))}
@@ -84,19 +84,19 @@ export function TopNav() {
             <Link
               href="/"
               className="flex items-center gap-2 text-lg font-semibold"
-            >
+              legacyBehavior>
               <CowIcon className="h-6 w-6 text-primary" />
               <span className="sr-only">AhimsaPure</span>
             </Link>
              {allNavItems.map(item => (
                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "hover:text-foreground",
-                     pathname === item.href ? "text-foreground" : "text-muted-foreground"
-                  )}
-                >
+                 key={item.href}
+                 href={item.href}
+                 className={cn(
+                   "hover:text-foreground",
+                    pathname === item.href ? "text-foreground" : "text-muted-foreground"
+                 )}
+                 legacyBehavior>
                   {item.label}
                 </Link>
             ))}
@@ -126,5 +126,5 @@ export function TopNav() {
         </DropdownMenu>
       </div>
     </header>
-  )
+  );
 }

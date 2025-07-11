@@ -29,7 +29,10 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-      <Link href={`/products/${product.id}`} className="flex flex-col flex-grow">
+      <Link
+        href={`/products/${product.id}`}
+        className="flex flex-col flex-grow"
+        legacyBehavior>
         <CardHeader className="p-0 border-b">
           <div className="relative aspect-square w-full">
             <ManagedImage

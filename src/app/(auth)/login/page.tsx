@@ -82,7 +82,10 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-primary/5 p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-            <Link href="/" className="flex items-center gap-2 justify-center mb-4">
+            <Link
+              href="/"
+              className="flex items-center gap-2 justify-center mb-4"
+              legacyBehavior>
                 <CowIcon className="h-8 w-8 text-primary" />
                 <span className="font-headline text-3xl font-bold text-foreground">
                     AhimsaPure

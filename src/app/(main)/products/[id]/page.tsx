@@ -61,7 +61,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
           </div>
         </div>
       </div>
-
       {/* Description, Specs, Reviews Tabs */}
       <Tabs defaultValue="description" className="w-full">
         <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto md:h-10">
@@ -131,8 +130,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
             )}
         </TabsContent>
       </Tabs>
-
-
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <section>

@@ -160,7 +160,7 @@ const ListItem = React.forwardRef<
             className
           )}
           {...props}
-        >
+          legacyBehavior>
           <div className="text-sm font-medium leading-none">{title}</div>
           {children && (
             <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -170,6 +170,6 @@ const ListItem = React.forwardRef<
         </Link>
       </NavigationMenuLink>
     </li>
-  )
+  );
 })
 ListItem.displayName = "ListItem"
