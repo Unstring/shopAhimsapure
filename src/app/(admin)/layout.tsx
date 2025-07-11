@@ -36,7 +36,7 @@ import { BlogProvider } from './_context/blog-context';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
-import { ThemeSwitcher } from '@/components/theme-switcher';
+import { ThemeSwitcher } from '@/components/admin-theme-switcher';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -164,6 +164,9 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                           </SidebarMenuButton>
                       </Link>
                    </SidebarMenuItem>
+                    <SidebarMenuItem>
+                        <ThemeSwitcher />
+                   </SidebarMenuItem>
               </SidebarMenu>
             </SidebarFooter>
           </SidebarContent>
@@ -172,7 +175,6 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
           <header className="flex justify-between items-center p-4 border-b">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
-                <ThemeSwitcher />
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="secondary" size="icon" className="rounded-full">

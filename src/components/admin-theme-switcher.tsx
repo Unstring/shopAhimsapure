@@ -5,7 +5,7 @@ import * as React from "react"
 import { Moon, Sun, Laptop } from "lucide-react"
 import { useTheme } from "next-themes"
 
-import { Button } from "@/components/ui/button"
+import { SidebarMenuButton } from "./ui/sidebar"
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
@@ -27,19 +27,18 @@ export function ThemeSwitcher() {
 
   // Until the component is mounted, we can't know the theme, so we render a placeholder.
   if (!mounted) {
-    return <Button variant="ghost" size="icon" disabled className="h-9 w-9" />
+    return <SidebarMenuButton disabled className="h-9 w-9" />
   }
 
   const CycleIcon = theme === 'light' ? Sun : theme === 'dark' ? Moon : Laptop;
 
   return (
-    <Button 
-        variant="ghost"
-        size="icon"
+    <SidebarMenuButton 
         onClick={cycleTheme} 
-        aria-label="Toggle theme"
+        tooltip="Toggle theme"
     >
       <CycleIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
-    </Button>
+      <span className="group-data-[collapsible=icon]:hidden">Toggle theme</span>
+    </SidebarMenuButton>
   )
 }
