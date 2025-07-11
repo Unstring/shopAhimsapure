@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { Separator } from "@/components/ui/separator"
 import { useLayout } from "../../_context/layout-context";
 
 export default function SettingsPage() {
@@ -25,9 +24,11 @@ export default function SettingsPage() {
                     <CardContent className="space-y-4">
                         <div className="flex items-center justify-between rounded-lg border p-4">
                             <div>
-                                <Label htmlFor="layout-switch">Sidebar Layout</Label>
+                                <Label htmlFor="layout-switch" className="font-semibold">
+                                  {layout === 'sidebar' ? "Sidebar Layout" : "Top Navigation Layout"}
+                                </Label>
                                 <p className="text-sm text-muted-foreground">
-                                    Use a vertical sidebar for navigation.
+                                    Switch between a vertical sidebar or a horizontal top navigation.
                                 </p>
                             </div>
                             <Switch 
