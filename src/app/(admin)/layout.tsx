@@ -36,7 +36,7 @@ import { BlogProvider } from './_context/blog-context';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
-import { ThemeSwitcher } from '@/components/admin-theme-switcher';
+import { AdminThemeSwitcher } from '@/components/admin-theme-switcher';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -117,7 +117,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="flex h-screen overflow-hidden">
+      <div className="relative flex h-screen">
         <Sidebar 
           collapsible="icon" 
           className="peer" 
@@ -165,14 +165,14 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                       </Link>
                    </SidebarMenuItem>
                     <SidebarMenuItem>
-                        <ThemeSwitcher />
+                        <AdminThemeSwitcher />
                    </SidebarMenuItem>
               </SidebarMenu>
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <SidebarInset className="flex-1 flex flex-col">
-          <header className="flex justify-between items-center p-4 border-b">
+        <SidebarInset className="flex-1 flex flex-col h-screen">
+          <header className="flex justify-between items-center p-4 border-b shrink-0">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
                 <DropdownMenu>

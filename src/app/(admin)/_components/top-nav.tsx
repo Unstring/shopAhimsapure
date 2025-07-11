@@ -16,7 +16,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Menu, User, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { navItems, settingsItem } from '../layout'
-import { ThemeSwitcher } from '@/components/admin-theme-switcher'
+import { AdminThemeSwitcher } from '@/components/admin-theme-switcher'
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -105,7 +105,7 @@ export function TopNav() {
       </Sheet>
       <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
         <div className="ml-auto flex-1 sm:flex-initial" />
-        <ThemeSwitcher />
+        <AdminThemeSwitcher />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">

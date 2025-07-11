@@ -7,7 +7,7 @@ import { useTheme } from "next-themes"
 
 import { SidebarMenuButton } from "./ui/sidebar"
 
-export function ThemeSwitcher() {
+export function AdminThemeSwitcher() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
