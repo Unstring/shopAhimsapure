@@ -116,7 +116,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="relative h-screen flex">
+      <div className="relative flex h-screen">
         <Sidebar 
           collapsible="icon" 
           className="peer" 
@@ -156,21 +156,13 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                       </Link>
                    </SidebarMenuItem>
                     <SidebarMenuItem>
-                      <Link href={accountItem.href}>
-                          <SidebarMenuButton tooltip={accountItem.label} isActive={pathname === accountItem.href}>
-                              <accountItem.icon />
-                              <span className="group-data-[collapsible=icon]:hidden">{accountItem.label}</span>
-                          </SidebarMenuButton>
-                      </Link>
-                   </SidebarMenuItem>
-                    <SidebarMenuItem>
-                        <AdminThemeSwitcher inSidebar={true} />
+                        <AdminThemeSwitcher />
                    </SidebarMenuItem>
               </SidebarMenu>
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <div className="flex flex-col flex-1 h-screen overflow-hidden">
+        <div className="flex-1 flex flex-col">
           <header className="flex justify-between items-center p-4 border-b shrink-0 sticky top-0 bg-background z-10">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
