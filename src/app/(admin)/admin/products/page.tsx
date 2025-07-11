@@ -26,7 +26,7 @@ export default function AdminProductsPage() {
             <div className="flex justify-between items-center">
                 <PageHeader>Products</PageHeader>
                 <Button asChild>
-                    <Link href="/admin/products/new" legacyBehavior>
+                    <Link href="/admin/products/new">
                         <PlusCircle className="mr-2 h-4 w-4" />
                         Add Product
                     </Link>

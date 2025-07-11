@@ -47,7 +47,7 @@ export default function BlogAdminPage() {
       <div className="flex justify-between items-center">
         <PageHeader>Blog Posts</PageHeader>
         <Button asChild>
-          <Link href="/admin/blog/new" legacyBehavior>
+          <Link href="/admin/blog/new">
             <PlusCircle className="mr-2 h-4 w-4" />
             Add New Post
           </Link>
