@@ -117,7 +117,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="relative flex h-screen">
+      <div className="relative flex h-screen overflow-hidden">
         <Sidebar 
           collapsible="icon" 
           className="peer" 
@@ -171,7 +171,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             </SidebarFooter>
           </SidebarContent>
         </Sidebar>
-        <div className="flex flex-col flex-1 h-screen">
+        <div className="flex flex-col flex-1">
           <header className="flex justify-between items-center p-4 border-b shrink-0">
               <SidebarTrigger />
                <div className="flex items-center gap-2">
