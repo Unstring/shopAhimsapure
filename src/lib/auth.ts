@@ -44,3 +44,17 @@ export function encryptPassword(password: string, publicKeyPem: string): string 
         throw new Error("Could not encrypt password.");
     }
 }
+
+export function encryptPayload(payload: object, publicKeyPem: string): string {
+    try {
+        const publicKey = forge.pki.publicKeyFromPem(publicKeyPem);
+        const payloadString = JSON.stringify(payload);
+        const encrypted = publicKey.encrypt(payloadString, 'RSA-OAEP', {
+            md: forge.md.sha256.create(),
+        });
+        return forge.util.encode64(encrypted);
+    } catch (error) {
+        console.error("Encryption failed:", error);
+        throw new Error("Could not encrypt payload.");
+    }
+}

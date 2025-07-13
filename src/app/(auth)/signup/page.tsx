@@ -10,6 +10,11 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import api from "@/lib/api";
+import { getPublicKey, encryptPayload } from "@/lib/auth";
+
 
 const signupSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -46,18 +51,76 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function SignupPage() {
   const { toast } = useToast();
+  const router = useRouter();
+  const [publicKey, setPublicKey] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchKey = async () => {
+      try {
+        const key = await getPublicKey();
+        setPublicKey(key);
+      } catch (error) {
+        toast({
+          variant: "destructive",
+          title: "Security Error",
+          description: "Could not fetch security credentials. Please try again later.",
+        });
+      }
+    };
+    fetchKey();
+  }, [toast]);
 
   const form = useForm<SignupFormValues>({
     resolver: zodResolver(signupSchema),
+    defaultValues: {
+        fullName: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+    }
   });
 
-  const onSubmit: SubmitHandler<SignupFormValues> = (data) => {
-    console.log("Signup submitted:", data);
-    toast({
-      title: "Account Created!",
-      description: "Welcome to AhimsaPure. Please log in.",
-    });
-    // Here you would typically handle the signup logic and redirect
+  const onSubmit: SubmitHandler<SignupFormValues> = async (data) => {
+    if (!publicKey) {
+        toast({ variant: "destructive", title: "Error", description: "Security key not available. Cannot register." });
+        return;
+    }
+    setIsLoading(true);
+
+    const [firstName, ...lastNameParts] = data.fullName.split(' ');
+    const lastName = lastNameParts.join(' ') || '-';
+
+    const payload = {
+        email: data.email,
+        password: data.password,
+        firstName: firstName,
+        lastName: lastName,
+        baseUrl: window.location.origin
+    };
+
+    try {
+        const encryptedPayload = encryptPayload(payload, publicKey);
+        
+        await api.post('/auth/register', { payload: encryptedPayload });
+
+        toast({
+            title: "Account Created!",
+            description: "Welcome to AhimsaPure. Please check your email to verify your account and then log in.",
+        });
+        router.push('/login');
+
+    } catch (error: any) {
+        console.error("Registration failed:", error);
+        const errorMessage = error.response?.data?.message || "An unknown error occurred.";
+        toast({
+            variant: "destructive",
+            title: "Registration Failed",
+            description: errorMessage,
+        });
+    } finally {
+        setIsLoading(false);
+    }
   };
 
   return (
@@ -130,8 +193,8 @@ export default function SignupPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" size="lg" className="w-full">
-                Create Account
+              <Button type="submit" size="lg" className="w-full" disabled={!publicKey || isLoading}>
+                {isLoading ? "Creating Account..." : (publicKey ? "Create Account" : "Loading...")}
               </Button>
             </form>
           </Form>
