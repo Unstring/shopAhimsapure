@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server'
 // This middleware is intentionally simple to work with `output: 'export'`.
 // It allows all paths to pass through. Next.js's static export handling
 // will serve existing static files and the client-side router will handle
-// dynamic routes like `/admin/products/[id]/edit`.
+// dynamic routes like `/verify/[token]`.
 export function middleware(request: NextRequest) {
   return NextResponse.next()
 }
