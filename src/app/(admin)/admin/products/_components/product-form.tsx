@@ -149,12 +149,12 @@ export function ProductForm({ product }: ProductFormProps) {
                         key={field.id}
                         control={form.control}
                         name={`images.${index}`}
-                        render={({ field }) => (
+                        render={({ field: formField }) => (
                             <FormItem>
                                 <FormLabel>Image URL {index + 1}</FormLabel>
                                 <div className="flex items-center gap-2">
                                 <FormControl>
-                                    <Input placeholder="https://example.com/image.png" {...field} />
+                                    <Input placeholder="https://example.com/image.png" {...formField} />
                                 </FormControl>
                                 <Button type="button" variant="destructive" size="icon" onClick={() => remove(index)}>
                                     <Trash2 className="h-4 w-4" />
