@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getPublicKey, encryptPayload } from "@/lib/auth";
+import api from "@/lib/api";
 
 const loginSchema = z.object({
   email: z.string().min(1, "Email is required"),
@@ -46,6 +47,7 @@ export default function LoginPage() {
   const { toast } = useToast();
   const router = useRouter();
   const [publicKey, setPublicKey] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchKey = async () => {
@@ -71,7 +73,7 @@ export default function LoginPage() {
     },
   });
 
-  const onSubmit: SubmitHandler<LoginFormValues> = (data) => {
+  const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
     if (!publicKey) {
         toast({
             variant: "destructive",
@@ -80,41 +82,37 @@ export default function LoginPage() {
         });
         return;
     }
+    setIsLoading(true);
 
     try {
-        const encryptedPayload = encryptPayload(data, publicKey);
-        console.log("Encrypted Login Payload:", encryptedPayload);
+        const payload = { email: data.email, password: data.password };
+        const encryptedPayload = encryptPayload(payload, publicKey);
+        
+        const response = await api.post('/auth/login', { payload: encryptedPayload });
 
-        // Replace dummy logic with actual API call
-        if (data.email === "admin1" && data.password === "pass@123") {
-            const user = { email: data.email, role: 'admin' };
-            localStorage.setItem('user', JSON.stringify(user));
-            toast({
-                title: "Admin Login Successful",
-                description: "Welcome back!",
-            });
+        const user = response.data; // Assuming API returns user object { email, role, ... }
+        localStorage.setItem('user', JSON.stringify(user));
+        
+        toast({
+            title: "Login Successful",
+            description: "Welcome back!",
+        });
+        
+        if (user.role === 'admin') {
             router.push('/admin');
-        } else if (data.email === "user1" && data.password === "pass@123") {
-            const user = { email: data.email, role: 'user' };
-            localStorage.setItem('user', JSON.stringify(user));
-            toast({
-                title: "Login Successful",
-                description: "Welcome back!",
-            });
-            router.push('/');
         } else {
-            toast({
-                variant: "destructive",
-                title: "Login Failed",
-                description: "Invalid email or password.",
-            });
+            router.push('/');
         }
-    } catch (error) {
+    } catch (error: any) {
+         console.error("Login failed:", error);
+         const errorMessage = error.response?.data?.message || "Invalid credentials or an unknown error occurred.";
          toast({
             variant: "destructive",
-            title: "Encryption Error",
-            description: "Could not process login credentials securely.",
+            title: "Login Failed",
+            description: errorMessage,
         });
+    } finally {
+        setIsLoading(false);
     }
   };
 
@@ -141,7 +139,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>Email Address</FormLabel>
                     <FormControl>
-                      <Input placeholder="user1 or admin1" {...field} />
+                      <Input placeholder="your@email.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -159,14 +157,14 @@ export default function LoginPage() {
                         </Link>
                     </div>
                     <FormControl>
-                      <Input type="password" placeholder="pass@123" {...field} />
+                      <Input type="password" placeholder="********" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit" size="lg" className="w-full" disabled={!publicKey}>
-                {publicKey ? 'Sign In' : 'Loading...'}
+              <Button type="submit" size="lg" className="w-full" disabled={!publicKey || isLoading}>
+                {isLoading ? "Signing In..." : (publicKey ? 'Sign In' : 'Loading...')}
               </Button>
             </form>
           </Form>
