@@ -35,9 +35,7 @@ export async function getPublicKey(): Promise<string> {
 export function encryptPassword(password: string, publicKeyPem: string): string {
     try {
         const publicKey = forge.pki.publicKeyFromPem(publicKeyPem);
-        const encrypted = publicKey.encrypt(password, 'RSA-OAEP', {
-            md: forge.md.sha256.create(),
-        });
+        const encrypted = publicKey.encrypt(password, 'RSAES-PKCS1-v1_5');
         return forge.util.encode64(encrypted);
     } catch (error) {
         console.error("Encryption failed:", error);
@@ -49,9 +47,7 @@ export function encryptPayload(payload: object, publicKeyPem: string): string {
     try {
         const publicKey = forge.pki.publicKeyFromPem(publicKeyPem);
         const payloadString = JSON.stringify(payload);
-        const encrypted = publicKey.encrypt(payloadString, 'RSA-OAEP', {
-            md: forge.md.sha256.create(),
-        });
+        const encrypted = publicKey.encrypt(payloadString, 'RSAES-PKCS1-v1_5');
         return forge.util.encode64(encrypted);
     } catch (error) {
         console.error("Encryption failed:", error);

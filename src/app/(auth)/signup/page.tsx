@@ -96,7 +96,7 @@ export default function SignupPage() {
         password: data.password,
         firstName: firstName,
         lastName: lastName,
-        baseUrl: window.location.origin
+        baseUrl: window.location.origin + '/verify'
     };
 
     try {
