@@ -80,9 +80,9 @@ export default function ContentPage() {
             <CardContent className="space-y-4">
               {whyChooseUsFields.map((field, index) => (
                 <div key={field.id} className="p-4 border rounded-md space-y-2 relative">
-                  <FormField name={`whyChooseUsItems.${index}.title`} render={({field}) => <FormItem><FormLabel>Title</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-                  <FormField name={`whyChooseUsItems.${index}.description`} render={({field}) => <FormItem><FormLabel>Description</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage/></FormItem>} />
-                  <FormField name={`whyChooseUsItems.${index}.icon`} render={({field}) => <FormItem><FormLabel>Icon Name</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+                  <FormField control={form.control} name={`whyChooseUsItems.${index}.title`} render={({field}) => <FormItem><FormLabel>Title</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+                  <FormField control={form.control} name={`whyChooseUsItems.${index}.description`} render={({field}) => <FormItem><FormLabel>Description</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage/></FormItem>} />
+                  <FormField control={form.control} name={`whyChooseUsItems.${index}.icon`} render={({field}) => <FormItem><FormLabel>Icon Name</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
                   <Button type="button" variant="ghost" size="icon" className="absolute top-2 right-2" onClick={() => removeWhy(index)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
                 </div>
               ))}
@@ -99,10 +99,10 @@ export default function ContentPage() {
             <CardContent className="space-y-4">
               {testimonialFields.map((field, index) => (
                 <div key={field.id} className="p-4 border rounded-md space-y-2 relative">
-                  <FormField name={`testimonials.${index}.name`} render={({field}) => <FormItem><FormLabel>Name</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-                  <FormField name={`testimonials.${index}.location`} render={({field}) => <FormItem><FormLabel>Location</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-                   <FormField name={`testimonials.${index}.quote`} render={({field}) => <FormItem><FormLabel>Quote</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage/></FormItem>} />
-                  <FormField name={`testimonials.${index}.avatar`} render={({field}) => <FormItem><FormLabel>Avatar URL</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+                  <FormField control={form.control} name={`testimonials.${index}.name`} render={({field}) => <FormItem><FormLabel>Name</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+                  <FormField control={form.control} name={`testimonials.${index}.location`} render={({field}) => <FormItem><FormLabel>Location</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+                   <FormField control={form.control} name={`testimonials.${index}.quote`} render={({field}) => <FormItem><FormLabel>Quote</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage/></FormItem>} />
+                  <FormField control={form.control} name={`testimonials.${index}.avatar`} render={({field}) => <FormItem><FormLabel>Avatar URL</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
                   <Button type="button" variant="ghost" size="icon" className="absolute top-2 right-2" onClick={() => removeTestimonial(index)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
                 </div>
               ))}
@@ -120,8 +120,8 @@ export default function ContentPage() {
             <CardContent className="space-y-4">
               {faqFields.map((field, index) => (
                 <div key={field.id} className="p-4 border rounded-md space-y-2 relative">
-                  <FormField name={`faqs.${index}.question`} render={({field}) => <FormItem><FormLabel>Question</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
-                  <FormField name={`faqs.${index}.answer`} render={({field}) => <FormItem><FormLabel>Answer</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage/></FormItem>} />
+                  <FormField control={form.control} name={`faqs.${index}.question`} render={({field}) => <FormItem><FormLabel>Question</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage/></FormItem>} />
+                  <FormField control={form.control} name={`faqs.${index}.answer`} render={({field}) => <FormItem><FormLabel>Answer</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage/></FormItem>} />
                   <Button type="button" variant="ghost" size="icon" className="absolute top-2 right-2" onClick={() => removeFaq(index)}><Trash2 className="h-4 w-4 text-destructive" /></Button>
                 </div>
               ))}
