@@ -135,7 +135,7 @@ export function MegaMenu() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/contact" passHref legacyBehavior>
+          <Link href="/contact">
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
               Contact
             </NavigationMenuLink>
