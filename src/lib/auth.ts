@@ -31,18 +31,6 @@ export async function getPublicKey(): Promise<string> {
   return publicKeyPromise;
 }
 
-
-export function encryptPassword(password: string, publicKeyPem: string): string {
-    try {
-        const publicKey = forge.pki.publicKeyFromPem(publicKeyPem);
-        const encrypted = publicKey.encrypt(password, 'RSAES-PKCS1-v1_5');
-        return forge.util.encode64(encrypted);
-    } catch (error) {
-        console.error("Encryption failed:", error);
-        throw new Error("Could not encrypt password.");
-    }
-}
-
 export function encryptPayload(payload: object, publicKeyPem: string): string {
     try {
         const publicKey = forge.pki.publicKeyFromPem(publicKeyPem);

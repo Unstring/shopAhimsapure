@@ -12,7 +12,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getPublicKey, encryptPassword } from "@/lib/auth";
+import { getPublicKey, encryptPayload } from "@/lib/auth";
 
 const loginSchema = z.object({
   email: z.string().min(1, "Email is required"),
@@ -82,8 +82,8 @@ export default function LoginPage() {
     }
 
     try {
-        const encryptedPassword = encryptPassword(data.password, publicKey);
-        console.log("Encrypted Password:", encryptedPassword);
+        const encryptedPayload = encryptPayload(data, publicKey);
+        console.log("Encrypted Login Payload:", encryptedPayload);
 
         // Replace dummy logic with actual API call
         if (data.email === "admin1" && data.password === "pass@123") {
