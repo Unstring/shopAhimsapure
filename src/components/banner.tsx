@@ -26,7 +26,6 @@ export function Banner({ banner }: BannerProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Prevent banner from showing if it was previously dismissed by the user.
     if (localStorage.getItem(`banner-dismissed-${banner.bannerId}`) === 'true') {
       return;
     }
@@ -35,7 +34,6 @@ export function Banner({ banner }: BannerProps) {
 
   const handleClose = () => {
     setIsOpen(false);
-    // Remember the user's choice in localStorage.
     if (banner.removable) {
       localStorage.setItem(`banner-dismissed-${banner.bannerId}`, 'true');
     }
@@ -52,7 +50,7 @@ export function Banner({ banner }: BannerProps) {
   const behaviorClasses = {
       static: 'relative',
       sticky: 'sticky z-50',
-      fixed: 'fixed z-50 w-full'
+      fixed: 'fixed z-50'
   }
 
   return (
@@ -61,7 +59,7 @@ export function Banner({ banner }: BannerProps) {
         banner.behavior === 'fixed' || banner.behavior === 'sticky' ? behaviorClasses[banner.behavior] : 'relative',
         positionClasses[banner.position]
     )}>
-      <div className="relative flex h-10 items-center justify-center px-4 text-sm font-medium sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-10 items-center justify-center px-4 text-sm font-medium sm:px-6 lg:px-8 relative">
         <div className="flex items-center gap-x-3">
           {banner.position === 'top' ? <Megaphone className="h-4 w-4" /> : <Gift className="h-4 w-4" />}
           <p>{banner.message}</p>

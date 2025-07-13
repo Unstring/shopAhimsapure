@@ -5,44 +5,36 @@ import { useState, useEffect } from 'react';
 import api from '@/lib/api';
 import { Banner, type BannerData } from './banner';
 
+const BANNERS_CACHE_KEY = 'ahimsapure-banners';
+
 export function BannerController() {
     const [banners, setBanners] = useState<BannerData[]>([]);
     
     useEffect(() => {
+        // 1. Load banners from localStorage for instant UI
+        try {
+            const cachedBanners = localStorage.getItem(BANNERS_CACHE_KEY);
+            if (cachedBanners) {
+                setBanners(JSON.parse(cachedBanners));
+            }
+        } catch (error) {
+            console.error("Failed to read banners from localStorage", error);
+        }
+
+        // 2. Fetch fresh banners from API
         const fetchBanners = async () => {
             try {
-                // Assuming the API returns an array of active banner objects
                 const response = await api.get<BannerData[]>('/banners/active');
                 if (response.data && Array.isArray(response.data)) {
-                    // Sort banners by priority, lower number is higher priority
-                    const sortedBanners = response.data.sort((a: any, b: any) => (a.priority || 0) - (b.priority || 0));
+                    const sortedBanners = response.data.sort((a, b) => (a.priority || 0) - (b.priority || 0));
                     setBanners(sortedBanners);
+                    // 3. Update localStorage cache
+                    localStorage.setItem(BANNERS_CACHE_KEY, JSON.stringify(sortedBanners));
                 }
             } catch (error) {
-                // Mock a banner for UI development if API fails
-                console.error("Failed to fetch banners, using mock data.", error);
-                setBanners([
-                    {
-                        bannerId: "promo-top-123",
-                        message: "Free delivery on all orders above ₹500!",
-                        ctaText: "Shop Now",
-                        ctaLink: "/products",
-                        behavior: "sticky",
-                        position: "top",
-                        removable: true,
-                        isActive: true,
-                    },
-                    {
-                        bannerId: "promo-bottom-456",
-                        message: "Get 15% off your first purchase with code NEW15.",
-                        ctaText: "Claim Discount",
-                        ctaLink: "/signup",
-                        behavior: "fixed",
-                        position: "bottom",
-                        removable: true,
-                        isActive: true,
-                    }
-                ].sort((a: any, b: any) => (a.priority || 0) - (b.priority || 0)));
+                console.error("Failed to fetch banners from API:", error);
+                // In case of API failure, we can choose to clear the cache or leave it.
+                // For now, we'll leave it to show the last known good banners.
             }
         };
 
@@ -54,18 +46,20 @@ export function BannerController() {
 
     return (
         <>
-            <div>
+            <div className="w-full">
                 {topBanners.map(banner => <Banner key={banner.bannerId} banner={banner} />)}
             </div>
-            <div className="fixed bottom-0 left-0 right-0 z-50 w-full pointer-events-none">
-                 <div className="flex flex-col gap-2 items-center pb-4">
-                     {bottomBanners.map(banner => (
-                        <div key={banner.bannerId} className="w-full max-w-5xl pointer-events-auto px-4">
-                           <Banner banner={banner} />
-                        </div>
-                    ))}
+            {bottomBanners.length > 0 && (
+                <div className="fixed bottom-0 left-0 right-0 z-50 w-full pointer-events-none">
+                     <div className="flex flex-col-reverse gap-2 items-center pb-4">
+                         {bottomBanners.map(banner => (
+                            <div key={banner.bannerId} className="w-full pointer-events-auto">
+                               <Banner banner={banner} />
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
         </>
     );
 }
