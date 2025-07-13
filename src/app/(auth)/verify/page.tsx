@@ -1,8 +1,8 @@
 
 "use client";
 
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import React, { useEffect, useState, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import api from '@/lib/api';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,16 +11,15 @@ import Link from 'next/link';
 
 type VerificationStatus = 'verifying' | 'success' | 'error';
 
-export default function VerifyPage() {
-    const pathname = usePathname();
+function VerificationComponent() {
+    const searchParams = useSearchParams();
     const [status, setStatus] = useState<VerificationStatus>('verifying');
     const [message, setMessage] = useState('We are verifying your email. Please wait...');
 
     useEffect(() => {
-        const pathSegments = pathname.split('/');
-        const token = pathSegments[pathSegments.length - 1];
+        const token = searchParams.get('token');
 
-        if (!token || token === 'verify') {
+        if (!token) {
             setStatus('error');
             setMessage('No verification token found. Please check the link and try again.');
             return;
@@ -39,7 +38,7 @@ export default function VerifyPage() {
         };
 
         verifyToken();
-    }, [pathname]);
+    }, [searchParams]);
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-primary/5 p-4">
@@ -67,4 +66,12 @@ export default function VerifyPage() {
             </Card>
         </div>
     );
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <VerificationComponent />
+    </Suspense>
+  )
 }
