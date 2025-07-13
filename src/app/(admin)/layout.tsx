@@ -13,6 +13,7 @@ import {
   FileText,
   BookOpen,
   User,
+  Ticket,
 } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -31,6 +32,7 @@ import {
 import { ProductProvider } from './_context/product-context';
 import { ContentProvider } from './_context/content-context';
 import { BlogProvider } from './_context/blog-context';
+import { CouponProvider } from './_context/coupon-context';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
@@ -61,6 +63,7 @@ export const navItems = [
     { href: "/admin", icon: Home, label: "Dashboard" },
     { href: "/admin/orders", icon: ShoppingCart, label: "Orders" },
     { href: "/admin/products", icon: Package, label: "Products" },
+    { href: "/admin/coupons", icon: Ticket, label: "Coupons" },
     { href: "/admin/customers", icon: Users, label: "Customers" },
     { href: "/admin/analytics", icon: LineChart, label: "Analytics" },
     { href: "/admin/content", icon: FileText, label: "Content" },
@@ -189,13 +192,15 @@ export default function AdminLayout({
 }) {
   return (
     <LayoutProvider>
-      <ProductProvider>
-        <ContentProvider>
-          <BlogProvider>
-            <AdminLayoutContent>{children}</AdminLayoutContent>
-          </BlogProvider>
-        </ContentProvider>
-      </ProductProvider>
+        <ProductProvider>
+            <ContentProvider>
+                <BlogProvider>
+                    <CouponProvider>
+                        <AdminLayoutContent>{children}</AdminLayoutContent>
+                    </CouponProvider>
+                </BlogProvider>
+            </ContentProvider>
+        </ProductProvider>
     </LayoutProvider>
   )
 }
