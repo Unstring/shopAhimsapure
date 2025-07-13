@@ -6,14 +6,14 @@ import { Button } from '@/components/ui/button';
 import { Rocket } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { AnnouncementBanner } from '@/components/announcement-banner';
+import { BannerController } from '@/components/banner-controller';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 
-        viewBox="0 0 24 24" 
+        viewBox="0 0 24" 
         fill="none" 
         stroke="currentColor" 
         strokeWidth="2" 
@@ -32,7 +32,7 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export default function ComingSoonPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <AnnouncementBanner />
+      <BannerController />
       <Header />
       <main className="flex-grow flex items-center justify-center">
         <div className="text-center p-8">
