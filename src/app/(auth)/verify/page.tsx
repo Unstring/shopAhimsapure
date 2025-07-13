@@ -17,7 +17,14 @@ function VerificationComponent() {
     const [message, setMessage] = useState('We are verifying your email. Please wait...');
 
     useEffect(() => {
-        const token = searchParams.get('token');
+        let token = searchParams.get('token');
+
+        if (token) {
+            const eyIndex = token.indexOf('ey');
+            if (eyIndex > 0) {
+                token = token.substring(eyIndex);
+            }
+        }
 
         if (!token) {
             setStatus('error');
