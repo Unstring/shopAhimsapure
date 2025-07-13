@@ -11,6 +11,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { getPublicKey, encryptPassword } from "@/lib/auth";
 
 const loginSchema = z.object({
   email: z.string().min(1, "Email is required"),
@@ -43,6 +45,23 @@ const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export default function LoginPage() {
   const { toast } = useToast();
   const router = useRouter();
+  const [publicKey, setPublicKey] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchKey = async () => {
+      try {
+        const key = await getPublicKey();
+        setPublicKey(key);
+      } catch (error) {
+        toast({
+          variant: "destructive",
+          title: "Authentication Error",
+          description: "Could not fetch security credentials. Please try again later.",
+        });
+      }
+    };
+    fetchKey();
+  }, [toast]);
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
@@ -53,28 +72,49 @@ export default function LoginPage() {
   });
 
   const onSubmit: SubmitHandler<LoginFormValues> = (data) => {
-    if (data.email === "admin1" && data.password === "pass@123") {
-      const user = { email: data.email, role: 'admin' };
-      localStorage.setItem('user', JSON.stringify(user));
-      toast({
-        title: "Admin Login Successful",
-        description: "Welcome back!",
-      });
-      router.push('/admin');
-    } else if (data.email === "user1" && data.password === "pass@123") {
-      const user = { email: data.email, role: 'user' };
-      localStorage.setItem('user', JSON.stringify(user));
-      toast({
-        title: "Login Successful",
-        description: "Welcome back!",
-      });
-      router.push('/');
-    } else {
-      toast({
-        variant: "destructive",
-        title: "Login Failed",
-        description: "Invalid email or password.",
-      });
+    if (!publicKey) {
+        toast({
+            variant: "destructive",
+            title: "Error",
+            description: "Security key not available. Cannot log in.",
+        });
+        return;
+    }
+
+    try {
+        const encryptedPassword = encryptPassword(data.password, publicKey);
+        console.log("Encrypted Password:", encryptedPassword);
+
+        // Replace dummy logic with actual API call
+        if (data.email === "admin1" && data.password === "pass@123") {
+            const user = { email: data.email, role: 'admin' };
+            localStorage.setItem('user', JSON.stringify(user));
+            toast({
+                title: "Admin Login Successful",
+                description: "Welcome back!",
+            });
+            router.push('/admin');
+        } else if (data.email === "user1" && data.password === "pass@123") {
+            const user = { email: data.email, role: 'user' };
+            localStorage.setItem('user', JSON.stringify(user));
+            toast({
+                title: "Login Successful",
+                description: "Welcome back!",
+            });
+            router.push('/');
+        } else {
+            toast({
+                variant: "destructive",
+                title: "Login Failed",
+                description: "Invalid email or password.",
+            });
+        }
+    } catch (error) {
+         toast({
+            variant: "destructive",
+            title: "Encryption Error",
+            description: "Could not process login credentials securely.",
+        });
     }
   };
 
@@ -82,14 +122,12 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-primary/5 p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-            <Link
-              href="/"
-              className="flex items-center gap-2 justify-center mb-4">
+          <Link href="/" className="flex items-center gap-2 justify-center mb-4">
               <CowIcon className="h-8 w-8 text-primary" />
               <span className="font-headline text-3xl font-bold text-foreground">
                   AhimsaPure
               </span>
-            </Link>
+          </Link>
           <CardTitle className="font-headline text-2xl">Welcome Back</CardTitle>
           <CardDescription>Enter your credentials to access your account.</CardDescription>
         </CardHeader>
@@ -127,8 +165,8 @@ export default function LoginPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" size="lg" className="w-full">
-                Sign In
+              <Button type="submit" size="lg" className="w-full" disabled={!publicKey}>
+                {publicKey ? 'Sign In' : 'Loading...'}
               </Button>
             </form>
           </Form>
