@@ -51,7 +51,7 @@ export function BannerController() {
             </div>
             {bottomBanners.length > 0 && (
                 <div className="fixed bottom-0 left-0 right-0 z-50 w-full pointer-events-none">
-                     <div className="flex flex-col-reverse gap-2 items-center pb-4">
+                     <div className="flex flex-col-reverse">
                          {bottomBanners.map(banner => (
                             <div key={banner.bannerId} className="w-full pointer-events-auto">
                                <Banner banner={banner} />
