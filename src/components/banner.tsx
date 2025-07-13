@@ -57,32 +57,32 @@ export function Banner({ banner }: BannerProps) {
 
   return (
     <div className={cn(
-        "bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm",
+        "bg-primary text-primary-foreground",
         banner.behavior === 'fixed' || banner.behavior === 'sticky' ? behaviorClasses[banner.behavior] : 'relative',
         positionClasses[banner.position]
     )}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative flex flex-col sm:flex-row items-center justify-center gap-4 p-3 sm:gap-6">
-                <div className="flex items-center gap-3 text-center sm:text-left">
-                    {banner.position === 'top' ? <Megaphone className="h-6 w-6 flex-shrink-0" /> : <Gift className="h-6 w-6 flex-shrink-0" />}
-                    <p className="font-medium text-sm">{banner.message}</p>
-                </div>
-                {banner.ctaText && banner.ctaLink && (
-                    <Button asChild variant="secondary" size="sm" className="w-full sm:w-auto flex-shrink-0">
-                        <Link href={banner.ctaLink}>{banner.ctaText}</Link>
-                    </Button>
-                )}
-                {banner.removable && (
-                    <button 
-                        onClick={handleClose}
-                        className="absolute top-1/2 -translate-y-1/2 right-3 rounded-full bg-primary/80 p-1 text-primary-foreground transition-transform hover:scale-110"
-                        aria-label="Dismiss banner"
-                    >
-                        <X className="h-4 w-4" />
-                    </button>
-                )}
-            </div>
+      <div className="relative flex h-10 items-center justify-center px-4 text-sm font-medium sm:px-6 lg:px-8">
+        <div className="flex items-center gap-x-3">
+          {banner.position === 'top' ? <Megaphone className="h-4 w-4" /> : <Gift className="h-4 w-4" />}
+          <p>{banner.message}</p>
         </div>
+
+        {banner.ctaText && banner.ctaLink && (
+            <Link href={banner.ctaLink} className="ml-3 hidden font-semibold text-primary-foreground underline underline-offset-4 hover:text-white sm:inline">
+                {banner.ctaText}
+            </Link>
+        )}
+
+        {banner.removable && (
+            <button
+                onClick={handleClose}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full text-primary-foreground/70 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                aria-label="Dismiss banner"
+            >
+                <X className="h-4 w-4" />
+            </button>
+        )}
+      </div>
     </div>
   );
 }
