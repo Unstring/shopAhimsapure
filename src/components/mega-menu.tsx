@@ -135,11 +135,11 @@ export function MegaMenu() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/contact">
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-              Contact
+            <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
+              <Link href="/contact">
+                Contact
+              </Link>
             </NavigationMenuLink>
-          </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
       <div className="absolute left-1/2 top-full flex justify-center">
