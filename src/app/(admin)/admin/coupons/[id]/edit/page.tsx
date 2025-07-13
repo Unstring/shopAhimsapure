@@ -1,10 +1,9 @@
 
-"use client";
-
 import { PageHeader } from "../../../_components/page-header";
-import { notFound, useParams } from "next/navigation";
+import { notFound } from "next/navigation";
 import { CouponForm } from "../../_components/coupon-form";
 import { useCoupon, type Coupon } from "../../../../_context/coupon-context";
+import { EditForm } from "./edit-form";
 
 // This is mock data just for generateStaticParams. The actual data comes from context.
 const initialCouponsForStaticGeneration: Partial<Coupon>[] = [
@@ -24,34 +23,29 @@ export function generateStaticParams() {
   }));
 }
 
-export default function EditCouponPage() {
-    const params = useParams();
-    const { getCouponById } = useCoupon();
-    const id = typeof params.id === 'string' ? params.id : '';
-    const coupon = getCouponById(id);
+// This is a mock function to get static data at build time
+function getCouponById(id: string): Coupon | undefined {
+    const initialCoupons: Coupon[] = [
+        { id: 'c1', code: 'SUMMER10', type: 'percentage', value: 10, status: 'active', usageLimit: 100, timesUsed: 25, expiryDate: '2024-12-31' },
+        { id: 'c2', code: 'WELCOME50', type: 'fixed', value: 50, status: 'active', usageLimit: 500, timesUsed: 150, expiryDate: '2025-01-31' },
+        { id: 'c3', code: 'DIWALI2023', type: 'percentage', value: 15, status: 'expired', usageLimit: 200, timesUsed: 200, expiryDate: '2023-11-15' },
+        { id: 'c4', code: 'MONSOON', type: 'fixed', value: 75, status: 'disabled', usageLimit: 50, timesUsed: 10, expiryDate: '2024-09-30' },
+    ];
+    return initialCoupons.find(c => c.id === id);
+}
 
-    // This check is important because generateStaticParams only covers initial data.
-    // Client-side navigation to a newly created coupon should still work.
-    if (!id) {
-        return notFound();
-    }
 
-    // Since context might take a moment to populate, we can show a loading state
-    // or render the form with the expectation that the context hook will update it.
-    // If the coupon is truly not found after context loads, we can show a not found message.
+export default function EditCouponPage({ params }: { params: { id: string } }) {
+    const coupon = getCouponById(params.id);
+
     if (!coupon) {
-       return (
-        <>
-            <PageHeader>Coupon Not Found</PageHeader>
-            <p>The coupon you are trying to edit does not exist, or it has not loaded yet.</p>
-        </>
-       )
+       notFound();
     }
     
     return (
         <>
             <PageHeader>Edit Coupon</PageHeader>
-            <CouponForm coupon={coupon} />
+            <EditForm coupon={coupon} />
         </>
     )
 }
