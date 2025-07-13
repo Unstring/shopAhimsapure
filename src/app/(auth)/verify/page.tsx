@@ -28,7 +28,7 @@ export default function VerifyPage() {
 
         const verifyToken = async () => {
             try {
-                await api.post(`/auth/verify-email/${token}`);
+                await api.get(`/auth/verify-email/${token}`);
                 setStatus('success');
                 setMessage('Your email has been successfully verified! You can now log in.');
             } catch (error: any) {
