@@ -5,6 +5,7 @@
     { "name": "Contact", "href": "/contact" },
     { "name": "Offers", "href": "/offers" },
     { "name": "FAQs", "href": "/faq" },
+    { "name": "Testimonials", "href": "/testimonials" },
     { "name": "Privacy Policy", "href": "/privacy" },
     { "name": "Track Order", "href": "/track-order" }
   ],

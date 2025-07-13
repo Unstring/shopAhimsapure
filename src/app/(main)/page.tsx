@@ -110,7 +110,11 @@ function HomePageContent() {
 
       {/* Testimonials Section */}
       <section className="w-full overflow-x-hidden">
-        <h2 className="text-3xl font-headline font-bold text-center mb-8">What Our Customers Say</h2>
+        <div className="text-center mb-8">
+            <Link href="/testimonials" className="inline-block">
+                <h2 className="text-3xl font-headline font-bold hover:text-primary transition-colors">What Our Customers Say &rarr;</h2>
+            </Link>
+        </div>
         <div className="group relative flex gap-8 overflow-hidden
           before:absolute before:left-0 before:top-0 before:h-full before:w-16 before:bg-gradient-to-r before:from-background before:to-transparent before:z-10
           after:absolute after:right-0 after:top-0 after:h-full after:w-16 after:bg-gradient-to-l after:from-background after:to-transparent after:z-10">
