@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import api from '@/lib/api';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,17 +11,16 @@ import Link from 'next/link';
 
 type VerificationStatus = 'verifying' | 'success' | 'error';
 
-interface VerifyPageClientProps {
-  token: string;
-}
-
-export function VerifyPageClient({ token }: VerifyPageClientProps) {
-    const router = useRouter();
+export default function VerifyPage() {
+    const pathname = usePathname();
     const [status, setStatus] = useState<VerificationStatus>('verifying');
     const [message, setMessage] = useState('We are verifying your email. Please wait...');
 
     useEffect(() => {
-        if (!token) {
+        const pathSegments = pathname.split('/');
+        const token = pathSegments[pathSegments.length - 1];
+
+        if (!token || token === 'verify') {
             setStatus('error');
             setMessage('No verification token found. Please check the link and try again.');
             return;
@@ -40,7 +39,7 @@ export function VerifyPageClient({ token }: VerifyPageClientProps) {
         };
 
         verifyToken();
-    }, [token]);
+    }, [pathname]);
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-primary/5 p-4">

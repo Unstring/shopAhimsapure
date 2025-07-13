@@ -28,10 +28,15 @@ const nextConfig: NextConfig = {
     ],
   },
   trailingSlash: true,
-  generateStaticParams: async () => {
-    // Return an empty object to indicate no specific dynamic routes to generate at build time.
-    // This is a way to handle client-side only dynamic routes with `output: 'export'`.
-    return {};
+  // This allows client-side handling of dynamic routes with `output: 'export'`.
+  // Requests to `/verify/some-token` will serve the `/verify/index.html` page.
+  async rewrites() {
+    return [
+      {
+        source: '/verify/:path*',
+        destination: '/verify/',
+      },
+    ]
   },
 };
 
