@@ -116,7 +116,7 @@ function HomePageContent() {
           after:absolute after:right-0 after:top-0 after:h-full after:w-16 after:bg-gradient-to-l after:from-background after:to-transparent after:z-10">
             <div className="flex shrink-0 animate-marquee items-stretch justify-around gap-8 group-hover:[animation-play-state:paused]">
                  {[...testimonials, ...testimonials].map((testimonial, index) => (
-                     <div key={index} className="w-[350px] max-w-[80vw]">
+                     <div key={`${testimonial.name}-${index}`} className="w-[350px] max-w-[80vw]">
                         <Card className="bg-card/80 border-2 h-full">
                             <CardContent className="p-6 flex flex-col h-full">
                                 <div className="flex text-accent mb-2">
@@ -140,7 +140,7 @@ function HomePageContent() {
             </div>
              <div className="absolute top-0 flex h-full shrink-0 animate-marquee items-stretch justify-around gap-8 group-hover:[animation-play-state:paused]" aria-hidden="true">
                  {[...testimonials, ...testimonials].map((testimonial, index) => (
-                     <div key={index} className="w-[350px] max-w-[80vw]">
+                     <div key={`${testimonial.name}-${index}-clone`} className="w-[350px] max-w-[80vw]">
                         <Card className="bg-card/80 border-2 h-full">
                             <CardContent className="p-6 flex flex-col h-full">
                                 <div className="flex text-accent mb-2">
