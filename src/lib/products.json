@@ -4,11 +4,14 @@
     "id": "prod_1",
     "name": "Organic A2 Ghee",
     "description": "Our pure, hand-churned A2 Desi Cow Ghee is a testament to tradition and purity. Made from the milk of grass-fed Gir cows, it is a powerhouse of nutrition and flavor. The traditional Bilona method of churning curd ensures that all the natural goodness is preserved. It's rich in Omega-3 and Omega-9 fatty acids, vitamins A, D, E, and K, and has a high smoke point, making it perfect for all types of cooking.",
-    "price": 850,
+    "mrp": 2499,
+    "price": 1999,
+    "discounted_price": 1874,
     "images": [
-      "https://images.unsplash.com/photo-1626379625985-657753a01b44?q=80&w=1974&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1626379625903-88899824a73b?q=80&w=1974&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1626379625928-891444ab34c7?q=80&w=1974&auto=format&fit=crop"
+      "/A2_Bilona_500ml.png",
+      "/A2_Bilona_1000ml.png",
+      "/A2_Bilona_2000ml.png",
+      "/product_label.png"
     ],
     "category": "Ghee",
     "data_ai_hint": "ghee jar",
@@ -17,6 +20,43 @@
       "shelfLife": "12 months",
       "ingredients": "100% A2 Cow Milk Butter",
       "netWeight": "500ml"
+    },
+    "info": {
+      "productDetails": [
+        "Our cows with the hump have a vein called as the Surya Kethu Nadi which draws Vitamin D from the Sun and delivers it in its healthy milk.",
+        "Our cows are from the Gir hills and forests of Gujarat, and are raised in the farmlands of Maharashtra."
+      ],
+      "technicalInformation": {
+        "usageInstructions": "Cooking, Religious rituals. Ayurveda has a remedy called ‘Nyasa Treatment’ that highlights one of the medicinal uses of ghee. Unclogs the nose naturally. Pouring a few drops of warm pure cow ghee into the nostrils provides quick relief from cold and also soothes the infection.",
+        "storageInstructions": "Cool, Dry Place in a glass jar",
+        "packagingDetails": "Glass jars",
+        "certifications": "Certified A2"
+      },
+      "methodPreparation": [
+        "Made using Vedic method of Bilona ghee preparation. Made from whole milk (not just the cream). It is the essence of milk, rather heating the cream obtained directly from milk.",
+        "Made in a earthen pot with a copper laddle"
+      ],
+      "healthBenefits": [
+        "Rich source of antioxidants",
+        "Contains cancer-fighting CLA",
+        "Strengthens Immune System",
+        "Has anti-inflammatory properties",
+        "Nutritional powerhouse with vitamins A, D, E and K",
+        "Treats Burns",
+        "Boon for Lactose Intolerant",
+        "Cures Thyroid Dysfunction",
+        "Increases metabolism, promoting weight loss"
+      ],
+      "nutritionTable": [
+        { "nutrient": "Carbohydrate", "value": "1.35g" },
+        { "nutrient": "Energy", "value": "889.57kCal" },
+        { "nutrient": "Vitamin A", "value": "416.2mcg" },
+        { "nutrient": "Vitamin D", "value": "0.15mcg" },
+        { "nutrient": "Sodium", "value": "3.33mg" },
+        { "nutrient": "Calcium", "value": "9.5mg" },
+        { "nutrient": "Total Omega Fatty Acid", "value": "730mg" },
+        { "nutrient": "*Approximate Values", "value": "" }
+      ]
     },
     "certifications": [
       {
@@ -49,10 +89,14 @@
     "id": "prod_2",
     "name": "Farm-Fresh A2 Paneer",
     "description": "Soft, creamy, and melt-in-your-mouth paneer (cottage cheese) made from fresh, whole A2 milk from our happy Gir cows. Our paneer is made daily in small batches without any preservatives or additives. Its delicate texture makes it perfect for curries, grills, or simply pan-fried.",
-    "price": 250,
+    "mrp": 899,
+    "price": 699,
+    "discounted_price": 599,
     "images": [
-      "https://images.unsplash.com/photo-1628704257853-4c902a647cde?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1587593202919-ff9255a6c38b?q=80&w=1974&auto=format&fit=crop"
+      "/A2_Bilona_500ml.png",
+      "/A2_Bilona_1000ml.png",
+      "/A2_Bilona_2000ml.png",
+      "/product_label.png"
     ],
     "category": "Paneer",
     "data_ai_hint": "paneer cheese",
@@ -62,19 +106,53 @@
       "ingredients": "A2 Cow Milk, Natural Lemon Juice",
       "netWeight": "200g"
     },
+    "info": {
+      "productDetails": [
+        "Made from fresh, whole A2 milk from Gir cows, hand-churned for a soft and creamy texture.",
+        "No preservatives or additives. Made daily in small batches for maximum freshness."
+      ],
+      "technicalInformation": {
+        "usageInstructions": "Ideal for curries, grilling, pan-frying, or as a protein-rich snack.",
+        "storageInstructions": "Keep refrigerated. Consume within 5 days of opening.",
+        "packagingDetails": "Vacuum-sealed, food-grade packaging.",
+        "certifications": "Certified A2, FSSAI"
+      },
+      "methodPreparation": [
+        "Prepared using traditional methods with natural lemon juice for curdling.",
+        "Pressed and set to retain moisture and softness."
+      ],
+      "healthBenefits": [
+        "Excellent source of protein and calcium.",
+        "Supports muscle growth and bone health.",
+        "Easily digestible due to A2 milk base.",
+        "Low in fat compared to regular paneer."
+      ],
+      "nutritionTable": [
+        { "nutrient": "Protein", "value": "18g" },
+        { "nutrient": "Fat", "value": "20g" },
+        { "nutrient": "Carbohydrate", "value": "2g" },
+        { "nutrient": "Calcium", "value": "480mg" },
+        { "nutrient": "Energy", "value": "265kCal" },
+        { "nutrient": "*Approximate Values", "value": "" }
+      ]
+    },
     "certifications": [
       {
         "name": "FSSAI Certified",
         "description": "Licensed by the Food Safety and Standards Authority of India."
+      },
+      {
+        "name": "A2 Verified",
+        "description": "Lab-tested and certified for A2 protein content."
       }
     ],
     "reviews": [
       {
         "rating": 5,
-        "author": "Priya D.",
-        "date": "2024-07-18",
-        "comment": "So soft and delicious! Made the most amazing paneer tikka.",
-        "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop"
+        "author": "Rohit S.",
+        "date": "2024-07-20",
+        "comment": "Paneer is so fresh and soft, you can taste the difference!",
+        "avatar": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1974&auto=format&fit=crop"
       }
     ]
   },
@@ -82,10 +160,14 @@
     "id": "prod_3",
     "name": "Traditional A2 Curd",
     "description": "Thick, creamy, and naturally set curd (dahi) made from pure A2 milk. Our curd is cultured using traditional methods, giving it a rich texture and a mildly tangy flavor that is both delicious and great for your gut health. Enjoy it on its own, in a raita, or as a base for lassi.",
-    "price": 80,
+    "mrp": 599,
+    "price": 549,
+    "discounted_price": 509,
     "images": [
-      "https://images.unsplash.com/photo-1622204231924-63856212ea7a?q=80&w=1974&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1562013063-956f28581347?q=80&w=1964&auto=format&fit=crop"
+      "/A2_Bilona_500ml.png",
+      "/A2_Bilona_1000ml.png",
+      "/A2_Bilona_2000ml.png",
+      "/product_label.png"
     ],
     "category": "Curd",
     "data_ai_hint": "curd yogurt",
@@ -95,22 +177,68 @@
         "ingredients": "A2 Cow Milk, Live & Active Cultures",
         "netWeight": "400g"
     },
+    "info": {
+      "productDetails": [
+        "Naturally set, thick and creamy curd made from pure A2 milk.",
+        "Cultured using traditional methods for authentic taste and gut health."
+      ],
+      "technicalInformation": {
+        "usageInstructions": "Enjoy as is, in raita, smoothies, or as a base for lassi.",
+        "storageInstructions": "Keep refrigerated. Consume within 7 days of opening.",
+        "packagingDetails": "Reusable, food-grade container.",
+        "certifications": "Certified A2, FSSAI"
+      },
+      "methodPreparation": [
+        "Cultured with live and active cultures for natural fermentation.",
+        "Set in small batches for best texture."
+      ],
+      "healthBenefits": [
+        "Promotes gut health with probiotics.",
+        "Rich in calcium and protein.",
+        "Boosts immunity and aids digestion.",
+        "Low in lactose, suitable for sensitive stomachs."
+      ],
+      "nutritionTable": [
+        { "nutrient": "Protein", "value": "4g" },
+        { "nutrient": "Fat", "value": "3g" },
+        { "nutrient": "Carbohydrate", "value": "6g" },
+        { "nutrient": "Calcium", "value": "120mg" },
+        { "nutrient": "Energy", "value": "60kCal" },
+        { "nutrient": "*Approximate Values", "value": "" }
+      ]
+    },
     "certifications": [
-         {
+      {
         "name": "FSSAI Certified",
         "description": "Licensed by the Food Safety and Standards Authority of India."
+      },
+      {
+        "name": "Probiotic Certified",
+        "description": "Contains live and active cultures for gut health."
       }
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "rating": 4,
+        "author": "Meera T.",
+        "date": "2024-07-19",
+        "comment": "Very creamy and fresh, my family loves it!",
+        "avatar": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1974&auto=format&fit=crop"
+      }
+    ]
   },
   {
     "id": "prod_4",
     "name": "Fresh A2 Milk",
     "description": "Pure, unadulterated A2 milk from our herd of free-range Gir and Sahiwal cows. Our milk is non-homogenized and pasteurized at a low temperature to preserve its natural nutrients and creamy texture. It's the taste of milk as nature intended.",
-    "price": 75,
+    "mrp": 699,
+    "price": 599,
+    "discounted_price": 509,
     "images": [
-      "https://images.unsplash.com/photo-1563636619-E9143da79735?q=80&w=1974&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1620189507195-68309c04c4d5?q=80&w=1974&auto=format&fit=crop"
+      "/A2_Bilona_500ml.png",
+      "/A2_Bilona_1000ml.png",
+      "/A2_Bilona_2000ml.png",
+      "/product_label.png"
     ],
     "category": "Milk",
     "data_ai_hint": "milk bottle",
@@ -120,16 +248,68 @@
         "ingredients": "100% Pure A2 Cow Milk",
         "netWeight": "1 Litre"
     },
-    "certifications": [],
-    "reviews": []
+    "info": {
+      "productDetails": [
+        "Sourced from free-range Gir and Sahiwal cows, non-homogenized and minimally processed.",
+        "Pasteurized at low temperature to retain natural nutrients and creamy texture."
+      ],
+      "technicalInformation": {
+        "usageInstructions": "Drink as is, use in tea/coffee, or for cooking and baking.",
+        "storageInstructions": "Keep refrigerated. Consume within 3 days of delivery.",
+        "packagingDetails": "Reusable glass bottles.",
+        "certifications": "Certified A2, FSSAI"
+      },
+      "methodPreparation": [
+        "Collected fresh daily and pasteurized at low temperature.",
+        "Bottled immediately to preserve freshness."
+      ],
+      "healthBenefits": [
+        "Easier to digest than regular milk.",
+        "Rich in calcium, protein, and essential vitamins.",
+        "Supports bone health and immunity.",
+        "Suitable for children and elderly."
+      ],
+      "nutritionTable": [
+        { "nutrient": "Protein", "value": "3.2g" },
+        { "nutrient": "Fat", "value": "4.5g" },
+        { "nutrient": "Carbohydrate", "value": "5g" },
+        { "nutrient": "Calcium", "value": "120mg" },
+        { "nutrient": "Energy", "value": "65kCal" },
+        { "nutrient": "*Approximate Values", "value": "" }
+      ]
+    },
+    "certifications": [
+      {
+        "name": "FSSAI Certified",
+        "description": "Licensed by the Food Safety and Standards Authority of India."
+      },
+      {
+        "name": "A2 Verified",
+        "description": "Lab-tested and certified for A2 protein content."
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 5,
+        "author": "Amit K.",
+        "date": "2024-07-18",
+        "comment": "Milk tastes so pure and fresh, my kids love it!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1974&auto=format&fit=crop"
+      }
+    ]
   },
   {
     "id": "prod_5",
     "name": "Artisanal White Butter",
     "description": "Freshly churned white butter (makkhan) made the old-fashioned way. Using the cream from our A2 milk, this butter is light, unsalted, and has a rich, authentic flavor that is perfect for spreading on hot parathas or adding to your favorite dishes.",
-    "price": 220,
+    "mrp": 799,
+    "price": 599,
+    "discounted_price": 509,
     "images": [
-      "https://images.unsplash.com/photo-1606884639943-24155a4c58e5?q=80&w=2070&auto=format&fit=crop"
+      "/A2_Bilona_500ml.png",
+      "/A2_Bilona_1000ml.png",
+      "/A2_Bilona_2000ml.png",
+      "/product_label.png"
     ],
     "category": "Butter",
     "data_ai_hint": "butter dish",
@@ -139,7 +319,54 @@
         "ingredients": "A2 Cow Milk Cream",
         "netWeight": "200g"
     },
-    "certifications": [],
-    "reviews": []
+    "info": {
+      "productDetails": [
+        "Churned from fresh A2 milk cream using traditional methods.",
+        "Light, unsalted, and free from preservatives."
+      ],
+      "technicalInformation": {
+        "usageInstructions": "Spread on bread, parathas, or use in baking and cooking.",
+        "storageInstructions": "Keep refrigerated. Consume within 15 days of opening.",
+        "packagingDetails": "Sealed, food-grade container.",
+        "certifications": "Certified A2, FSSAI"
+      },
+      "methodPreparation": [
+        "Churned in small batches for authentic taste and texture.",
+        "No artificial additives or preservatives."
+      ],
+      "healthBenefits": [
+        "Rich in healthy fats and vitamins.",
+        "Supports energy and metabolism.",
+        "Good for skin and hair health.",
+        "Easily digestible due to A2 protein."
+      ],
+      "nutritionTable": [
+        { "nutrient": "Protein", "value": "1g" },
+        { "nutrient": "Fat", "value": "82g" },
+        { "nutrient": "Carbohydrate", "value": "0.5g" },
+        { "nutrient": "Calcium", "value": "20mg" },
+        { "nutrient": "Energy", "value": "740kCal" },
+        { "nutrient": "*Approximate Values", "value": "" }
+      ]
+    },
+    "certifications": [
+      {
+        "name": "FSSAI Certified",
+        "description": "Licensed by the Food Safety and Standards Authority of India."
+      },
+      {
+        "name": "A2 Verified",
+        "description": "Lab-tested and certified for A2 protein content."
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 5,
+        "author": "Sneha P.",
+        "date": "2024-07-17",
+        "comment": "Reminds me of my childhood! So creamy and delicious.",
+        "avatar": "https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1974&auto=format&fit=crop"
+      }
+    ]
   }
 ]

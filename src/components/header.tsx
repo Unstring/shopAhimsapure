@@ -24,6 +24,7 @@ import {
 import { MegaMenu } from './mega-menu';
 import layoutData from "@/content/layout.json";
 import { useRouter } from 'next/navigation';
+import Logo from './logo';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -83,10 +84,7 @@ export default function Header() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 md:gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <CowIcon className="h-7 w-7 text-primary" />
-              <span className="font-headline text-2xl font-bold text-foreground">
-                AhimsaPure
-              </span>
+              <Logo />
             </Link>
             
             <nav className="hidden md:flex items-center">
@@ -163,8 +161,7 @@ export default function Header() {
                 <SheetContent side="right">
                     <div className="flex flex-col gap-6 p-6">
                         <Link href="/" className="flex items-center gap-2 mb-4">
-                            <CowIcon className="h-7 w-7 text-primary" />
-                            <span className="font-headline text-2xl font-bold text-foreground">AhimsaPure</span>
+                            <Logo />
                         </Link>
                         <nav className="flex flex-col gap-4">
                             {navLinks.map(link => (

@@ -3,7 +3,7 @@ import { products } from "@/lib/products";
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/product-card";
 import { AddToCartForm } from "./add-to-cart-form";
-import { Star, CheckCircle, Shield } from "lucide-react";
+import { Star, CheckCircle, Shield, Info, ListChecks, FlaskConical, HeartPulse, UtensilsCrossed } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -69,8 +69,87 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
           <TabsTrigger value="certifications">Certifications</TabsTrigger>
           <TabsTrigger value="reviews">Reviews ({product.reviews.length})</TabsTrigger>
         </TabsList>
-        <TabsContent value="description" className="py-6 prose max-w-none prose-p:text-muted-foreground">
-          {product.description}
+        <TabsContent value="description" className="py-6 max-w-none">
+          <div className="mb-6 text-lg text-muted-foreground prose prose-p:text-muted-foreground">
+            {product.description}
+          </div>
+          {product.info && (
+            <div className="space-y-6">
+              {product.info.productDetails && (
+                <section className="rounded-xl border bg-background/60 p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Info className="h-6 w-6 text-primary" />
+                    <h3 className="font-bold text-xl">Product Details</h3>
+                  </div>
+                  <ul className="list-disc pl-6 space-y-1 text-base">
+                    {product.info.productDetails.map((item: string, idx: number) => <li key={idx}>{item}</li>)}
+                  </ul>
+                </section>
+              )}
+              {product.info.technicalInformation && (
+                <section className="rounded-xl border bg-background/60 p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-2">
+                    <UtensilsCrossed className="h-6 w-6 text-primary" />
+                    <h3 className="font-bold text-xl">Technical Information</h3>
+                  </div>
+                  <ul className="list-none pl-0 space-y-1 text-base">
+                    <li><b>Usage Instructions:</b> {product.info.technicalInformation.usageInstructions}</li>
+                    <li><b>Storage Instructions:</b> {product.info.technicalInformation.storageInstructions}</li>
+                    <li><b>Packaging Details:</b> {product.info.technicalInformation.packagingDetails}</li>
+                    <li><b>Certifications:</b> {product.info.technicalInformation.certifications}</li>
+                  </ul>
+                </section>
+              )}
+              {product.info.methodPreparation && (
+                <section className="rounded-xl border bg-background/60 p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-2">
+                    <FlaskConical className="h-6 w-6 text-primary" />
+                    <h3 className="font-bold text-xl">Method Preparation</h3>
+                  </div>
+                  <ul className="list-disc pl-6 space-y-1 text-base">
+                    {product.info.methodPreparation.map((item: string, idx: number) => <li key={idx}>{item}</li>)}
+                  </ul>
+                </section>
+              )}
+              {product.info.healthBenefits && (
+                <section className="rounded-xl border bg-background/60 p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-2">
+                    <HeartPulse className="h-6 w-6 text-primary" />
+                    <h3 className="font-bold text-xl">Health Benefits</h3>
+                  </div>
+                  <ul className="list-disc pl-6 space-y-1 text-base">
+                    {product.info.healthBenefits.map((item: string, idx: number) => <li key={idx}>{item}</li>)}
+                  </ul>
+                </section>
+              )}
+              {product.info.nutritionTable && (
+                <section className="rounded-xl border bg-background/60 p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-2">
+                    <ListChecks className="h-6 w-6 text-primary" />
+                    <h3 className="font-bold text-xl">Nutrition Table</h3>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-[300px] w-full border text-base">
+                      <thead>
+                        <tr className="bg-muted text-foreground">
+                          <th className="p-2 text-left">Nutrient</th>
+                          <th className="p-2 text-left">per 100g</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {product.info.nutritionTable.map((row: any, idx: number) => (
+                          <tr key={idx} className="border-t">
+                            <td className="p-2">{row.nutrient}</td>
+                            <td className="p-2">{row.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
+            </div>
+          )}
         </TabsContent>
         <TabsContent value="specifications" className="py-6">
           <ul className="space-y-2 text-muted-foreground">
@@ -137,6 +216,17 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedProducts.map((relatedProduct) => (
               <ProductCard key={relatedProduct.id} product={relatedProduct} />
+            ))}
+          </div>
+        </section>
+      )}
+      {/* Recommended Products */}
+      {products.filter((p) => p.category !== product.category).length > 0 && (
+        <section>
+          <h2 className="text-2xl font-headline font-bold text-center mb-8">Recommended Products</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.filter((p) => p.category !== product.category).slice(0, 4).map((recProduct) => (
+              <ProductCard key={recProduct.id} product={recProduct} />
             ))}
           </div>
         </section>

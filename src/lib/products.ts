@@ -19,6 +19,8 @@ export type Product = {
   name: string;
   description: string;
   price: number;
+  mrp?: number;
+  discounted_price?: number;
   images: string[];
   category: string;
   data_ai_hint?: string;
@@ -30,6 +32,7 @@ export type Product = {
   };
   certifications: Certification[];
   reviews: Review[];
+  info?: any;
 };
 
 export const products: Product[] = productsData.map(p => ({ ...p, image: p.images[0] }));

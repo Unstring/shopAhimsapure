@@ -4,6 +4,7 @@ import { Facebook, Twitter, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
 import layoutData from "@/content/layout.json";
 import { ThemeSwitcher } from "./theme-switcher";
+import Logo from './logo';
 
 const socialIcons: { [key: string]: React.ElementType } = {
   Facebook,
@@ -42,12 +43,9 @@ export default function Footer() {
           {/* Top Row: Brand Info & Socials */}
           <div className="md:flex md:justify-between md:items-start">
             <div className="mb-6 md:mb-0">
-                <Link href="/" className="flex items-center gap-2 mb-4">
-                  <CowIcon className="h-7 w-7 text-primary" />
-                  <span className="font-headline text-2xl font-bold text-foreground">
-                      AhimsaPure
-                  </span>
-                </Link>
+                <div className="flex items-center gap-2">
+                  <Logo />
+                </div>
                 <p className="text-sm text-muted-foreground max-w-xs">
                 Ethically sourced, naturally grown, and delivered with love.
                 </p>

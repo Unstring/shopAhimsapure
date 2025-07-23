@@ -7,6 +7,7 @@ import { Rocket } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { BannerController } from '@/components/banner-controller';
+import { Logo } from '../../components/logo';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -37,10 +38,7 @@ export default function ComingSoonPage() {
       <main className="flex-grow flex items-center justify-center">
         <div className="text-center p-8">
           <div className="flex items-center gap-2 mb-8 justify-center">
-            <CowIcon className="h-10 w-10 text-primary" />
-            <span className="font-headline text-4xl font-bold text-foreground">
-                AhimsaPure
-            </span>
+            <Logo className="h-10 w-10 text-primary" />
           </div>
           <Rocket className="w-24 h-24 text-primary mb-4 mx-auto" />
           <h1 className="text-5xl font-headline font-bold">Coming Soon!</h1>

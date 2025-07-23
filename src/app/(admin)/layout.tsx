@@ -37,6 +37,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
 import { AdminThemeSwitcher } from '@/components/admin-theme-switcher';
+import { Logo } from '../../components/logo';
 
 const CowIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -121,20 +122,13 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
       <div className="flex h-screen w-full">
         <Sidebar 
           collapsible="icon" 
-          className="peer" 
-          style={{
-            '--sidebar-width': '15rem',
-            '--sidebar-width-icon': '3.5rem'
-          }}>
+          className="peer">
           <SidebarContent className="p-2 flex flex-col">
             <SidebarHeader className="group-data-[collapsible=icon]:justify-center">
               <Link
                 href="/"
                 className="flex items-center gap-2 mb-4 group-data-[collapsible=icon]:justify-center">
-                <CowIcon className="h-7 w-7 text-primary" />
-                <span className="font-headline text-2xl font-bold text-foreground group-data-[collapsible=icon]:hidden">
-                  AhimsaPure
-                </span>
+                <Logo />
               </Link>
             </SidebarHeader>
             <SidebarMenu className="flex-1">
