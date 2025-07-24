@@ -33,6 +33,7 @@ export type Product = {
   certifications: Certification[];
   reviews: Review[];
   info?: any;
+  quantity: number;
 };
 
 export const products: Product[] = productsData.map(p => ({ ...p, image: p.images[0] }));
