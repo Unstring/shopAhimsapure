@@ -90,7 +90,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
     const userString = localStorage.getItem('user');
     if (userString) {
       const user = JSON.parse(userString);
-      if (user && user.role === 'admin') {
+      if (user && user.data.user.role === 'admin') {
         setIsAuthorized(true);
       } else {
         router.push('/login');
