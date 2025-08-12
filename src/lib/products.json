@@ -69,20 +69,7 @@
       }
     ],
     "reviews": [
-      {
-        "rating": 5,
-        "author": "Anjali R.",
-        "date": "2024-07-15",
-        "comment": "The aroma and taste are just like homemade ghee. Superb quality!",
-        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop"
-      },
-      {
-        "rating": 5,
-        "author": "Vikram Singh",
-        "date": "2024-07-10",
-        "comment": "Best ghee I've ever purchased online. You can tell it's pure.",
-        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
-      }
+   
     ],
     "quantity": 50
   },
@@ -148,13 +135,7 @@
       }
     ],
     "reviews": [
-      {
-        "rating": 5,
-        "author": "Amit K.",
-        "date": "2024-07-18",
-        "comment": "Milk tastes so pure and fresh, my kids love it!",
-        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1974&auto=format&fit=crop"
-      }
+     
     ],
     "quantity": 0
   }
