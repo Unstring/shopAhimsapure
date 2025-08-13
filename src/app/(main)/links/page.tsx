@@ -28,7 +28,7 @@ const links = [
   },
   {
     label: 'WhatsApp Support',
-    href: 'https://wa.me/919999999999',
+    href: 'https://wa.me/919026557723',
     icon: <FaWhatsapp className="h-6 w-6" />,
     color: 'bg-green-500',
   },

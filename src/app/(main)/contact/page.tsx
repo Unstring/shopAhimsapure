@@ -118,16 +118,18 @@ export default function ContactPage() {
                     </CardHeader>
                     <CardContent className="space-y-4 text-lg">
                         <div className="flex items-center gap-4">
-                            <MapPin className="h-6 w-6 text-primary" />
-                            <span>AhimsaPure Farms, Near Bengaluru, Karnataka</span>
+                            <MapPin className="h-6 w-6 text-primary min-w-[25px]" />
+                            <span>Survey No- 94/3, Koralur Village, Kasaba Hubli
+Post, Hoskote Taluq, Bengaluru, Karnataka-
+560067, Bangalore Urban, Karnataka-560067</span>
                         </div>
                         <div className="flex items-center gap-4">
-                            <Mail className="h-6 w-6 text-primary" />
+                            <Mail className="h-6 w-6 text-primary min-w-[25px]" />
                             <a href="mailto:contact@ahimsapure.com" className="hover:underline">contact@ahimsapure.com</a>
                         </div>
                         <div className="flex items-center gap-4">
-                            <Phone className="h-6 w-6 text-primary" />
-                            <a href="tel:+919876543210" className="hover:underline">+91 98765 43210</a>
+                            <Phone className="h-6 w-6 text-primary min-w-[25px]" />
+                            <a href="tel:+919876543210" className="hover:underline">+ 91 9260557723</a>
                         </div>
                     </CardContent>
                 </Card>

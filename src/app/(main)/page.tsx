@@ -109,7 +109,7 @@ function HomePageContent() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="w-full overflow-x-hidden">
+      <section className="w-full overflow-x-hidden hidden">
         <div className="text-center mb-8">
             <Link href="/testimonials" className="inline-block">
                 <h2 className="text-3xl font-headline font-bold hover:text-primary transition-colors">What Our Customers Say &rarr;</h2>
