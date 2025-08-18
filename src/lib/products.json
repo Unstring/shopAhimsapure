@@ -1,16 +1,15 @@
-
 [
   {
     "id": "prod_1",
     "name": "Organic A2 Ghee",
     "description": "Our pure, hand-churned A2 Desi Cow Ghee is a testament to tradition and purity. Made from the milk of grass-fed Gir cows, it is a powerhouse of nutrition and flavor. The traditional Bilona method of churning curd ensures that all the natural goodness is preserved. It's rich in Omega-3 and Omega-9 fatty acids, vitamins A, D, E, and K, and has a high smoke point, making it perfect for all types of cooking.",
-    "mrp": 2499,
-    "price": 1999,
-    "discounted_price": 1874,
+    "mrp": 2199,
+    "price": 1899,
+    "discounted_price": 1899,
     "images": [
       "/A2_Bilona_500ml.png",
       "/A2_Bilona_1000ml.png",
-      "/A2_Bilona_2000ml.png",
+      "/A2_Bilona_2000ml.png",  
       "/product_label.png"
     ],
     "category": "Ghee",
@@ -19,7 +18,7 @@
       "origin": "Partner Farms, Gujarat",
       "shelfLife": "12 months",
       "ingredients": "100% A2 Cow Milk Butter",
-      "netWeight": "500ml"
+      "netWeight": "1000 ml"
     },
     "info": {
       "productDetails": [
@@ -48,14 +47,38 @@
         "Increases metabolism, promoting weight loss"
       ],
       "nutritionTable": [
-        { "nutrient": "Carbohydrate", "value": "1.35g" },
-        { "nutrient": "Energy", "value": "889.57kCal" },
-        { "nutrient": "Vitamin A", "value": "416.2mcg" },
-        { "nutrient": "Vitamin D", "value": "0.15mcg" },
-        { "nutrient": "Sodium", "value": "3.33mg" },
-        { "nutrient": "Calcium", "value": "9.5mg" },
-        { "nutrient": "Total Omega Fatty Acid", "value": "730mg" },
-        { "nutrient": "*Approximate Values", "value": "" }
+        {
+          "nutrient": "Carbohydrate",
+          "value": "1.35g"
+        },
+        {
+          "nutrient": "Energy",
+          "value": "889.57kCal"
+        },
+        {
+          "nutrient": "Vitamin A",
+          "value": "416.2mcg"
+        },
+        {
+          "nutrient": "Vitamin D",
+          "value": "0.15mcg"
+        },
+        {
+          "nutrient": "Sodium",
+          "value": "3.33mg"
+        },
+        {
+          "nutrient": "Calcium",
+          "value": "9.5mg"
+        },
+        {
+          "nutrient": "Total Omega Fatty Acid",
+          "value": "730mg"
+        },
+        {
+          "nutrient": "*Approximate Values",
+          "value": ""
+        }
       ]
     },
     "certifications": [
@@ -68,31 +91,216 @@
         "description": "Certified organic by the National Programme for Organic Production (NPOP)."
       }
     ],
-    "reviews": [
-   
-    ],
+    "reviews": [],
     "quantity": 50
   },
   {
-    "id": "prod_4",
-    "name": "Fresh A2 Milk",
-    "description": "Pure, unadulterated A2 milk from our herd of free-range Gir and Sahiwal cows. Our milk is non-homogenized and pasteurized at a low temperature to preserve its natural nutrients and creamy texture. It's the taste of milk as nature intended.",
-    "mrp": 699,
-    "price": 599,
-    "discounted_price": 509,
+    "id": "prod_2",
+    "name": "Organic A2 Ghee",
+    "description": "Our pure, hand-churned A2 Desi Cow Ghee is a testament to tradition and purity. Made from the milk of grass-fed Gir cows, it is a powerhouse of nutrition and flavor. The traditional Bilona method of churning curd ensures that all the natural goodness is preserved. It's rich in Omega-3 and Omega-9 fatty acids, vitamins A, D, E, and K, and has a high smoke point, making it perfect for all types of cooking.",
+    "mrp": 1099,
+    "price": 999,
+    "discounted_price": 999,
     "images": [
       "/A2_Bilona_500ml.png",
       "/A2_Bilona_1000ml.png",
       "/A2_Bilona_2000ml.png",
       "/product_label.png"
     ],
+    "category": "Ghee",
+    "data_ai_hint": "ghee jar",
+    "details": {
+      "origin": "Partner Farms, Gujarat",
+      "shelfLife": "12 months",
+      "ingredients": "100% A2 Cow Milk Butter",
+      "netWeight": "500 ml"
+    },
+    "info": {
+      "productDetails": [
+        "Our cows with the hump have a vein called as the Surya Kethu Nadi which draws Vitamin D from the Sun and delivers it in its healthy milk.",
+        "Our cows are from the Gir hills and forests of Gujarat, and are raised in the farmlands of Maharashtra."
+      ],
+      "technicalInformation": {
+        "usageInstructions": "Cooking, Religious rituals. Ayurveda has a remedy called ‘Nyasa Treatment’ that highlights one of the medicinal uses of ghee. Unclogs the nose naturally. Pouring a few drops of warm pure cow ghee into the nostrils provides quick relief from cold and also soothes the infection.",
+        "storageInstructions": "Cool, Dry Place in a glass jar",
+        "packagingDetails": "Glass jars",
+        "certifications": "Certified A2"
+      },
+      "methodPreparation": [
+        "Made using Vedic method of Bilona ghee preparation. Made from whole milk (not just the cream). It is the essence of milk, rather heating the cream obtained directly from milk.",
+        "Made in a earthen pot with a copper laddle"
+      ],
+      "healthBenefits": [
+        "Rich source of antioxidants",
+        "Contains cancer-fighting CLA",
+        "Strengthens Immune System",
+        "Has anti-inflammatory properties",
+        "Nutritional powerhouse with vitamins A, D, E and K",
+        "Treats Burns",
+        "Boon for Lactose Intolerant",
+        "Cures Thyroid Dysfunction",
+        "Increases metabolism, promoting weight loss"
+      ],
+      "nutritionTable": [
+        {
+          "nutrient": "Carbohydrate",
+          "value": "1.35g"
+        },
+        {
+          "nutrient": "Energy",
+          "value": "889.57kCal"
+        },
+        {
+          "nutrient": "Vitamin A",
+          "value": "416.2mcg"
+        },
+        {
+          "nutrient": "Vitamin D",
+          "value": "0.15mcg"
+        },
+        {
+          "nutrient": "Sodium",
+          "value": "3.33mg"
+        },
+        {
+          "nutrient": "Calcium",
+          "value": "9.5mg"
+        },
+        {
+          "nutrient": "Total Omega Fatty Acid",
+          "value": "730mg"
+        },
+        {
+          "nutrient": "*Approximate Values",
+          "value": ""
+        }
+      ]
+    },
+    "certifications": [
+      {
+        "name": "FSSAI Certified",
+        "description": "Licensed by the Food Safety and Standards Authority of India."
+      },
+      {
+        "name": "India Organic",
+        "description": "Certified organic by the National Programme for Organic Production (NPOP)."
+      }
+    ],
+    "reviews": [],
+    "quantity": 50
+  },
+  {
+    "id": "prod_3",
+    "name": "Organic A2 Ghee",
+    "description": "Our pure, hand-churned A2 Desi Cow Ghee is a testament to tradition and purity. Made from the milk of grass-fed Gir cows, it is a powerhouse of nutrition and flavor. The traditional Bilona method of churning curd ensures that all the natural goodness is preserved. It's rich in Omega-3 and Omega-9 fatty acids, vitamins A, D, E, and K, and has a high smoke point, making it perfect for all types of cooking.",
+    "mrp": 549,
+    "price": 499,
+    "discounted_price": 499,
+    "images": [
+      "/A2_Bilona_500ml.png",
+      "/A2_Bilona_1000ml.png",
+      "/A2_Bilona_2000ml.png",
+      "/product_label.png"
+    ],
+    "category": "Ghee",
+    "data_ai_hint": "ghee jar",
+    "details": {
+      "origin": "Partner Farms, Gujarat",
+      "shelfLife": "12 months",
+      "ingredients": "100% A2 Cow Milk Butter",
+      "netWeight": "250 ml"
+    },
+    "info": {
+      "productDetails": [
+        "Our cows with the hump have a vein called as the Surya Kethu Nadi which draws Vitamin D from the Sun and delivers it in its healthy milk.",
+        "Our cows are from the Gir hills and forests of Gujarat, and are raised in the farmlands of Maharashtra."
+      ],
+      "technicalInformation": {
+        "usageInstructions": "Cooking, Religious rituals. Ayurveda has a remedy called ‘Nyasa Treatment’ that highlights one of the medicinal uses of ghee. Unclogs the nose naturally. Pouring a few drops of warm pure cow ghee into the nostrils provides quick relief from cold and also soothes the infection.",
+        "storageInstructions": "Cool, Dry Place in a glass jar",
+        "packagingDetails": "Glass jars",
+        "certifications": "Certified A2"
+      },
+      "methodPreparation": [
+        "Made using Vedic method of Bilona ghee preparation. Made from whole milk (not just the cream). It is the essence of milk, rather heating the cream obtained directly from milk.",
+        "Made in a earthen pot with a copper laddle"
+      ],
+      "healthBenefits": [
+        "Rich source of antioxidants",
+        "Contains cancer-fighting CLA",
+        "Strengthens Immune System",
+        "Has anti-inflammatory properties",
+        "Nutritional powerhouse with vitamins A, D, E and K",
+        "Treats Burns",
+        "Boon for Lactose Intolerant",
+        "Cures Thyroid Dysfunction",
+        "Increases metabolism, promoting weight loss"
+      ],
+      "nutritionTable": [
+        {
+          "nutrient": "Carbohydrate",
+          "value": "1.35g"
+        },
+        {
+          "nutrient": "Energy",
+          "value": "889.57kCal"
+        },
+        {
+          "nutrient": "Vitamin A",
+          "value": "416.2mcg"
+        },
+        {
+          "nutrient": "Vitamin D",
+          "value": "0.15mcg"
+        },
+        {
+          "nutrient": "Sodium",
+          "value": "3.33mg"
+        },
+        {
+          "nutrient": "Calcium",
+          "value": "9.5mg"
+        },
+        {
+          "nutrient": "Total Omega Fatty Acid",
+          "value": "730mg"
+        },
+        {
+          "nutrient": "*Approximate Values",
+          "value": ""
+        }
+      ]
+    },
+    "certifications": [
+      {
+        "name": "FSSAI Certified",
+        "description": "Licensed by the Food Safety and Standards Authority of India."
+      },
+      {
+        "name": "India Organic",
+        "description": "Certified organic by the National Programme for Organic Production (NPOP)."
+      }
+    ],
+    "reviews": [],
+    "quantity": 50
+  },
+  {
+    "id": "prod_4",
+    "name": "Fresh A2 Milk",
+    "description": "Pure, unadulterated A2 milk from our herd of free-range Gir and Sahiwal cows. Our milk is non-homogenized and pasteurized at a low temperature to preserve its natural nutrients and creamy texture. It's the taste of milk as nature intended.",
+    "mrp": 149,
+    "price": 110,
+    "discounted_price": 509,
+    "images": [
+      "/milk_1ltr.jpeg"
+    ],
     "category": "Milk",
     "data_ai_hint": "milk bottle",
     "details": {
-        "origin": "AhimsaPure Farms, Karnataka",
-        "shelfLife": "3 days refrigerated",
-        "ingredients": "100% Pure A2 Cow Milk",
-        "netWeight": "1 Litre"
+      "origin": "AhimsaPure Farms, Karnataka",
+      "shelfLife": "3 days refrigerated",
+      "ingredients": "100% Pure A2 Cow Milk",
+      "netWeight": "1 Litre"
     },
     "info": {
       "productDetails": [
@@ -116,12 +324,30 @@
         "Suitable for children and elderly."
       ],
       "nutritionTable": [
-        { "nutrient": "Protein", "value": "3.2g" },
-        { "nutrient": "Fat", "value": "4.5g" },
-        { "nutrient": "Carbohydrate", "value": "5g" },
-        { "nutrient": "Calcium", "value": "120mg" },
-        { "nutrient": "Energy", "value": "65kCal" },
-        { "nutrient": "*Approximate Values", "value": "" }
+        {
+          "nutrient": "Protein",
+          "value": "3.2g"
+        },
+        {
+          "nutrient": "Fat",
+          "value": "4.5g"
+        },
+        {
+          "nutrient": "Carbohydrate",
+          "value": "5g"
+        },
+        {
+          "nutrient": "Calcium",
+          "value": "120mg"
+        },
+        {
+          "nutrient": "Energy",
+          "value": "65kCal"
+        },
+        {
+          "nutrient": "*Approximate Values",
+          "value": ""
+        }
       ]
     },
     "certifications": [
@@ -134,9 +360,7 @@
         "description": "Lab-tested and certified for A2 protein content."
       }
     ],
-    "reviews": [
-     
-    ],
+    "reviews": [],
     "quantity": 0
   }
 ]

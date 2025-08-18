@@ -4,6 +4,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { PhoneNumberPopup } from '@/components/phone-number-popup';
 import { BannerController } from '@/components/banner-controller';
+import { INfoBanner } from '@/components/INfoBanner';
 
 export default function MainLayout({ children }: { children: ReactNode }) {
   return (
@@ -14,6 +15,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <PhoneNumberPopup />
+      <INfoBanner />
       <Footer />
     </div>
   );
