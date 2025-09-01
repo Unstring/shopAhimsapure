@@ -7,10 +7,9 @@
     "price": 1899,
     "discounted_price": 1899,
     "images": [
-      "/A2_Bilona_500ml.png",
-      "/A2_Bilona_1000ml.png",
-      "/A2_Bilona_2000ml.png",  
-      "/product_label.png"
+      "/A2_Bilona_1000ml_01.jpeg",
+      "/A2_Bilona_all.jpeg",
+      "/banner.jpeg"
     ],
     "category": "Ghee",
     "data_ai_hint": "ghee jar",
@@ -102,10 +101,10 @@
     "price": 999,
     "discounted_price": 999,
     "images": [
+      "/A2_Bilona_500ml_01.jpeg",
       "/A2_Bilona_500ml.png",
-      "/A2_Bilona_1000ml.png",
-      "/A2_Bilona_2000ml.png",
-      "/product_label.png"
+      "/A2_Bilona_all.jpeg",
+      "/banner.jpeg"
     ],
     "category": "Ghee",
     "data_ai_hint": "ghee jar",
@@ -197,10 +196,10 @@
     "price": 499,
     "discounted_price": 499,
     "images": [
-      "/A2_Bilona_500ml.png",
+      "/A2_Bilona_250ml_01.jpeg",
       "/A2_Bilona_1000ml.png",
-      "/A2_Bilona_2000ml.png",
-      "/product_label.png"
+      "/A2_Bilona_all.jpeg",
+      "/banner.jpeg"
     ],
     "category": "Ghee",
     "data_ai_hint": "ghee jar",

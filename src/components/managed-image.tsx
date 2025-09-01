@@ -10,8 +10,8 @@ export function ManagedImage(props: ImageProps) {
 
   if (error) {
     return (
-      <div className="flex h-full w-full items-center justify-center bg-muted">
-        <img src="/unavailable_product.png" alt="Unavailable product" className="object-contain opacity-50" />
+      <div className="flex h-full w-full  justify-center bg-muted">
+        <img src="/banner.jpeg" alt="Unavailable product" className="object-contain opacity-50" />
       </div>
     );
   }

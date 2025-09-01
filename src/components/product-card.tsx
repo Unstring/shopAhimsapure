@@ -56,7 +56,12 @@ export function ProductCard({ product }: ProductCardProps) {
           <div className='w-full flex flex-row items-center justify-between'>
           <CardTitle className="text-lg font-semibold font-headline leading-tight">{product.name}</CardTitle>
           <p>{product?.details?.netWeight}</p></div>
-          <p className="mt-2 text-2xl font-bold text-primary">₹{product.price.toFixed(2)}</p>
+          {product.mrp && (
+      <p className="mt-2 text-sm text-muted-foreground line-through">
+        ₹{product.mrp.toFixed(2)}
+      </p>
+    )}
+          <p className="text-2xl font-bold text-primary">₹{product.price.toFixed(2)}</p>
         </CardContent>
       </Link>
       <CardFooter className="p-4 pt-0">
