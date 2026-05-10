@@ -71,7 +71,7 @@ export default function AboutPage() {
       {/* Meet the Team Section */}
       <section>
         <h2 className="text-3xl font-headline font-bold text-center mb-8">Meet the Founders</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+        <div className="flex flex-row items-center justify-center gap-8 justify-items-center">
           {teamMembers.map(member => (
             <Card key={member.name} className="text-center w-full max-w-sm">
               <CardContent className="p-6">
